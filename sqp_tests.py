@@ -23,7 +23,7 @@ bin_path = os.path.join("..","..","..","bin")
 exe = ""
 if "windows" in platform.platform().lower():
     exe = ".exe"
-exe_path = os.path.join(bin_path, "pestpp-ies" + exe)
+exe_path = os.path.join(bin_path, "pestpp-sqp" + exe)
 
 
 noptmax = 4
@@ -48,7 +48,7 @@ def basic_sqp_test():
     pst = pyemu.Pst(os.path.join(t_d,"freyberg6_run_opt.pst"))
     pst.control_data.noptmax = 0
     pst.write(os.path.join(t_d,"freyberg6_run_sqp.pst"))
-    pyemu.os_utils.run("{0} freyberg6_run_sqp.pst".format(exe_path.replace("-ies","-sqp")),cwd=t_d)
+    pyemu.os_utils.run("{0} freyberg6_run_sqp.pst".format(exe_path),cwd=t_d)
 
     assert os.path.exists(os.path.join(t_d,"freyberg6_run_sqp.base.par"))
     assert os.path.exists(os.path.join(t_d,"freyberg6_run_sqp.base.rei"))
@@ -57,7 +57,7 @@ def basic_sqp_test():
 
     pst.control_data.noptmax = -1
     pst.write(os.path.join(t_d,"freyberg6_run_sqp.pst"))
-    pyemu.os_utils.start_workers(t_d, exe_path.replace("-ies","-sqp"), "freyberg6_run_sqp.pst", 
+    pyemu.os_utils.start_workers(t_d, exe_path, "freyberg6_run_sqp.pst", 
                                  num_workers=5, master_dir=m_d,worker_root=model_d,
                                  port=port)
 

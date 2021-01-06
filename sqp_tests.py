@@ -120,7 +120,10 @@ def rosenbrock_setup(version,initial_decvars=1.6,constraints=False,constraint_ex
 
     obs = pst.observation_data
     obs.loc["obs", "obsval"] = 0.0
-    obs.loc["obs", "obgnme"] = "obj_fn"  #pst.pestpp_options["opt_obj_func"] = "obj_fn"
+    obs.loc["obs", "obgnme"] = "obj_fn"
+
+    pst.pestpp_options["opt_obj_func"] = "obs"
+
     if constraints is True:
         if "two_linear" in constraint_exp:
             raise Exception
@@ -206,7 +209,7 @@ def rosenbrock_multiple_update(version,nit=10,draw_mult=3e-5,en_size=20,finite_d
 
     # initialize with noptmax = -1, i.e. calc grad
     pst.control_data.noptmax = -1
-    pst.pestpp_options["sqp_use_ensemble_grad"] = True  # with ensembles
+    #pst.pestpp_options["sqp_use_ensemble_grad"] = True  # with ensembles # omitted as controlled by num_reals arg
     pst.pestpp_options["sqp_num_reals"] = 10
     pst.write(os.path.join(pcf.split(".")[0] + "_run_sqp.pst"))
     pyemu.os_utils.run("{0} {1}".format(exe_path, pcf.split(".")[0] + "_run_sqp.pst"))

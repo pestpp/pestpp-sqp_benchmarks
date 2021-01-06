@@ -256,11 +256,69 @@ def rosenbrock_single_linear_constraint(nit):
     #plot_2par_rosen(finite_diff_grad=True, constraints=constraints, constraint_exp=constraint_exp,
      #               label="surf_20_no_H_new.pdf")
 
+def dewater_basic_test():
+    model_d = "dewater"
+    local=True
+    if "linux" in platform.platform().lower() and "10par" in model_d:
+        #print("travis_prep")
+        #prep_for_travis(model_d)
+        local=False
+    
+    t_d = os.path.join(model_d,"template")
+
+    case = "dewater_pest.base"
+    pst = pyemu.Pst(os.path.join(t_d,case+".pst"))
+    pst.pestpp_options = {}
+    pst.pestpp_options["opt_dec_var_groups"] = "q"
+    pst.control_data.noptmax = 0
+    pst.write(os.path.join(t_d,case+".pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+
+    assert os.path.exists(os.path.join(t_d,case+".base.par"))
+    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
+
+    m_d = os.path.join(model_d,"master_basic")
+    if os.path.exists(m_d):
+        shutil.rmtree(m_d)
+
+    pst.control_data.noptmax = -1  
+    pst.write(os.path.join(t_d,case+".pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+
+    assert os.path.exists(os.path.join(t_d,case+".base.par"))
+    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
+    assert os.path.exists(os.path.join(t_d,case+".0.jcb"))
+
+    shutil.copy(os.path.join(t_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
+    pst.pestpp_options["base_jacobian"] = "restart.jcb"
+    pst.write(os.path.join(t_d,case+".pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+
+    assert os.path.exists(os.path.join(t_d,case+".base.par"))
+    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
+    assert os.path.exists(os.path.join(t_d,case+".0.jcb"))
+
+    pst.pestpp_options["base_jacobian"] = "dewater_pest.full.jcb"
+    pst.write(os.path.join(t_d,case+".pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+
+    assert os.path.exists(os.path.join(t_d,case+".base.par"))
+    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
+    assert os.path.exists(os.path.join(t_d,case+".0.jcb"))
+
+    shutil.copy(os.path.join(t_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
+    pst.pestpp_options["base_jacobian"] = "restart.jcb"
+    pst.control_data.noptmax = 3
+    pst.write(os.path.join(t_d,case+".pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+
+
+
 if __name__ == "__main__":
 
     if not os.path.exists(os.path.join("..","bin")):
         os.mkdir(os.path.join("..","bin"))
     shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
-
-    rosenbrock_single_linear_constraint(nit=1)
+    #rosenbrock_single_linear_constraint(nit=1)
+    dewater_basic_test()

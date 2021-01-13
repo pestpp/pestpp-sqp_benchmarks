@@ -269,6 +269,9 @@ def dewater_basic_test():
 
     case = "dewater_pest.base"
     pst = pyemu.Pst(os.path.join(t_d,case+".pst"))
+    par = pst.parameter_data
+    dv_pars = par.loc[par.pargp=="q","parnme"].tolist()
+    pst.add_pi_equation(dv_pars,"eq1",10e4,obs_group="less_than")
     pst.pestpp_options = {}
     pst.pestpp_options["opt_dec_var_groups"] = "q"
     pst.control_data.noptmax = 0
@@ -314,6 +317,33 @@ def dewater_basic_test():
     pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
 
 
+def dewater_slp_opt_test():
+    model_d = "dewater"
+    local = True
+    if "linux" in platform.platform().lower() and "10par" in model_d:
+        # print("travis_prep")
+        # prep_for_travis(model_d)
+        local = False
+
+    t_d = os.path.join(model_d, "template")
+
+    case = "dewater_pest.base"
+    pst = pyemu.Pst(os.path.join(t_d, case + ".pst"))
+    par = pst.parameter_data
+    dv_pars = par.loc[par.pargp == "q", "parnme"].tolist()[:3]
+    pst.add_pi_equation(dv_pars, "eq1", 1000, obs_group="less_than")
+    pst.pestpp_options = {}
+    pst.pestpp_options["opt_dec_var_groups"] = "q"
+    pst.control_data.noptmax = 1
+    pst.write(os.path.join(t_d, "test_opt.pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path.replace("-sqp","-opt"), "test_opt.pst"), cwd=t_d)
+
+
+    pst.parrep(os.path.join(t_d,"test_opt.par"))
+    pst.pestpp_options["hotstart_resfile"] = "test_opt.1.sim.rei"
+    pst.pestpp_options["base_jacobian"] = "test_opt.1.jcb"
+    pst.write(os.path.join(t_d,"test_sqp.pst"))
+    pyemu.os_utils.run("{0} {1}.pst".format(exe_path, "test_sqp.pst"), cwd=t_d)
 
 if __name__ == "__main__":
 
@@ -322,4 +352,5 @@ if __name__ == "__main__":
     shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
-    dewater_basic_test()
+    #dewater_basic_test()
+    dewater_slp_opt_test()

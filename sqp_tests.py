@@ -211,6 +211,7 @@ def rosenbrock_multiple_update(version,nit=10,draw_mult=3e-5,en_size=20,finite_d
     pst.control_data.noptmax = -1
     #pst.pestpp_options["sqp_use_ensemble_grad"] = True  # with ensembles # omitted as controlled by num_reals arg
     pst.pestpp_options["sqp_num_reals"] = 10
+    pst.pestpp_options["par_sigma_range"] = 20
     pst.write(os.path.join(pcf.split(".")[0] + "_run_sqp.pst"))
     pyemu.os_utils.run("{0} {1}".format(exe_path, pcf.split(".")[0] + "_run_sqp.pst"))
 

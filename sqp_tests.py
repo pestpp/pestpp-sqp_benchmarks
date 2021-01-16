@@ -271,7 +271,7 @@ def dewater_basic_test():
     pst = pyemu.Pst(os.path.join(t_d,case+".pst"))
     par = pst.parameter_data
     dv_pars = par.loc[par.pargp=="q","parnme"].tolist()
-    pst.add_pi_equation(dv_pars,"eq1",10e4,obs_group="less_than")
+    pst.add_pi_equation(dv_pars,"eq2",1000,obs_group="less_than")
     pst.pestpp_options = {}
     pst.pestpp_options["opt_dec_var_groups"] = "q"
     pst.control_data.noptmax = 0
@@ -354,5 +354,5 @@ if __name__ == "__main__":
     #shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
-    #dewater_basic_test()
-    dewater_slp_opt_test()
+    dewater_basic_test()
+    #dewater_slp_opt_test()

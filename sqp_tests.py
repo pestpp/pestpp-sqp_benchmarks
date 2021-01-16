@@ -331,7 +331,8 @@ def dewater_slp_opt_test():
     pst = pyemu.Pst(os.path.join(t_d, case + ".pst"))
     par = pst.parameter_data
     dv_pars = par.loc[par.pargp == "q", "parnme"].tolist()[:3]
-    pst.add_pi_equation(par_names=dv_pars, pilbl="eq1", rhs=1000, obs_group="less_than")
+    
+    pst.add_pi_equation(par_names=dv_pars, pilbl="eq2", rhs=1000, obs_group="less_than")
     pst.pestpp_options = {}
     pst.pestpp_options["opt_dec_var_groups"] = "q"
     pst.control_data.noptmax = 1
@@ -348,9 +349,9 @@ def dewater_slp_opt_test():
 
 if __name__ == "__main__":
 
-    if not os.path.exists(os.path.join("..","bin")):
-        os.mkdir(os.path.join("..","bin"))
-    shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
+    #if not os.path.exists(os.path.join("..","bin")):
+    #    os.mkdir(os.path.join("..","bin"))
+    #shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
     #dewater_basic_test()

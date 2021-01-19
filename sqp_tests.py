@@ -270,11 +270,12 @@ def dewater_basic_test():
     case = "dewater_pest.base"
     pst = pyemu.Pst(os.path.join(t_d,case+".pst"))
     par = pst.parameter_data
-    dv_pars = par.loc[par.pargp=="q","parnme"].tolist()
-    pst.add_pi_equation(dv_pars,"eq2",1000,obs_group="less_than")
+    dv_pars = par.loc[par.pargp == "q", "parnme"].tolist()[:3]
+    #pst.add_pi_equation(dv_pars,"eq2",1000,obs_group="less_than")
     pst.pestpp_options = {}
     pst.pestpp_options["opt_dec_var_groups"] = "q"
     pst.control_data.noptmax = 0
+    case = "test"
     pst.write(os.path.join(t_d,case+".pst"))
     pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
 
@@ -332,7 +333,7 @@ def dewater_slp_opt_test():
     par = pst.parameter_data
     dv_pars = par.loc[par.pargp == "q", "parnme"].tolist()[:3]
     
-    pst.add_pi_equation(par_names=dv_pars, pilbl="eq2", rhs=1000, obs_group="less_than")
+    pst.add_pi_equation(par_names=dv_pars, pilbl="eq3", rhs=1000, obs_group="less_than")
     pst.pestpp_options = {}
     pst.pestpp_options["opt_dec_var_groups"] = "q"
     pst.control_data.noptmax = 1
@@ -355,4 +356,4 @@ if __name__ == "__main__":
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
     dewater_basic_test()
-    #dewater_slp_opt_test()
+    dewater_slp_opt_test()

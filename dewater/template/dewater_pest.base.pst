@@ -1,7 +1,7 @@
 pcf
 * control data
              restart          estimation
-       609       600         4         2         8         0
+       609       600         4         1         8         0
          3         1              single               point         1         0         0          noobsreref
    2.000000E+01  -3.000000E+00   3.000000E-01   1.000000E-02        -7       999          lamforgive        noderforgive
    1.000000E+01   1.000000E+01   1.000000E-03         0         0
@@ -1246,6 +1246,5 @@ strt_layer_1.ref.tpl strt_layer_1.ref
 dewater_pest.hds.ins dewater_pest.hds
 * prior information
 eq1                   1.0 * q1 + 1.0 * q2 + 1.0 * q3 + 1.0 * q4 + 1.0 * q5 + 1.0 * q6 + 1.0 * q7 = 100000.0      1.0000000000E+00     less_than            
-eq2                     1.0 * q1  + 1.0 * q2  + 1.0 * q3  + 1.0 * q4  + 1.0 * q5  + 1.0 * q6  + 1.0 * q7  = 1000 1.0000000000E+00     less_than            
 ++opt_dec_var_groups(q)
 ++base_jacobian(restart.jcb)

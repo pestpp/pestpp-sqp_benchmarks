@@ -349,12 +349,38 @@ def dewater_slp_opt_test():
     pst.write(os.path.join(t_d,"test_sqp.pst"))
     pyemu.os_utils.run("{0} {1}.pst".format(exe_path, "test_sqp.pst"), cwd=t_d)
 
+
+def rosenc_test():
+    import opt_test_suite_helper as helper
+
+    t_d = helper.setup_problem("rosenc")
+    model_d = "mou_tests"
+    pst = pyemu.Pst(os.path.join(t_d,"rosenc.pst"))
+    print(pst.pestpp_options)
+    pst.pestpp_options["opt_objective_function"] = "obj_1"
+    pst.observation_data.loc["obj_1","obgnme"] = "obj"
+
+    pst.control_data.noptmax = 10
+    #pst.write(os.path.join(t_d,"rosenc.pst"))
+    #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
+    pst.pestpp_options["sqp_num_reals"] = 10
+    pst.pestpp_options["opt_direction"] = "min"
+    pst.write(os.path.join(t_d, "rosenc.pst"))
+    #pyemu.os_utils.run("{0} {1}".format(exe_path, "rosenc.pst"), cwd=t_d)
+    m_d = os.path.join(model_d, "master_rosenc_enopt")
+    if os.path.exists(m_d):
+        shutil.rmtree(m_d)
+    pyemu.os_utils.start_workers(t_d,exe_path,"rosenc.pst",worker_root=model_d,num_workers=10,master_dir=m_d)
+
+
+
 if __name__ == "__main__":
 
     #if not os.path.exists(os.path.join("..","bin")):
     #    os.mkdir(os.path.join("..","bin"))
     #shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
-    basic_sqp_test()
+    #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
     #dewater_basic_test()
     #dewater_slp_opt_test()
+    rosenc_test()

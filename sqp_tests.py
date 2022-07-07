@@ -360,7 +360,7 @@ def rosenc_test():
     pst.pestpp_options["opt_objective_function"] = "obj_1"
     pst.observation_data.loc["obj_1","obgnme"] = "obj"
 
-    pst.control_data.noptmax = 10
+    pst.control_data.noptmax = 30
     #pst.write(os.path.join(t_d,"rosenc.pst"))
     #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
     pst.pestpp_options["sqp_num_reals"] = 10

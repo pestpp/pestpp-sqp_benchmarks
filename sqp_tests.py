@@ -280,6 +280,7 @@ def dewater_basic_test():
     pst.write(os.path.join(t_d,case+".pst"))
     pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
 
+
     assert os.path.exists(os.path.join(t_d,case+".base.par"))
     assert os.path.exists(os.path.join(t_d,case+".base.rei"))
 
@@ -289,16 +290,22 @@ def dewater_basic_test():
 
     pst.control_data.noptmax = -1  
     pst.write(os.path.join(t_d,case+".pst"))
-    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    #pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    m_d = os.path.join(model_d, "master1")
+    pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=10, worker_root=model_d,
+                                 master_dir=m_d)
 
-    assert os.path.exists(os.path.join(t_d,case+".base.par"))
-    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
-    assert os.path.exists(os.path.join(t_d,case+".0.jcb"))
+    assert os.path.exists(os.path.join(m_d,case+".base.par"))
+    assert os.path.exists(os.path.join(m_d,case+".base.rei"))
+    assert os.path.exists(os.path.join(m_d,case+".0.jcb"))
 
     shutil.copy(os.path.join(t_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
     pst.pestpp_options["base_jacobian"] = "restart.jcb"
     pst.write(os.path.join(t_d,case+".pst"))
-    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    #pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    m_d = os.path.join(model_d, "master1")
+    pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=10, worker_root=model_d,
+                                 master_dir=m_d)
 
     assert os.path.exists(os.path.join(t_d,case+".base.par"))
     assert os.path.exists(os.path.join(t_d,case+".base.rei"))
@@ -306,7 +313,10 @@ def dewater_basic_test():
 
     pst.pestpp_options["base_jacobian"] = "dewater_pest.full.jcb"
     pst.write(os.path.join(t_d,case+".pst"))
-    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    #pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    m_d = os.path.join(model_d, "master1")
+    pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=10, worker_root=model_d,
+                                 master_dir=m_d)
 
     assert os.path.exists(os.path.join(t_d,case+".base.par"))
     assert os.path.exists(os.path.join(t_d,case+".base.rei"))
@@ -316,7 +326,16 @@ def dewater_basic_test():
     pst.pestpp_options["base_jacobian"] = "restart.jcb"
     pst.control_data.noptmax = 3
     pst.write(os.path.join(t_d,case+".pst"))
-    pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    #pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    m_d = os.path.join(model_d, "master2")
+    pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=10, worker_root=model_d,
+                                 master_dir=m_d)
+    assert os.path.exists(os.path.join(m_d, case + ".base.par"))
+    assert os.path.exists(os.path.join(m_d, case + ".base.rei"))
+    assert os.path.exists(os.path.join(m_d, case + ".0.jcb"))
+    assert os.path.exists(os.path.join(m_d, case + ".1.jcb"))
+    assert os.path.exists(os.path.join(m_d, case + ".2.jcb"))
+    assert os.path.exists(os.path.join(m_d, case + ".3.jcb"))
 
 
 def dewater_slp_opt_test():
@@ -357,15 +376,20 @@ def rosenc_test():
     model_d = "mou_tests"
     pst = pyemu.Pst(os.path.join(t_d,"rosenc.pst"))
     print(pst.pestpp_options)
+
     pst.pestpp_options["opt_objective_function"] = "obj_1"
     pst.observation_data.loc["obj_1","obgnme"] = "obj"
-
-    pst.control_data.noptmax = 30
+    #pst.parameter_data.loc[:,"standard_deviation"] = np.nan
+    #pst.parameter_data.loc[["dv_0","dv_1"], "standard_deviation"] = 0.1
+    pst.parameter_data.loc["dv_0","parval1"] = -0.052
+    pst.parameter_data.loc["dv_1","parval1"] = -0.1
+    pst.control_data.noptmax = 300
     #pst.write(os.path.join(t_d,"rosenc.pst"))
     #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
     pst.pestpp_options["sqp_num_reals"] = 10
     pst.pestpp_options["opt_direction"] = "min"
-    pst.write(os.path.join(t_d, "rosenc.pst"))
+    pst.pestpp_options["sqp_scale_facs"] = [0.0001,0.001,0.01,0.05,0.1,0.2,0.3,0.5,0.75,1]
+    pst.write(os.path.join(t_d, "rosenc.pst"),version=2)
     #pyemu.os_utils.run("{0} {1}".format(exe_path, "rosenc.pst"), cwd=t_d)
     m_d = os.path.join(model_d, "master_rosenc_enopt")
     if os.path.exists(m_d):
@@ -381,6 +405,6 @@ if __name__ == "__main__":
     #shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
-    #dewater_basic_test()
+    dewater_basic_test()
     #dewater_slp_opt_test()
-    rosenc_test()
+    #rosenc_test()

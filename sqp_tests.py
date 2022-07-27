@@ -383,7 +383,7 @@ def rosenc_test():
     #pst.parameter_data.loc[["dv_0","dv_1"], "standard_deviation"] = 0.1
     pst.parameter_data.loc["dv_0","parval1"] = -0.052
     pst.parameter_data.loc["dv_1","parval1"] = -0.1
-    pst.control_data.noptmax = 300
+    pst.control_data.noptmax = 30
     #pst.write(os.path.join(t_d,"rosenc.pst"))
     #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
     pst.pestpp_options["sqp_num_reals"] = 10
@@ -405,6 +405,6 @@ if __name__ == "__main__":
     #shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
-    dewater_basic_test()
+    #dewater_basic_test()
     #dewater_slp_opt_test()
-    #rosenc_test()
+    rosenc_test()

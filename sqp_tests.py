@@ -299,7 +299,7 @@ def dewater_basic_test():
     assert os.path.exists(os.path.join(m_d,case+".base.rei"))
     assert os.path.exists(os.path.join(m_d,case+".0.jcb"))
 
-    shutil.copy(os.path.join(t_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
+    shutil.copy(os.path.join(m_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
     pst.pestpp_options["base_jacobian"] = "restart.jcb"
     pst.write(os.path.join(t_d,case+".pst"))
     #pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
@@ -388,7 +388,7 @@ def rosenc_test():
     #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
     pst.pestpp_options["sqp_num_reals"] = 10
     pst.pestpp_options["opt_direction"] = "min"
-    pst.pestpp_options["sqp_scale_facs"] = [0.0001,0.001,0.01,0.05,0.1,0.2,0.3,0.5,0.75,1]
+    #pst.pestpp_options["sqp_scale_facs"] = [0.0001,0.001,0.01,0.05,0.1,0.2,0.3,0.5,0.75,1]
     pst.write(os.path.join(t_d, "rosenc.pst"),version=2)
     #pyemu.os_utils.run("{0} {1}".format(exe_path, "rosenc.pst"), cwd=t_d)
     m_d = os.path.join(model_d, "master_rosenc_enopt")

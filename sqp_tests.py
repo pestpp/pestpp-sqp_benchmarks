@@ -322,7 +322,7 @@ def dewater_basic_test():
     assert os.path.exists(os.path.join(m_d,case+".base.rei"))
     assert os.path.exists(os.path.join(m_d,case+".0.jcb"))
 
-    shutil.copy(os.path.join(t_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
+    shutil.copy(os.path.join(m_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
     pst.pestpp_options["base_jacobian"] = "restart.jcb"
     pst.control_data.noptmax = 3
     pst.write(os.path.join(t_d,case+".pst"))

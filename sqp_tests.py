@@ -307,9 +307,9 @@ def dewater_basic_test():
     pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=10, worker_root=model_d,
                                  master_dir=m_d)
 
-    assert os.path.exists(os.path.join(t_d,case+".base.par"))
-    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
-    assert os.path.exists(os.path.join(t_d,case+".0.jcb"))
+    assert os.path.exists(os.path.join(m_d,case+".base.par"))
+    assert os.path.exists(os.path.join(m_d,case+".base.rei"))
+    assert os.path.exists(os.path.join(m_d,case+".0.jcb"))
 
     pst.pestpp_options["base_jacobian"] = "dewater_pest.full.jcb"
     pst.write(os.path.join(t_d,case+".pst"))
@@ -318,9 +318,9 @@ def dewater_basic_test():
     pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=10, worker_root=model_d,
                                  master_dir=m_d)
 
-    assert os.path.exists(os.path.join(t_d,case+".base.par"))
-    assert os.path.exists(os.path.join(t_d,case+".base.rei"))
-    assert os.path.exists(os.path.join(t_d,case+".0.jcb"))
+    assert os.path.exists(os.path.join(m_d,case+".base.par"))
+    assert os.path.exists(os.path.join(m_d,case+".base.rei"))
+    assert os.path.exists(os.path.join(m_d,case+".0.jcb"))
 
     shutil.copy(os.path.join(t_d,case+".0.jcb"),os.path.join(t_d,"restart.jcb"))
     pst.pestpp_options["base_jacobian"] = "restart.jcb"

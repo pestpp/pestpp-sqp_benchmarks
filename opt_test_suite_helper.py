@@ -102,7 +102,7 @@ def srn(x):
 
 def rosen(x):
     f1 = np.power(1 - x[0],2) + (100 * np.power(x[1] - np.power(x[0],2),2))
-    return (f1,np.array([-999])),[]
+    return (f1,np.array([-999])),[x[0],x[1]]
 
 def rosenc(x):
     f1 = np.power(1 - x[0],2) + (100 * np.power(x[1] - np.power(x[0],2),2))
@@ -175,7 +175,7 @@ def setup_problem(name,additive_chance=False, risk_obj=False, self_adaptive=Fals
         f.write("ptf ~\n")
         f.write("obj1_add_par ~   obj1_add_par   ~\n")
         f.write("obj2_add_par ~   obj2_add_par   ~\n")
-        if name.lower() in ["srn","constr","tkn","rosenc"]:
+        if name.lower() in ["srn","constr","tkn","rosenc","rosen"]:
             f.write("constr1_add_par ~   constr1_add_par   ~\n")
             f.write("constr2_add_par ~   constr2_add_par   ~\n")
         elif name.lower() == "water":
@@ -185,7 +185,7 @@ def setup_problem(name,additive_chance=False, risk_obj=False, self_adaptive=Fals
     with open(os.path.join(test_d,additive_chance_tpl_file.replace(".tpl","")),'w') as f:
         f.write("obj1_add_par 0.0\n")
         f.write("obj2_add_par 0.0\n")
-        if name.lower() in ["srn","constr","tkn","rosenc"]:
+        if name.lower() in ["srn","constr","tkn","rosenc","rosen"]:
             f.write("constr1_add_par 0.0\n")
             f.write("constr2_add_par 0.0\n")
         elif name.lower() == "water":
@@ -224,7 +224,7 @@ def setup_problem(name,additive_chance=False, risk_obj=False, self_adaptive=Fals
                 f.write("l1 w !obj_2!\n")
             else:
                 f.write("l1\n")
-            if name.lower() in ["srn","tkn","rosenc"]:
+            if name.lower() in ["srn","tkn","rosenc","rosen"]:
                 f.write("l1 w !const_1!\n")
                 f.write("l1 w !const_2!\n")
         
@@ -443,6 +443,11 @@ def setup_problem(name,additive_chance=False, risk_obj=False, self_adaptive=Fals
     if name.lower() == "rosenc":
         obs.loc["const_1", "obsval"] = 0
         obs.loc["const_2", "obsval"] = 0
+
+    if name.lower() == "rosen":
+        obs.loc["const_1", "obsval"] = 4
+        obs.loc["const_2", "obsval"] = 4
+
 
            
     pst.pestpp_options["opt_dec_var_groups"] = "decvars"

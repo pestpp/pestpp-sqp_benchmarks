@@ -410,22 +410,114 @@ def rosen_test():
     pst.observation_data.loc["obj_1","obgnme"] = "obj"
     #pst.parameter_data.loc[:,"standard_deviation"] = np.nan
     #pst.parameter_data.loc[["dv_0","dv_1"], "standard_deviation"] = 0.1
-    # pst.parameter_data.loc["dv_0","parval1"] = -0.052
-    # pst.parameter_data.loc["dv_1","parval1"] = -0.1
-    pst.parameter_data.loc["dv_0", "parval1"] = 1
-    pst.parameter_data.loc["dv_1", "parval1"] = 2
+    #pst.parameter_data.loc["dv_0","parval1"] = -0.052
+    #pst.parameter_data.loc["dv_1","parval1"] = -0.1
+    pst.pestpp_options["par_sigma_range"] = 25
+    pst.parameter_data.loc["dv_0", "parval1"] = -3
+    pst.parameter_data.loc["dv_1", "parval1"] = -3
     pst.control_data.noptmax = 10
-    #pst.write(os.path.join(t_d,"rosenc.pst"))
-    #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
-    pst.pestpp_options["sqp_num_reals"] = 10
+    pst.pestpp_options["sqp_num_reals"] = 30
     pst.pestpp_options["opt_direction"] = "min"
-    #pst.pestpp_options["sqp_scale_facs"] = [0.0001,0.001,0.01,0.05,0.1,0.2,0.3,0.5,0.75,1]
     pst.write(os.path.join(t_d, "rosen.pst"),version=2)
-    #pyemu.os_utils.run("{0} {1}".format(exe_path, "rosenc.pst"), cwd=t_d)
+
     m_d = os.path.join(model_d, "master_rosen_enopt")
+    if not "sqp_num_reals" in pst.pestpp_options:
+        m_d = os.path.join(model_d, "master_rosen_opt")
+
     if os.path.exists(m_d):
         shutil.rmtree(m_d)
-    pyemu.os_utils.start_workers(t_d,exe_path,"rosen.pst",worker_root=model_d,num_workers=10,master_dir=m_d)
+    pyemu.os_utils.start_workers(t_d,exe_path,"rosen.pst",worker_root=model_d,num_workers=50,master_dir=m_d)
+    return m_d
+
+
+def plot_rosen(m_d):
+    import matplotlib.pyplot as plt
+    par_files = [f for f in os.listdir(m_d) if f.endswith(".base.par") and len(f.split(".")) == 4]
+    par_iter = [int(f.split('.')[1]) for f in par_files]
+    par_dict = {i:f for i,f in zip(par_iter,par_files)}
+    par_iter.sort()
+    pst = pyemu.Pst(os.path.join(m_d,"rosen.pst"))
+    pnames = pst.par_names
+    ubnd = pst.parameter_data.parubnd.to_dict()
+    lbnd = pst.parameter_data.parlbnd.to_dict()
+
+    sys.path.append(m_d)
+    import forward_run
+    vals = []
+    p1_vals = np.linspace(lbnd[pnames[0]],ubnd[pnames[0]],500)
+    p2_vals = np.linspace(lbnd[pnames[1]],ubnd[pnames[1]],500)
+    for p1 in p1_vals:
+        for p2 in p2_vals:
+            objs,cnst = forward_run.rosen([p1,p2])
+            vals.append(objs[0])
+        #print(p1)
+    vals = np.array(vals)
+    vals = vals.reshape(p1_vals.shape[0],p2_vals.shape[0])
+    vals = np.log10(vals)
+    vals = vals.transpose()
+    P1,P2 = np.meshgrid(p1_vals,p2_vals)
+
+
+    pp1,pp2 = [],[]
+    ppp1, ppp2 = [], []
+
+    for i in par_iter:
+        par = pyemu.pst_utils.read_parfile(os.path.join(m_d,par_dict[i]))
+
+        print(i)
+        fig = plt.figure(figsize=(6,6))
+        gs = fig.add_gridspec(5,5)
+        ax = fig.add_subplot(gs[:-1,1:])
+        #ax.imshow(vals,extent=(lbnd[pnames[0]],ubnd[pnames[0]],lbnd[pnames[1]],ubnd[pnames[1]]),cmap="jet",alpha=0.1)
+        ax.pcolormesh(P1,P2,vals,cmap="jet",alpha=0.5)
+        pe_file = os.path.join(m_d,par_dict[i].replace(".base.par",".par.csv"))
+        if os.path.exists(pe_file):
+            pe = pd.read_csv(os.path.join(m_d, par_dict[i].replace(".base.par",".par.csv")), index_col=0)
+            ax.scatter(pe.loc[:,pnames[0]].values,pe.loc[:,pnames[1]].values,c="0.5",s=4)
+            ax.scatter(pe.loc[:, pnames[0]].values.mean(), pe.loc[:, pnames[1]].values.mean(),marker="^",c="r", s=50)
+
+            ax1 = fig.add_subplot(gs[-1, 1:])
+            # ax1 = fig.add_subplot(gs[:-1,0])
+            # bins = np.linspace(lbnd[pnames[0]],ubnd[pnames[0]],10)
+            bins = np.linspace(pe.loc[:, pnames[0]].min(), pe.loc[:, pnames[0]].max(), 10)
+            ax1.hist(pe.loc[:, pnames[0]].values, bins=bins, alpha=0.5, facecolor="0.5")  # ,orientation='horizontal')
+            ax1.set_xlim(lbnd[pnames[0]], ubnd[pnames[0]])
+            ax1.set_yticks([])
+
+            ax2 = fig.add_subplot(gs[:-1, 0])
+            bins = np.linspace(pe.loc[:, pnames[1]].min(), pe.loc[:, pnames[1]].max(), 10)
+            ax2.hist(pe.loc[:, pnames[1]].values, bins=bins, alpha=0.5, facecolor="0.5", orientation='horizontal')
+            ax2.set_ylim(lbnd[pnames[1]], ubnd[pnames[1]])
+            ax2.set_xticks([])
+            ax.set_xticklabels([])
+            ax.set_yticklabels([])
+
+        ax.scatter(par.loc[pnames[0],"parval1"], par.loc[pnames[1],"parval1"], marker="o", c="b", s=30)
+        if i+1 in par_dict:
+            can_file = os.path.join(m_d,par_dict[i+1].replace(".base.par",".dv_candidates.csv"))
+            if os.path.exists(can_file):
+                can = pd.read_csv(can_file,index_col=0)
+                ax.scatter(can.loc[:,pnames[0]],can.loc[:,pnames[1]],marker="+",c='b',s=30)
+
+        #pp1.append(pe.loc[:, pnames[0]].values.mean())
+        #pp2.append(pe.loc[:, pnames[1]].values.mean())
+        ppp1.append(par.loc[pnames[0],"parval1"])
+        ppp2.append(par.loc[pnames[1],"parval1"])
+        #ax.plot(pp1,pp2,"r-",lw=0.5,)
+        ax.plot(ppp1, ppp2, "b-", lw=0.5, )
+        ax.set_xlim(lbnd[pnames[0]],ubnd[pnames[0]])
+        ax.set_ylim(lbnd[pnames[1]], ubnd[pnames[1]])
+        ax.grid()
+
+
+
+
+        ax.set_title("iteration {0}".format(i),loc="left")
+        plt.savefig(os.path.join(m_d,"iter_{0:03d}.png".format(i)))
+        plt.close(fig)
+
+
+
 
 if __name__ == "__main__":
 
@@ -436,4 +528,5 @@ if __name__ == "__main__":
     #rosenbrock_single_linear_constraint(nit=1)
     #dewater_basic_test()
     #dewater_slp_opt_test()
-    rosen_test()
+    m_d = rosen_test()
+    plot_rosen(m_d)

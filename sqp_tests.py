@@ -378,25 +378,26 @@ def rosenc_test():
     print(pst.pestpp_options)
 
     pst.pestpp_options["opt_objective_function"] = "obj_1"
-    pst.observation_data.loc["obj_1","obgnme"] = "obj"
-    #pst.parameter_data.loc[:,"standard_deviation"] = np.nan
-    #pst.parameter_data.loc[["dv_0","dv_1"], "standard_deviation"] = 0.1
+    pst.observation_data.loc["obj_1", "obgnme"] = "obj"
+    # pst.parameter_data.loc[:,"standard_deviation"] = np.nan
+    # pst.parameter_data.loc[["dv_0","dv_1"], "standard_deviation"] = 0.1
     # pst.parameter_data.loc["dv_0","parval1"] = -0.052
     # pst.parameter_data.loc["dv_1","parval1"] = -0.1
-    pst.parameter_data.loc["dv_0", "parval1"] = 1
-    pst.parameter_data.loc["dv_1", "parval1"] = 2
+    pst.pestpp_options["par_sigma_range"] = 25
+    pst.parameter_data.loc["dv_0", "parval1"] = -3
+    pst.parameter_data.loc["dv_1", "parval1"] = -3
     pst.control_data.noptmax = 10
-    #pst.write(os.path.join(t_d,"rosenc.pst"))
-    #pyemu.os_utils.run("{0} {1}".format(exe_path,"rosenc.pst"),cwd=t_d)
-    pst.pestpp_options["sqp_num_reals"] = 10
+    pst.pestpp_options["sqp_num_reals"] = 5
     pst.pestpp_options["opt_direction"] = "min"
-    #pst.pestpp_options["sqp_scale_facs"] = [0.0001,0.001,0.01,0.05,0.1,0.2,0.3,0.5,0.75,1]
     pst.write(os.path.join(t_d, "rosenc.pst"),version=2)
-    #pyemu.os_utils.run("{0} {1}".format(exe_path, "rosenc.pst"), cwd=t_d)
     m_d = os.path.join(model_d, "master_rosenc_enopt")
+    if not "sqp_num_reals" in pst.pestpp_options:
+        m_d = os.path.join(model_d, "master_rosenc_opt")
     if os.path.exists(m_d):
         shutil.rmtree(m_d)
     pyemu.os_utils.start_workers(t_d,exe_path,"rosenc.pst",worker_root=model_d,num_workers=10,master_dir=m_d)
+    return m_d
+
 
 def rosen_test():
     import opt_test_suite_helper as helper
@@ -416,7 +417,7 @@ def rosen_test():
     pst.parameter_data.loc["dv_0", "parval1"] = -3
     pst.parameter_data.loc["dv_1", "parval1"] = -3
     pst.control_data.noptmax = 10
-    pst.pestpp_options["sqp_num_reals"] = 30
+    pst.pestpp_options["sqp_num_reals"] = 5
     pst.pestpp_options["opt_direction"] = "min"
     pst.write(os.path.join(t_d, "rosen.pst"),version=2)
 
@@ -426,30 +427,45 @@ def rosen_test():
 
     if os.path.exists(m_d):
         shutil.rmtree(m_d)
-    pyemu.os_utils.start_workers(t_d,exe_path,"rosen.pst",worker_root=model_d,num_workers=50,master_dir=m_d)
+    pyemu.os_utils.start_workers(t_d,exe_path,"rosen.pst",worker_root=model_d,num_workers=10,master_dir=m_d)
     return m_d
 
 
 def plot_rosen(m_d):
     import matplotlib.pyplot as plt
-    par_files = [f for f in os.listdir(m_d) if f.endswith(".base.par") and len(f.split(".")) == 4]
+    case = os.path.split(m_d)[-1].split("_")[1]
+    par_files = [f for f in os.listdir(m_d) if f.endswith(".base.par") and len(f.split(".")) == 4 and f.startswith(case)]
     par_iter = [int(f.split('.')[1]) for f in par_files]
     par_dict = {i:f for i,f in zip(par_iter,par_files)}
     par_iter.sort()
-    pst = pyemu.Pst(os.path.join(m_d,"rosen.pst"))
+
+    pst = pyemu.Pst(os.path.join(m_d,case+".pst"))
+
     pnames = pst.par_names
     ubnd = pst.parameter_data.parubnd.to_dict()
     lbnd = pst.parameter_data.parlbnd.to_dict()
 
     sys.path.append(m_d)
     import forward_run
+
+    if case == "rosenc":
+        fxn = forward_run.rosenc
+    elif case == "rosen":
+        fxn = forward_run.rosen
+
     vals = []
+    isconst = False
+    if "rosenc" in m_d:
+        isconst = True
     p1_vals = np.linspace(lbnd[pnames[0]],ubnd[pnames[0]],500)
     p2_vals = np.linspace(lbnd[pnames[1]],ubnd[pnames[1]],500)
     for p1 in p1_vals:
         for p2 in p2_vals:
-            objs,cnst = forward_run.rosen([p1,p2])
-            vals.append(objs[0])
+            objs,cnst = fxn([p1,p2])
+            if isconst and max(cnst) > 0:
+                vals.append(np.NaN)
+            else:
+                vals.append(objs[0])
         #print(p1)
     vals = np.array(vals)
     vals = vals.reshape(p1_vals.shape[0],p2_vals.shape[0])
@@ -469,12 +485,14 @@ def plot_rosen(m_d):
         gs = fig.add_gridspec(5,5)
         ax = fig.add_subplot(gs[:-1,1:])
         #ax.imshow(vals,extent=(lbnd[pnames[0]],ubnd[pnames[0]],lbnd[pnames[1]],ubnd[pnames[1]]),cmap="jet",alpha=0.1)
-        ax.pcolormesh(P1,P2,vals,cmap="jet",alpha=0.5)
+        cb = ax.pcolormesh(P1,P2,vals,cmap="jet",alpha=0.5)
+        plt.colorbar(cb,ax=ax,orientation="vertical",label="log $\phi$")
         pe_file = os.path.join(m_d,par_dict[i].replace(".base.par",".par.csv"))
         if os.path.exists(pe_file):
             pe = pd.read_csv(os.path.join(m_d, par_dict[i].replace(".base.par",".par.csv")), index_col=0)
-            ax.scatter(pe.loc[:,pnames[0]].values,pe.loc[:,pnames[1]].values,c="0.5",s=4)
-            ax.scatter(pe.loc[:, pnames[0]].values.mean(), pe.loc[:, pnames[1]].values.mean(),marker="^",c="r", s=50)
+            ax.scatter(pe.loc[:,pnames[0]].values,pe.loc[:,pnames[1]].values,c="0.5",s=4,label="ensemble")
+            ax.scatter(pe.loc[:, pnames[0]].values.mean(), pe.loc[:, pnames[1]].values.mean(),marker="^",c="r", s=50,label="ensemble mean")
+
 
             ax1 = fig.add_subplot(gs[-1, 1:])
             # ax1 = fig.add_subplot(gs[:-1,0])
@@ -483,21 +501,26 @@ def plot_rosen(m_d):
             ax1.hist(pe.loc[:, pnames[0]].values, bins=bins, alpha=0.5, facecolor="0.5")  # ,orientation='horizontal')
             ax1.set_xlim(lbnd[pnames[0]], ubnd[pnames[0]])
             ax1.set_yticks([])
+            ax1.set_xlabel("dv1")
 
             ax2 = fig.add_subplot(gs[:-1, 0])
             bins = np.linspace(pe.loc[:, pnames[1]].min(), pe.loc[:, pnames[1]].max(), 10)
             ax2.hist(pe.loc[:, pnames[1]].values, bins=bins, alpha=0.5, facecolor="0.5", orientation='horizontal')
             ax2.set_ylim(lbnd[pnames[1]], ubnd[pnames[1]])
             ax2.set_xticks([])
+            ax2.set_ylabel("dv2")
             ax.set_xticklabels([])
             ax.set_yticklabels([])
+        else:
+            ax.set_xlabel("dv1")
+            ax.set_ylabel("dv2")
 
-        ax.scatter(par.loc[pnames[0],"parval1"], par.loc[pnames[1],"parval1"], marker="o", c="b", s=30)
+        ax.scatter(par.loc[pnames[0],"parval1"], par.loc[pnames[1],"parval1"], marker="o", c="b", s=30,label="current solution")
         if i+1 in par_dict:
             can_file = os.path.join(m_d,par_dict[i+1].replace(".base.par",".dv_candidates.csv"))
             if os.path.exists(can_file):
                 can = pd.read_csv(can_file,index_col=0)
-                ax.scatter(can.loc[:,pnames[0]],can.loc[:,pnames[1]],marker="+",c='b',s=30)
+                ax.scatter(can.loc[:,pnames[0]],can.loc[:,pnames[1]],marker="+",c='b',s=30,label="candidate solution")
 
         #pp1.append(pe.loc[:, pnames[0]].values.mean())
         #pp2.append(pe.loc[:, pnames[1]].values.mean())
@@ -508,15 +531,22 @@ def plot_rosen(m_d):
         ax.set_xlim(lbnd[pnames[0]],ubnd[pnames[0]])
         ax.set_ylim(lbnd[pnames[1]], ubnd[pnames[1]])
         ax.grid()
+        ax.legend(loc="upper left")
 
 
 
 
         ax.set_title("iteration {0}".format(i),loc="left")
-        plt.savefig(os.path.join(m_d,"iter_{0:03d}.png".format(i)))
+        last = os.path.join(m_d,"iter_{0:03d}.png".format(i))
+        plt.savefig(last)
         plt.close(fig)
 
-
+    prefix = "iter_%03d.png"
+    last = os.path.split(last)[-1]
+    #pyemu.os_utils.run("ffmpeg -i "+prefix+" -r 1 -y out.gif",cwd=m_d)
+    #pyemu.os_utils.run("ffmpeg -i {0} -vf palettegen=256 -y palette.png".format(last),cwd=m_d)
+    pyemu.os_utils.run("ffmpeg -f image2 -framerate 1 "
+                       "-i iter_%03d.png -vf scale=480X480  -y out.gif",cwd=m_d)
 
 
 if __name__ == "__main__":
@@ -528,5 +558,6 @@ if __name__ == "__main__":
     #rosenbrock_single_linear_constraint(nit=1)
     #dewater_basic_test()
     #dewater_slp_opt_test()
-    m_d = rosen_test()
+    m_d = rosenc_test()
+    #m_d = os.path.join("mou_tests","master_rosenc_enopt")
     plot_rosen(m_d)

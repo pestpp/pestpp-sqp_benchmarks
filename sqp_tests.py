@@ -337,6 +337,15 @@ def dewater_basic_test():
     assert os.path.exists(os.path.join(m_d, case + ".2.jcb"))
     assert os.path.exists(os.path.join(m_d, case + ".3.jcb"))
 
+    pst.pestpp_options["sqp_num_reals"] = 50
+    pst.control_data.noptmax = 3
+    pst.write(os.path.join(t_d, case + ".pst"))
+    # pyemu.os_utils.run("{0} {1}.pst".format(exe_path,case),cwd=t_d)
+    m_d = os.path.join(model_d, "master2_enopt")
+    pyemu.os_utils.start_workers(t_d, exe_path, case + ".pst", num_workers=20, worker_root=model_d,
+                                 master_dir=m_d)
+
+
 
 def dewater_slp_opt_test():
     model_d = "dewater"
@@ -365,6 +374,7 @@ def dewater_slp_opt_test():
     pst.parrep(os.path.join(t_d,"test_opt.par"))
     pst.pestpp_options["hotstart_resfile"] = "test_opt.1.sim.rei"
     pst.pestpp_options["base_jacobian"] = "test_opt.1.jcb"
+    pst.control_data.noptmax = 1
     pst.write(os.path.join(t_d,"test_sqp.pst"))
     pyemu.os_utils.run("{0} {1}.pst".format(exe_path, "test_sqp.pst"), cwd=t_d)
 
@@ -454,6 +464,7 @@ def plot_rosen(m_d):
         fxn = forward_run.rosen
 
     vals = []
+    allvals = []
     isconst = False
     if "rosenc" in m_d:
         isconst = True
@@ -466,11 +477,16 @@ def plot_rosen(m_d):
                 vals.append(np.NaN)
             else:
                 vals.append(objs[0])
+            allvals.append(objs[0])
         #print(p1)
     vals = np.array(vals)
     vals = vals.reshape(p1_vals.shape[0],p2_vals.shape[0])
     vals = np.log10(vals)
     vals = vals.transpose()
+    allvals = np.array(allvals)
+    allvals = allvals.reshape(p1_vals.shape[0], p2_vals.shape[0])
+    allvals = np.log10(allvals)
+    allvals = allvals.transpose()
     P1,P2 = np.meshgrid(p1_vals,p2_vals)
 
 
@@ -486,11 +502,12 @@ def plot_rosen(m_d):
         ax = fig.add_subplot(gs[:-1,1:])
         #ax.imshow(vals,extent=(lbnd[pnames[0]],ubnd[pnames[0]],lbnd[pnames[1]],ubnd[pnames[1]]),cmap="jet",alpha=0.1)
         cb = ax.pcolormesh(P1,P2,vals,cmap="jet",alpha=0.5)
-        plt.colorbar(cb,ax=ax,orientation="vertical",label="log $\phi$")
+        ax.contour(P1,P2,allvals,levels=5,colors="k",linewidths=0.3)
+        #plt.colorbar(cb,ax=ax,orientation="vertical",label="log $\phi$")
         pe_file = os.path.join(m_d,par_dict[i].replace(".base.par",".par.csv"))
         if os.path.exists(pe_file):
             pe = pd.read_csv(os.path.join(m_d, par_dict[i].replace(".base.par",".par.csv")), index_col=0)
-            ax.scatter(pe.loc[:,pnames[0]].values,pe.loc[:,pnames[1]].values,c="0.5",s=4,label="ensemble")
+            ax.scatter(pe.loc[:,pnames[0]].values,pe.loc[:,pnames[1]].values,c="m",marker="*",s=30,label="ensemble")
             ax.scatter(pe.loc[:, pnames[0]].values.mean(), pe.loc[:, pnames[1]].values.mean(),marker="^",c="r", s=50,label="ensemble mean")
 
 
@@ -520,7 +537,7 @@ def plot_rosen(m_d):
             can_file = os.path.join(m_d,par_dict[i+1].replace(".base.par",".dv_candidates.csv"))
             if os.path.exists(can_file):
                 can = pd.read_csv(can_file,index_col=0)
-                ax.scatter(can.loc[:,pnames[0]],can.loc[:,pnames[1]],marker="+",c='b',s=30,label="candidate solution")
+                ax.scatter(can.loc[:,pnames[0]],can.loc[:,pnames[1]],marker="+",c='0.5',s=10,label="candidate solution",alpha=0.5)
 
         #pp1.append(pe.loc[:, pnames[0]].values.mean())
         #pp2.append(pe.loc[:, pnames[1]].values.mean())
@@ -556,8 +573,8 @@ if __name__ == "__main__":
     #shutil.copy2(os.path.join("..","exe","windows","x64","Debug","pestpp-sqp.exe"),os.path.join("..","bin","pestpp-sqp.exe"))
     #basic_sqp_test()
     #rosenbrock_single_linear_constraint(nit=1)
-    #dewater_basic_test()
+    dewater_basic_test()
     #dewater_slp_opt_test()
-    m_d = rosenc_test()
+    #m_d = rosenc_test()
     #m_d = os.path.join("mou_tests","master_rosenc_enopt")
-    plot_rosen(m_d)
+    #plot_rosen(m_d)

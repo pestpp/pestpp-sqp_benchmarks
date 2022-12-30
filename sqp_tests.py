@@ -335,8 +335,7 @@ def dewater_basic_test():
     assert os.path.exists(os.path.join(m_d, case + ".0.jcb"))
     assert os.path.exists(os.path.join(m_d, case + ".1.jcb"))
     assert os.path.exists(os.path.join(m_d, case + ".2.jcb"))
-    assert os.path.exists(os.path.join(m_d, case + ".3.jcb"))
-
+    
     pst.pestpp_options["sqp_num_reals"] = 50
     pst.control_data.noptmax = 3
     pst.write(os.path.join(t_d, case + ".pst"))

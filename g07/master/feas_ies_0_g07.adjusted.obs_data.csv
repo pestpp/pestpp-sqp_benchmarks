@@ -1,0 +1,10 @@
+name,value,group,weight
+obj,0,obj_fn,1
+g1,0,l_constraint,1
+g2,0,l_constraint,1
+g3,0,l_constraint,1
+g4,0,l_constraint,1
+g5,0,l_constraint,1
+g6,0,l_constraint,1
+g7,0,l_constraint,1
+g8,0,l_constraint,1

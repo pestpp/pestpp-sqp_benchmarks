@@ -1,0 +1,6 @@
+ MODEL OUTPUTS AT END OF OPTIMISATION ITERATION NO. 20:-
+
+
+ Name                 Group        Measured             Modelled             Residual             Weight              
+ constraint           l_constraint 2.00000000000        -2.18060345000       4.18060345000        1.00000000000       
+ obs                  obj_fn       0.00000000000        331.042301000        -331.042301000       1.00000000000       

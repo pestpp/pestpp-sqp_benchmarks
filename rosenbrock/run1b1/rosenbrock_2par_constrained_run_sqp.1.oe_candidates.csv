@@ -1,0 +1,6 @@
+real_name,constraint,obs
+dv_cand_sv:1e-05   ,2.02751,802.289
+dv_cand_sv:0.0001  ,2.27515,1060.22
+dv_cand_sv:0.0005  ,3.37573,3094.01
+dv_cand_sv:0.001   ,3.39544,4099.27
+dv_cand_sv:0.0025  ,2.75,4966.4

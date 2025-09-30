@@ -1,0 +1,1526 @@
+              pestpp-mou: multi-objective optimization under uncertainty
+                         by the PEST++ developement team
+
+
+
+
+
+version: 5.2.18
+binary compiled on May 20 2025 at 15:28:23
+
+using control file: "ros_2par_constr.pst"
+in directory: "C:\Users\rmacasieb\Downloads\pestpp-sqp_benchmarks-main\rosenbrock\ros_mou\master"
+on host: "REYGIE"
+started at 05/20/25 16:29:47
+
+on host: "REYGIE"
+
+Note: 2 unused lines in pest control file:
+  -->  line number 6: '10  2  .3  .01  8' 
+  -->  line number 10: '1   1   1' 
+
+    This software has been approved for release by the
+    U.S.Geological Survey(USGS).Although the software has 
+    been subjected to rigorous review, the USGS reserves the
+    right to update the software as needed pursuant to further
+    analysisand review.No warranty, expressed or implied, is 
+    made by the USGS or the U.S.Government as to the
+    functionality of the softwareand related material nor shall
+    the fact of release constitute any such warranty.
+    Furthermore, the software is released on condition that
+    neither the USGS nor the U.S.Government shall be held
+    liable for any damages resulting from its authorized 
+    or unauthorized use.
+
+
+Case dimensions:- 
+    Number of parameters = 2
+    Number of adjustable parameters = 2
+    Number of observations = 2
+    Number of non-zero weighted observations = 2
+    Number of prior estimates = 0
+
+PEST Control Information
+    relparmax = 10
+    facparmax = 10
+    facorig = 0.001
+    phiredswh = 0.1
+    noptmax = 50
+    phiredstp = 0.01
+    nphistp = 3
+    nphinored = 3
+    relparstp = 0.01
+    nrelpar = 3
+
+
+    PEST++ OPTIONS: 
+
+...general options (used in multiple tools): 
+svd_pack: redsvd
+lambda_scale_fac: 0.75,1,1.1,
+forgive_unknown_args: 0
+max_run_fail: 3
+panther_poll_interval: 1
+parameter_covariance: 
+observation_covariance: 
+hotstart_resfile: 
+overdue_resched_fac: 1.15
+overdue_giveup_fac: 100
+overdue_giveup_minutes: 1e+30
+condor_submit_file: 
+tie_by_group: 0
+par_sigma_range: 4
+enforce_tied_bounds: 0
+debug_parse_only: 0
+check_tplins: 1
+fill_tpl_zeros: 0
+tpl_force_decimal: 0
+additional_ins_delimiters: 
+random_seed: 358183147
+num_tpl_ins_threads: 1
+save_binary: 0
+save_dense: 0
+ensemble_output_precision: 6
+panther_echo: 1
+panther_agent_restart_on_error: 0
+panther_agent_no_ping_timeout_secs: -1
+panther_debug_loop: 0
+debug_check_par_en_consistency: 0
+panther_agent_freeze_on_fail: 1
+panther_transfer_on_finish: 
+panther_transfer_on_fail: 
+
+...pestpp-glm specific options:
+max_n_super: 1000000
+super_eigthresh: 1e-06
+n_iter_base: 1000000
+n_iter_super: 0
+super_relparmax: 0.1
+max_super_frz_iter: 20
+max_reg_iter: 20
+lambdas: 0.1,1,10,100,1000,
+iteration_summary: 0
+der_forgive: 1
+uncertainty: 1
+forecasts: 
+base_jacobian: 
+glm_num_reals: 0
+jac_scale: 1
+glm_normal_form: DIAG
+glm_debug_der_fail: 0
+glm_debug_lamb_fail: 0
+glm_debug_real_fail: 0
+glm_accept_mc_phi: 0
+glm_rebase_super: 0
+glm_iter_mc: 0
+glm_high_2nd_iter_phi: 0
+
+...pestpp-swp options:
+sweep_parameter_csv_file: 
+sweep_output_csv_file: sweep_out.csv
+sweep_chunk: 500
+sweep_forgive: 0
+sweep_base_run: 0
+sweep_include_regul_phi: 0
+
+...pestpp-opt options:
+opt_objective_function: 
+opt_coin_log: 1
+opt_skip_final: 0
+opt_std_weights: 0
+opt_stack_size: 0
+opt_par_stack: 
+opt_obs_stack: 
+opt_decision_variable_groups: DECVAR,
+opt_external_variable_groups: 
+opt_constraint_groups: L_CONSTRAINT,
+opt_risk: 0.5
+opt_iter_derinc_fac: 1
+opt_direction: 1
+opt_iter_tol: 0.001
+opt_recalc_fosm_every: 1
+opt_chance_points: SINGLE
+opt_chance_schedule: 
+
+...pestpp-sqp options:
+sqp_dv_en: 
+sqp_obs_restart_en: 
+sqp_num_reals: -1
+sqp_update_hessian: 0
+sqp_scale_facs:
+  1e-05
+  0.0001
+  0.0005
+  0.001
+  0.0025
+  0.005
+  0.01
+  0.05
+  0.075
+  0.1
+  0.25
+  0.5
+  1
+  2
+  5
+  10
+sqp_filter_tol: 0.05
+
+...pestpp-mou options:
+mou_generator: pso
+mou_population_size: 100
+mou_dv_population_file: 
+mou_obs_population_restart_file: 
+mou_objectives: 
+  OBJ
+mou_max_archive_size: 500
+mou_risk_objective: 0
+mou_verbose_level: 1
+mou_env_selector: NSGA
+mou_mating_selector: TOURNAMENT
+mou_crossover_prob: 0.75
+mou_mutation_prob: -999
+mou_de_f: 0.8
+mou_save_population_every: 10
+mou_pso_omega: 0.7
+mou_pso_inertia (IINER, FINERT, INITER): 
+ 0.7  0.4  180 
+mou_pso_social_const: 
+ 2
+mou_pso_cognitive: 
+ 2
+mou_pso_alpha: 1
+mou_pso_rramp: -500
+mou_pso_rfit: 2
+mou_pso_vmax_factor: 0.8
+mou_pso_dv_bound_handling: REPERTURB
+mou_ppd_beta: 0.5
+mou_fit_gamma: 0.25
+mou_fit_epsilon: 0.05
+mou_population_schedule: 
+mou_simplex_reflections:10
+mou_simplex_factors: 
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+mou_simplex_mutation: 0
+mou_use_multigen:0
+mou_shuffle_fixed_pars: 0
+
+...shared pestpp-ies/pestpp-da options:
+(note: 'da' args override 'ies' args when using pestpp-da)
+ies_parameter_ensemble: 
+ies_observation_ensemble: 
+ies_weights_ensemble: 
+ies_restart_parameter_ensemble: 
+ies_restart_observation_ensemble: 
+ies_use_approximate_solution: 1
+ies_lambda_mults: 0.1,1,10,
+ies_initial_lambda: 0
+ies_use_approx: 1
+ies_subset_size: -10
+ies_reg_factor: 0
+ies_verbose_level: 1
+ies_use_prior_scaling: 0
+ies_num_reals: 50
+ies_bad_phi: 1.79769e+308
+ies_bad_phi_sigma: 1.79769e+308
+ies_include_base: 1
+ies_use_empirical_prior: 0
+ies_group_draws: 1
+ies_enforce_bounds: 1
+ies_localizer: 
+ies_accept_phi_fac: 1.05
+ies_lambda_inc_fac: 10
+ies_lambda_dec_fac: 0.75
+ies_save_lambda_ensembles: 0
+ies_subset_how: RANDOM
+ies_localize_how: PARAMETERS
+ies_num_threads: -1
+ies_debug_fail_subset: 0
+ies_debug_fail_remainder: 0
+ies_debug_bad_phi: 0
+ies_debug_upgrade_only: 0
+ies_debug_high_subset_phi: 0
+ies_debug_high_upgrade_phi: 0
+ies_csv_by_reals: 1
+ies_autoadaloc: 0
+ies_autoadaloc_sigma_dist: 1
+ies_enforce_chglim: 0
+ies_center_on: 
+ies_no_noise: 0
+ies_drop_conflicts: 0
+ies_save_rescov:0
+ies_pdc_sigma_distance: -1
+ies_use_mda: 0
+ies_mda_init_fac: 10
+ies_mda_dec_fac: 0.5
+ies_localization_type: LOCAL
+ies_upgrades_in_memory: 1
+ies_ordered_binary: 1
+ies_multimodal_alpha: 1
+ies_localizer_forgive_extra: 0
+ies_phi_factors_file: 
+ies_phi_factors_by_real: 0
+ies_n_iter_reinflate: 
+0,
+ies_reinflate_factor: 
+1,
+ies_updatebyreals: 0
+ies_autoadaloc_indicator_pars: 
+
+
+pestpp-sen options: 
+gsa_method: MORRIS
+gsa_morris_pooled_obs: 0
+gsa_morris_obs_sen: 1
+gsa_morris_p: 4
+gsa_morris_r: 4
+gsa_morris_delta: 0.6666
+gsa_sobol_samples: 4
+gsa_sobol_par_dist: norm
+
+pestpp-da options (those not shared with pestpp-ies):
+da_parameter_cycle_table: 
+da_observation_cycle_table: 
+da_hotstart_cycle: 0
+da_stop_cycle: 1000000000
+da_use_simulated_states: 1
+da_noptmax_schedule: 
+
+
+
+Model command line(s):- 
+    python forward_run.py
+
+Model interface files:-
+    template files:
+      par.tpl
+    model input files:
+      par.dat
+
+    instruction files:
+      obs.ins
+    model output files:
+      obs.dat
+
+
+Parameter group information
+NAME          INCREMENT TYPE     DERIVATIVE INCREMENT    INCREMENT LOWER BOUND  FORCE CENTRAL     INCREMENT MULTIPLIER
+decvar              RELATIVE                     0.01                        0         SWITCH                        2
+
+
+
+Parameter information
+NAME         TRANSFORMATION        CHANGE LIMIT  INITIAL VALUE    LOWER BOUND    UPPER BOUND        GROUP          SCALE         OFFSET  DERIVATIVE COMMAND
+x1           none                  RELATIVE       -1.33333           -2.2            2.2       decvar              1              0                   1
+x2           none                  RELATIVE             -1           -2.2            2.2       decvar              1              0                   1
+
+
+
+Observation information
+NAME                                VALUE                GROUP              WEIGHT
+obj                                     0             less_obj                   1
+constraint                              2         l_constraint                   1
+
+
+
+Prior information
+
+   no prior information provided
+
+
+
+PEST SVD Information
+    maxsing = 1000000
+    eigthresh = 1e-06
+
+
+
+
+
+
+  ---  initializing MOEA process  ---  
+...population schedule: generation,population size:
+...   0, 100
+...   1, 100
+...   2, 100
+...   3, 100
+...   4, 100
+...   5, 100
+...   6, 100
+...   7, 100
+...   8, 100
+...   9, 100
+...   10, 100
+...   11, 100
+...   12, 100
+...   13, 100
+...   14, 100
+...   15, 100
+...   16, 100
+...   17, 100
+...   18, 100
+...   19, 100
+...   20, 100
+...   21, 100
+...   22, 100
+...   23, 100
+...   24, 100
+...   25, 100
+...   26, 100
+...   27, 100
+...   28, 100
+...   29, 100
+...   30, 100
+...   31, 100
+...   32, 100
+...   33, 100
+...   34, 100
+...   35, 100
+...   36, 100
+...   37, 100
+...   38, 100
+...   39, 100
+...   40, 100
+...   41, 100
+...   42, 100
+...   43, 100
+...   44, 100
+...   45, 100
+...   46, 100
+...   47, 100
+...   48, 100
+...   49, 100
+...using 'nsga2' env selector
+...using binary tournament mating pool selector
+...saving generation specific populations and archives every nth generation 10
+'opt_dec_var_groups' passed, using 2 adjustable parameters as decision variables
+decision variables:
+X1 X2 
+...number of decision variables:  2
+...max run fail:  3
+...'opt_chance_points' = SINGLE, evaluating chance at representative point
+...using the following observations as objectives: 
+                           OBJ   minimize
+
+  ---  observation constraints and/or objectives ---  
+name                 sense          value          
+CONSTRAINT           less_than      2              
+...using particle swarm generator
+...drawing initial dv population of size:  100
+checking for denormal values in dv population
+... saved initial dv population to  ros_2par_constr.0.dv_pop.csv
+...running initial population of size 100
+...running population of size  100
+... saved observation population to  ros_2par_constr.0.obs_pop.csv
+
+  ---  initial population decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2    -0.261043      1.26765     -2.19382      2.18756
+X2                         2.2       -2.2     0.148653      1.25184     -2.11494      2.15649
+
+
+  ---  initial population objective function summary:  ---  
+using member GEN=0_MEMBER=15 as nearest-to-mean single point
+    with distance of 0.200101 from mean of decision variable population
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     596.0033     814.8874     2.077011     3943.181     9.085718
+
+... saved initial dv population to  ros_2par_constr.0.dv_pop.csv
+...performing initial pareto dominance sort
+64 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+ros_2par_constr.0.dv_pop.csvinitialized archives with 1 nondominated members
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved generation-specific decision variable population of size 1 X 2 to 'ros_2par_constr.0.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...saved generation-specific observation population of size 1 X 2 to 'ros_2par_constr.0.archive.obs_pop.csv'
+...number of initial feasible solutions: 1
+
+  ---  initialization complete  ---  
+
+  ---  starting generation  1  ---  
+64 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.7
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+150 feasible solutions
+150 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+150 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 1 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.564069     0.784282     -1.04264      1.99156
+X2                         2.2       -2.2     0.661396      1.04092     -1.59594      2.17644
+
+
+  ---  generation 1 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                    -0.825112           0    0.195993     8.95947    -1.15118           0 
+X2                    -0.512743    -344.925   -0.019957   -0.925439   -0.519008           0 
+
+
+  ---  generation 1 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=1_MEMBER=114_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     139.6424     120.3355    0.0251893     393.8317    0.0251893
+
+
+  ---  generation 1 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                      456.361     76.5702     3549.35     90.0123     2.05182     98.7872     9.06053     99.7228
+
+...number of feasible solutions at the end of generation 1: 1
+
+  ---  starting generation  2  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.698333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+189 feasible solutions
+189 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+189 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 2 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.586806     0.640472    -0.698687      1.68175
+X2                         2.2       -2.2     0.676503     0.817681     -1.04674      2.13816
+
+
+  ---  generation 2 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0227369    -4.03087    0.309815     15.5564   -0.343952           0 
+X2                    -0.015107    -2.28411   0.0382796     1.75881   -0.549196           0 
+
+
+  ---  generation 2 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=1_MEMBER=114_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     46.74783     43.67777    0.0251893     140.5118    0.0251893
+
+
+  ---  generation 2 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                      92.8946     66.5232      253.32     64.3219           0           0           0           0
+
+...number of feasible solutions at the end of generation 2: 189
+
+  ---  starting generation  3  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.696667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+194 feasible solutions
+194 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+194 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 3 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.618369     0.622238    -0.698687      1.66409
+X2                         2.2       -2.2     0.658641     0.708182    -0.734064      2.18887
+
+
+  ---  generation 3 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0315629    -5.37876    0.017654     1.04974           0           0 
+X2                    0.0178626     2.64042  -0.0507032    -2.37134   -0.312676           0 
+
+
+  ---  generation 3 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=1_MEMBER=114_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     18.03459     17.95005    0.0251893     57.43174    0.0251893
+
+
+  ---  generation 3 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                      28.7132     61.4215       83.08     59.1267           0           0           0           0
+
+...number of feasible solutions at the end of generation 3: 194
+
+  ---  starting generation  4  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.695
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+197 feasible solutions
+197 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+197 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 4 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.661092     0.586803    -0.737443       1.5752
+X2                         2.2       -2.2     0.748677     0.679811    -0.450068      2.17387
+
+
+  ---  generation 4 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0427224    -6.90888   0.0888968     5.34206   0.0387554           0 
+X2                   -0.0900362      -13.67   0.0149979     0.68519   -0.283997           0 
+
+
+  ---  generation 4 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=1_MEMBER=114_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     6.162775     6.236251    0.0251893     22.11053    0.0251893
+
+
+  ---  generation 4 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                      11.8718      65.828     35.3212     61.5012           0           0           0           0
+
+...number of feasible solutions at the end of generation 4: 197
+
+  ---  starting generation  5  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.693333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+198 feasible solutions
+198 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+198 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 5 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.696846     0.529641     -0.60098      1.52852
+X2                         2.2       -2.2     0.745004     0.612243    -0.253316      2.17387
+
+
+  ---  generation 5 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0357546    -5.40841   0.0466733     2.96302   -0.136463           0 
+X2                   0.00367305    0.490606           0           0   -0.196752           0 
+
+
+  ---  generation 5 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=1_MEMBER=114_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     3.507926     3.199799    0.0251893     10.99338    0.0251893
+
+
+  ---  generation 5 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                      2.65485     43.0788     11.1171     50.2799           0           0           0           0
+
+...number of feasible solutions at the end of generation 5: 198
+
+  ---  starting generation  6  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.691667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+197 feasible solutions
+197 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+197 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 6 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.688685     0.485437     -0.60098      1.52852
+X2                         2.2       -2.2     0.705152     0.587126    -0.198421      2.17387
+
+
+  ---  generation 6 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   0.00816063     1.17108           0           0           0           0 
+X2                    0.0398521     5.34925           0           0  -0.0548952           0 
+
+
+  ---  generation 6 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=1_MEMBER=114_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     2.098051     1.692475    0.0251893     6.005807    0.0251893
+
+
+  ---  generation 6 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                      1.40987     40.1911     4.98757     45.3689           0           0           0           0
+
+...number of feasible solutions at the end of generation 6: 197
+
+  ---  starting generation  7  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.69
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+199 feasible solutions
+199 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+199 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 7 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.711842     0.465093     -0.60098      1.52852
+X2                         2.2       -2.2     0.721137     0.569275    -0.111359      2.17387
+
+
+  ---  generation 7 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                    -0.023157     -3.3625           0           0           0           0 
+X2                   -0.0159849    -2.26687           0           0  -0.0870622           0 
+
+
+  ---  generation 7 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=7_MEMBER=772_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     1.476485     1.221475  0.006291329     4.232108  0.006291329
+
+
+  ---  generation 7 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.621565     29.6259      1.7737     29.5331    0.018898     75.0238    0.018898     75.0238
+
+...number of feasible solutions at the end of generation 7: 1
+
+  ---  starting generation  8  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.688333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+197 feasible solutions
+197 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+197 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 8 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.797428     0.393845     -0.42151      1.50506
+X2                         2.2       -2.2     0.783949     0.556687    -0.111359      2.13024
+
+
+  ---  generation 8 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0855856    -12.0231   0.0234586     1.53472    -0.17947           0 
+X2                   -0.0628121    -8.71015   0.0436312     2.00707           0           0 
+
+
+  ---  generation 8 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=7_MEMBER=772_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize    0.8846859     0.720167  0.006291329     2.433231  0.006291329
+
+
+  ---  generation 8 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                       0.5918     40.0816     1.79888     42.5055           0           0           0           0
+
+...number of feasible solutions at the end of generation 8: 197
+
+  ---  starting generation  9  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.686667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+198 feasible solutions
+198 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+198 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 9 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.864053     0.322143   -0.0309712      1.36935
+X2                         2.2       -2.2     0.841368     0.512464   -0.0513743      1.89856
+
+
+  ---  generation 9 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0666249    -8.35497    0.135717     9.01734   -0.390538           0 
+X2                   -0.0574193    -7.32437    0.231681     10.8758  -0.0599844           0 
+
+
+  ---  generation 9 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=7_MEMBER=772_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize    0.5808367    0.4553789  0.006291329     1.484906  0.006291329
+
+
+  ---  generation 9 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.303849     34.3454    0.948325     38.9739           0           0           0           0
+
+...number of feasible solutions at the end of generation 9: 198
+
+  ---  starting generation  10  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.685
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved generation-specific decision variable population of size 100 X 2 to 'ros_2par_constr.10.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+...saved generation-specific observation population of size 100 X 2 to 'ros_2par_constr.10.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 10 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.920561      0.26637     0.246123      1.36935
+X2                         2.2       -2.2      0.91618     0.476518     0.053577      1.89856
+
+
+  ---  generation 10 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0565076    -6.53984           0           0   -0.277094           0 
+X2                   -0.0748119    -8.89169           0           0   -0.104951           0 
+
+
+  ---  generation 10 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=7_MEMBER=772_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize    0.3893778    0.2916225  0.006291329     1.003426  0.006291329
+
+
+  ---  generation 10 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.191459     32.9626    0.481479     32.4249           0           0           0           0
+
+...number of feasible solutions at the end of generation 10: 200
+
+  ---  starting generation  11  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.683333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 11 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.954844     0.236715     0.246123      1.36935
+X2                         2.2       -2.2     0.960088     0.430596    0.0872654      1.89856
+
+
+  ---  generation 11 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0342834    -3.72419           0           0           0           0 
+X2                   -0.0439084    -4.79256           0           0  -0.0336884    -62.8784 
+
+
+  ---  generation 11 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=7_MEMBER=772_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize     0.264614    0.2017539  0.006291329    0.6846518  0.006291329
+
+
+  ---  generation 11 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.124764     32.0418    0.318775     31.7686           0           0           0           0
+
+...number of feasible solutions at the end of generation 11: 200
+
+  ---  starting generation  12  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.681667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 12 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.973367     0.198759     0.552383      1.36935
+X2                         2.2       -2.2     0.983812     0.389076     0.274694      1.89856
+
+
+  ---  generation 12 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0185231    -1.93991           0           0    -0.30626    -124.434 
+X2                   -0.0237233    -2.47095           0           0   -0.187429     -214.78 
+
+
+  ---  generation 12 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=12_MEMBER=1281_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize    0.1547467    0.1129123  0.001273761    0.4072785  0.001273761
+
+
+  ---  generation 12 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.109867     41.5198    0.277373     40.5131  0.00501757     79.7537  0.00501757     79.7537
+
+...number of feasible solutions at the end of generation 12: 1
+
+  ---  starting generation  13  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.68
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 13 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.978136     0.183835     0.552383      1.36935
+X2                         2.2       -2.2     0.988999     0.360221     0.283494      1.89856
+
+
+  ---  generation 13 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.00476923   -0.489973           0           0           0           0 
+X2                   -0.0051874   -0.527275           0           0 -0.00880005    -3.20358 
+
+
+  ---  generation 13 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=13_MEMBER=1373_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize    0.1087879   0.07464425 0.0004267794    0.2746725 0.0004267794
+
+
+  ---  generation 13 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                    0.0459588     29.6994    0.132606      32.559 0.000846981     66.4945 0.000846981     66.4945
+
+...number of feasible solutions at the end of generation 13: 1
+
+  ---  starting generation  14  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.678333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 14 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.998649      0.14614     0.612784      1.34391
+X2                         2.2       -2.2       1.0211     0.291632     0.382245      1.80422
+
+
+  ---  generation 14 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   -0.0205129    -2.09715   0.0254329      1.8573  -0.0604005    -10.9345 
+X2                   -0.0320993    -3.24563   0.0943404     4.96905  -0.0987511    -34.8336 
+
+
+  ---  generation 14 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=13_MEMBER=1373_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize   0.07093163   0.05049651 0.0004267794    0.1651804 0.0004267794
+
+
+  ---  generation 14 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                    0.0378563     34.7982    0.109492     39.8628           0           0           0           0
+
+...number of feasible solutions at the end of generation 14: 200
+
+  ---  starting generation  15  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.676667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 15 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00362     0.109638     0.677691      1.34256
+X2                         2.2       -2.2      1.02317     0.221706      0.46651      1.80422
+
+
+  ---  generation 15 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.00497229   -0.497901  0.00135648    0.100935  -0.0649078    -10.5923 
+X2                  -0.00206823   -0.202549           0           0  -0.0842648    -22.0447 
+
+
+  ---  generation 15 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=13_MEMBER=1373_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize   0.04934349   0.03644907 0.0004267794    0.1225339 0.0004267794
+
+
+  ---  generation 15 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                    0.0215881     30.4351   0.0426466     25.8182           0           0           0           0
+
+...number of feasible solutions at the end of generation 15: 200
+
+  ---  starting generation  16  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.675
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 16 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2     0.994101    0.0690568     0.784172      1.17269
+X2                         2.2       -2.2     0.993648     0.134342     0.614313      1.36767
+
+
+  ---  generation 16 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   0.00952065    0.948629    0.169872     12.6528   -0.106481    -15.7122 
+X2                    0.0295182     2.88498    0.436552     24.1962   -0.147803    -31.6827 
+
+
+  ---  generation 16 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=16_MEMBER=1620_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize   0.02850977   0.02116176  0.000369474    0.0698999  0.000369474
+
+
+  ---  generation 16 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                    0.0208337     42.2218    0.052634     42.9546 5.73054e-05     13.4274 5.73054e-05     13.4274
+
+...number of feasible solutions at the end of generation 16: 1
+
+  ---  starting generation  17  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.673333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 17 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00175    0.0535467     0.858541      1.17269
+X2                         2.2       -2.2      1.00583     0.107164     0.740169      1.36767
+
+
+  ---  generation 17 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.00765221   -0.769762           0           0  -0.0743694    -9.48382 
+X2                   -0.0121838    -1.22617           0           0   -0.125856    -20.4872 
+
+
+  ---  generation 17 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=17_MEMBER=1790_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize   0.01660672   0.01248317 2.183601e-05   0.04115727 2.183601e-05
+
+
+  ---  generation 17 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.011903     41.7508   0.0287426     41.1197 0.000347638       94.09 0.000347638       94.09
+
+...number of feasible solutions at the end of generation 17: 1
+
+  ---  starting generation  18  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.671667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 18 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00266    0.0401301     0.858541      1.12684
+X2                         2.2       -2.2      1.00736    0.0797937     0.740169      1.26519
+
+
+  ---  generation 18 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.000906734  -0.0905147   0.0458424     3.90918           0           0 
+X2                  -0.00152757   -0.151871    0.102473     7.49253           0           0 
+
+
+  ---  generation 18 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=17_MEMBER=1790_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize  0.009787198  0.007511764 2.183601e-05    0.0261787 2.183601e-05
+
+
+  ---  generation 18 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                   0.00681952     41.0648   0.0149786     36.3935           0           0           0           0
+
+...number of feasible solutions at the end of generation 18: 200
+
+  ---  starting generation  19  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.67
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 19 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00629    0.0300633     0.903518      1.10489
+X2                         2.2       -2.2      1.01373     0.060526     0.820129      1.21813
+
+
+  ---  generation 19 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.00362891   -0.361928   0.0219507     1.94798  -0.0449767    -5.23873 
+X2                  -0.00636526   -0.631875   0.0470654     3.72002  -0.0799605     -10.803 
+
+
+  ---  generation 19 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=17_MEMBER=1790_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize  0.005164201  0.004399536 2.183601e-05   0.01459099 2.183601e-05
+
+
+  ---  generation 19 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                     0.004623     47.2352   0.0115877     44.2639           0           0           0           0
+
+...number of feasible solutions at the end of generation 19: 200
+
+  ---  starting generation  20  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.668333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved generation-specific decision variable population of size 100 X 2 to 'ros_2par_constr.20.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+...saved generation-specific observation population of size 100 X 2 to 'ros_2par_constr.20.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 20 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00843    0.0202752     0.957852      1.05829
+X2                         2.2       -2.2      1.01744     0.041253     0.911697       1.1234
+
+
+  ---  generation 20 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.00214572   -0.213231   0.0466067     4.21821  -0.0543341    -6.01361 
+X2                   -0.0037102   -0.365996   0.0947243     7.77622   -0.091568    -11.1651 
+
+
+  ---  generation 20 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=17_MEMBER=1790_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize  0.003032675  0.002443682 2.183601e-05  0.008363682 2.183601e-05
+
+
+  ---  generation 20 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                   0.00213153      41.275   0.0062273     42.6791           0           0           0           0
+
+...number of feasible solutions at the end of generation 20: 200
+
+  ---  starting generation  21  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.666667
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+adding 1 non-dominated members to archive
+pareto dominance sorting archive of size 2
+2 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.archive.summary.csv
+resizing archive from 2 to 1 current non-dominated solutions
+1 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.trimmed.archive.summary.csv
+...saved decision variable population of size 1 X 2 to 'ros_2par_constr.archive.dv_pop.csv'
+...saved observation population of size 1 X 2 to 'ros_2par_constr.archive.obs_pop.csv'
+...resizing current populations to  100
+
+  ---  generation 21 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00925    0.0170976     0.957852      1.05829
+X2                         2.2       -2.2      1.01914    0.0342865     0.911697      1.11633
+
+
+  ---  generation 21 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                  -0.000814333  -0.0807522           0           0           0           0 
+X2                  -0.00170198   -0.167281  0.00706965    0.629306           0           0 
+
+
+  ---  generation 21 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=21_MEMBER=2165_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize  0.001779397  0.001505241 5.677218e-07  0.005127231 5.677218e-07
+
+
+  ---  generation 21 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                   0.00125328     41.3258  0.00323645     38.6965 2.12683e-05     97.4001 2.12683e-05     97.4001
+
+...number of feasible solutions at the end of generation 21: 1
+
+  ---  starting generation  22  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.665
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 22 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2       1.0076    0.0128107     0.965842      1.05294
+X2                         2.2       -2.2      1.01568    0.0258558     0.936143      1.10848
+
+
+  ---  generation 22 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   0.00165296    0.163782   0.0053476    0.505308 -0.00798937   -0.834092 
+X2                   0.00345534    0.339046    0.007853    0.703463  -0.0244455    -2.68132 
+
+
+  ---  generation 22 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=21_MEMBER=2165_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize  0.001051036 0.0008571176 5.677218e-07  0.003019365 5.677218e-07
+
+
+  ---  generation 22 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                  0.000728361      40.933  0.00210787     41.1112           0           0           0           0
+
+...number of feasible solutions at the end of generation 22: 200
+
+  ---  starting generation  23  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.663333
+...running population of size  100
+...saved decision variable population of size 100 X 2 to 'ros_2par_constr.dv_pop.csv'
+...saved observation population of size 100 X 2 to 'ros_2par_constr.obs_pop.csv'
+200 feasible solutions
+200 feasible solutions
+...pareto dominance sorting combined parent-child populations of size  200
+200 feasible solutions
+...wrote pareto summary to ros_2par_constr.pareto.summary.csv
+updating archive
+all nondominated members in already in archive
+...resizing current populations to  100
+
+  ---  generation 23 decision variable summary:  ---  
+decision variable       ubnd      lbnd        mean       stdev         min         max 
+X1                         2.2       -2.2      1.00482    0.0116727     0.976847      1.03789
+X2                         2.2       -2.2      1.00993     0.023604     0.951514      1.07661
+
+
+  ---  generation 23 decision variable change summary:  ---  
+decision variable  mean change   % change max change   % change min change   % change 
+X1                   0.00277269    0.275179   0.0150514     1.42947  -0.0110056    -1.13948 
+X2                   0.00575372    0.566488   0.0318733      2.8754  -0.0153717    -1.64202 
+
+
+  ---  generation 23 objective function summary:  ---  
+seeking optimal trade-off point for single 'optimal' chance point runs
+using member GEN=21_MEMBER=2165_PSO as single, 'optimal' point
+   with distance of 0 from optimal trade - off
+objective function   direction         mean      std dev          min          max         knee
+
+OBJ                   minimize 0.0007244447 0.0005294659 5.677218e-07  0.001941575 5.677218e-07
+
+
+  ---  generation 23 objective function change summary:  ---  
+objective function   mean change    % change  max change    % change  min change    % change knee change    % change
+OBJ                  0.000326591     31.0732  0.00107779     35.6959           0           0           0           0
+
+...number of feasible solutions at the end of generation 23: 200
+
+  ---  starting generation  24  ---  
+100 feasible solutions
+...generating PSO population of size 100
+1 feasible solutions
+...computing pso velocity using inertia weight:  0.661667
+...running population of size  100

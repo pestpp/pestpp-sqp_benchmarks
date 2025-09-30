@@ -1,0 +1,2 @@
+group,mean_change,std_change,num_at_near_lbound,percent_at_near_lbound,num_at_near_ubound,percent_at_near_ubound,initial_cv,current_cv
+pargp,68.055865834677419457,90.87349952279448928,0,0,0,0,0.19242042959410876612,0.82793842809481921208

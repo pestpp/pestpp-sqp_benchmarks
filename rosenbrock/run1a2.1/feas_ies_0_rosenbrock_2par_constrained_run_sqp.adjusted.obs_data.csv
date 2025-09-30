@@ -1,0 +1,3 @@
+name,value,group,weight
+constraint,2,g_constraint,1
+obs,0,obj_fn,1

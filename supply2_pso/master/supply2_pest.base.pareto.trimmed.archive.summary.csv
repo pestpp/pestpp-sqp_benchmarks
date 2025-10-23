@@ -1,0 +1,5 @@
+generation,member,pi_obj_func,nsga2_front,nsga2_crowding_distance,spea2_unconstrained_fitness,spea2_constrained_fitness,is_feasible,feasible_distance
+0,gen=0_member=72,8370.16,0,-999,1.5,0.5,0,1.88691e+11
+1,gen=0_member=72,8370.16,0,-999,1.5,0.5,0,1.88691e+11
+2,gen=0_member=72,8370.16,0,-999,1.5,0.5,0,1.88691e+11
+3,gen=0_member=72,8370.16,0,-999,1.5,0.5,0,1.88691e+11

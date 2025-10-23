@@ -6,7 +6,7 @@ import pandas as pd
 from matplotlib.animation import FuncAnimation, PillowWriter
 import matplotlib.animation as animation
 
-NMAX = 6
+NMAX = 1
 case = '2par_one_linear_constraint'
 c = -1.5
 
@@ -70,7 +70,7 @@ def plot_rosenbrock(iter=1, ax=None):
     pars = pars.values
     ax.scatter(pars[:, 0], pars[:, 1], c='w', marker='o', s=15, zorder=10, label='')
     # Candidate points
-    if (iter < NMAX):
+    if (iter < NMAX-1):
         dv_cand_file = glob.glob(os.path.join("..",case, f'*{iter+1}.dv_candidates.csv'))[0]
         dv_cand = pd.read_csv(dv_cand_file).drop(columns=['real_name'])
         cands = dv_cand.values

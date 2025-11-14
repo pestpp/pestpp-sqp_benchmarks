@@ -3,11 +3,12 @@ import matplotlib.pyplot as plt
 import os
 import glob
 import pandas as pd
+import re
 from matplotlib.animation import FuncAnimation, PillowWriter
 import matplotlib.animation as animation
 
-NMAX = 1
-case = '2par_one_linear_constraint'
+NMAX = 11
+case = '2par_one_linear_constraint_infeas'
 c = -1.5
 
 def rosenbrock(x):
@@ -17,11 +18,35 @@ def constraint(x):
     return 2.25*x[0] - x[1] + c  # This is equivalent to -2.25*x[0] + x[1] <= 2
 
 def plot_rosenbrock(iter=1, ax=None):
-    # Load data
-    pars_file = glob.glob(os.path.join("..",case, f'*{iter}.par.csv'))[0]
+    pattern = os.path.join("..", case, '*.par.csv')
+    all_par_files = glob.glob(pattern)
+    pars_file = None
+    for file in all_par_files:
+        basename = os.path.basename(file)
+        match = re.search(r'(\d+)\.par\.csv$', basename)
+        if match and int(match.group(1)) == iter:
+            pars_file = file
+            break
+    
+    if pars_file is None:
+        raise FileNotFoundError(f"Could not find par.csv file for iteration {iter}")
+    
     pars = pd.read_csv(pars_file).drop(columns=['real_name'])
 
-    with open(glob.glob(os.path.join("..",case, f'*{iter}.base.par'))[0], 'r') as f:
+    pattern = os.path.join("..", case, '*.base.par')
+    all_base_files = glob.glob(pattern)
+    base_par_file = None
+    for file in all_base_files:
+        basename = os.path.basename(file)
+        match = re.search(r'(\d+)\.base\.par$', basename)
+        if match and int(match.group(1)) == iter:
+            base_par_file = file
+            break
+    
+    if base_par_file is None:
+        raise FileNotFoundError(f"Could not find base.par file for iteration {iter}")
+    
+    with open(base_par_file, 'r') as f:
         lines = f.readlines()
         par1 = float([line for line in lines if 'par1' in line][0].split()[1])
         par2 = float([line for line in lines if 'par2' in line][0].split()[1])
@@ -70,8 +95,21 @@ def plot_rosenbrock(iter=1, ax=None):
     pars = pars.values
     ax.scatter(pars[:, 0], pars[:, 1], c='w', marker='o', s=15, zorder=10, label='')
     # Candidate points
-    if (iter < NMAX-1):
-        dv_cand_file = glob.glob(os.path.join("..",case, f'*{iter+1}.dv_candidates.csv'))[0]
+    if (iter < NMAX):
+        
+        pattern = os.path.join("..", case, f'*{iter+1}.dv_candidates.csv')
+        matching_files = glob.glob(pattern)
+        dv_cand_file = None
+        for file in matching_files:
+            basename = os.path.basename(file)
+            match = re.search(r'(\d+)\.dv_candidates\.csv$', basename)
+            if match and int(match.group(1)) == iter + 1:
+                dv_cand_file = file
+                break
+        
+        if dv_cand_file is None:
+            raise FileNotFoundError(f"Could not find dv_candidates file for iteration {iter + 1}")
+        
         dv_cand = pd.read_csv(dv_cand_file).drop(columns=['real_name'])
         cands = dv_cand.values
         ax.scatter(cands[:, 0], cands[:, 1], ec='g', c = 'none', marker='o', s=10, zorder=10)

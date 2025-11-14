@@ -33,9 +33,6 @@ constraints.dat.ins constraints.dat
 ++opt_obj_func(obs)
 ++sqp_num_reals(20)
 ++sqp_update_hessian(true)
-++sqp_filter_tol(0.01)
-++sqp_alpha_mults(-0.05, 0.1, 0.5,1.0,2.0);
-++sqp_subset_size(20)
+++sqp_alpha_mults(-0.05, 0.01, 0.1, 0.5, 1.0)
+++sqp_subset_size(10)
 ++par_sigma_range(10)
-++sqp_cma_cmu(-1)
-++sqp_cma_c1(-1)

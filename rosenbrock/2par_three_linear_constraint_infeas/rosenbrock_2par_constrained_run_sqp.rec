@@ -1,0 +1,4083 @@
+             pestpp-sqp: ensemble-based constrained sequential quadratic programming
+
+                 by the PEST++ development team
+
+
+
+
+
+version: 5.2.23
+binary compiled on Nov 14 2025 at 22:42:17
+
+using control file: "rosenbrock_2par_constrained_run_sqp.pst"
+in directory: "C:\Users\mac732\OneDrive - CSIRO\Documents\GitHub\pestpp-sqp_benchmarks\rosenbrock\2par_three_linear_constraint_infeas"
+on host: "DUMPLING-FL"
+started at 11/14/25 22:42:41
+
+Note: 3 unused lines in pest control file:
+  -->  line number 6: '2.000000E+01  -3.000000E+00   3.000000E-01   1.000000E-02        -7       999          lamforgive        noderforgive' 
+  -->  line number 10: '0         0         0         0             jcosave          verboserec          jcosaveitn          reisaveitn          parsaveitn        noparsaverun' 
+  -->  line number 12: '1' 
+
+    This software has been approved for release by the
+    U.S.Geological Survey(USGS).Although the software has 
+    been subjected to rigorous review, the USGS reserves the
+    right to update the software as needed pursuant to further
+    analysisand review.No warranty, expressed or implied, is 
+    made by the USGS or the U.S.Government as to the
+    functionality of the softwareand related material nor shall
+    the fact of release constitute any such warranty.
+    Furthermore, the software is released on condition that
+    neither the USGS nor the U.S.Government shall be held
+    liable for any damages resulting from its authorized 
+    or unauthorized use.
+
+
+Case dimensions:- 
+    Number of parameters = 2
+    Number of adjustable parameters = 2
+    Number of observations = 4
+    Number of non-zero weighted observations = 4
+    Number of prior estimates = 0
+
+PEST Control Information
+    relparmax = 10
+    facparmax = 10
+    facorig = 0.001
+    phiredswh = 0.1
+    noptmax = 100
+    phiredstp = 0.01
+    nphistp = 5
+    nphinored = 3
+    relparstp = 0.01
+    nrelpar = 3
+
+
+    PEST++ OPTIONS: 
+
+...general options (used in multiple tools): 
+svd_pack: redsvd
+lambda_scale_fac: 0.75,1,1.1,
+forgive_unknown_args: 0
+max_run_fail: 3
+panther_poll_interval: 1
+parameter_covariance: 
+observation_covariance: 
+hotstart_resfile: 
+overdue_resched_fac: 1.15
+overdue_giveup_fac: 100
+overdue_giveup_minutes: 1e+30
+condor_submit_file: 
+tie_by_group: 0
+par_sigma_range: 10
+enforce_tied_bounds: 0
+debug_parse_only: 0
+check_tplins: 1
+fill_tpl_zeros: 0
+tpl_force_decimal: 0
+additional_ins_delimiters: 
+random_seed: 358183147
+num_tpl_ins_threads: 1
+save_binary: 0
+save_dense: 0
+ensemble_output_precision: 20
+panther_echo: 1
+panther_agent_restart_on_error: 0
+panther_agent_no_ping_timeout_secs: -1
+panther_debug_loop: 0
+debug_check_par_en_consistency: 0
+panther_agent_freeze_on_fail: 0
+panther_transfer_on_finish: 
+panther_transfer_on_fail: 
+panther_timeout_milliseconds: -999
+panther_echo_interval_milliseconds: 1000
+panther_persistent_workers: 1
+
+...pestpp-glm specific options:
+max_n_super: 1000000
+super_eigthresh: 1e-06
+n_iter_base: 1000000
+n_iter_super: 0
+super_relparmax: 0.1
+max_super_frz_iter: 20
+max_reg_iter: 20
+lambdas: 0.1,1,10,100,1000,
+iteration_summary: 0
+der_forgive: 1
+uncertainty: 1
+forecasts: 
+base_jacobian: 
+glm_num_reals: 0
+jac_scale: 1
+glm_normal_form: DIAG
+glm_debug_der_fail: 0
+glm_debug_lamb_fail: 0
+glm_debug_real_fail: 0
+glm_accept_mc_phi: 0
+glm_rebase_super: 0
+glm_iter_mc: 0
+glm_high_2nd_iter_phi: 0
+
+...pestpp-swp options:
+sweep_parameter_csv_file: 
+sweep_output_csv_file: sweep_out.csv
+sweep_chunk: 500
+sweep_forgive: 0
+sweep_base_run: 0
+sweep_include_regul_phi: 0
+
+...pestpp-opt options:
+opt_objective_function: OBS
+opt_coin_log: 1
+opt_skip_final: 0
+opt_std_weights: 0
+opt_stack_size: 0
+opt_par_stack: 
+opt_obs_stack: 
+opt_decision_variable_groups: 
+opt_external_variable_groups: 
+opt_constraint_groups: 
+opt_risk: 0.5
+opt_iter_derinc_fac: 1
+opt_direction: 1
+opt_iter_tol: 0.001
+opt_recalc_fosm_every: 1
+opt_chance_points: SINGLE
+opt_chance_schedule: 
+
+...pestpp-sqp options:
+sqp_dv_en: 
+sqp_obs_restart_en: 
+sqp_search_method: TRUST
+sqp_num_reals: 20
+sqp_subset_size: 10
+sqp_update_hessian: 1
+sqp_hessian_update_method: BFGS
+sqp_solve_partial_step: 1
+sqp_alpha_mults:
+  -0.05
+  0.01
+  0.1
+  0.5
+  1
+sqp_filter_tol: 0.001
+sqp_working_set_tol: 0.1
+sqp_cma_c1: -1
+sqp_cma_cmu: -1
+sqp_cma_cc: -1
+sqp_cma_stepsize_control: 0
+sqp_cma_reinflation_factor: -1
+sqp_max_consec_infeas_ies: 3
+sqp_max_reinflation_cond_num: 500
+
+...pestpp-mou options:
+mou_generator: PSO
+mou_population_size: 100
+mou_dv_population_file: 
+mou_obs_population_restart_file: 
+mou_objectives: 
+mou_max_archive_size: 500
+mou_risk_objective: 0
+mou_verbose_level: 1
+mou_env_selector: NSGA
+mou_mating_selector: TOURNAMENT
+mou_crossover_prob: 0.75
+mou_mutation_prob: -999
+mou_de_f: 0.8
+mou_save_population_every: -1
+mou_pso_omega: 0.7
+mou_pso_inertia (IINER, FINERT, INITER): 
+ 0.7  0.4  0 
+mou_pso_social_const: 
+ 2
+mou_pso_cognitive: 
+ 2
+mou_pso_alpha: 1
+mou_pso_rramp: -500
+mou_pso_rfit: 2
+mou_pso_vmax_factor: 0.8
+mou_pso_dv_bound_handling: CLAMP
+mou_ppd_beta: 0.5
+mou_fit_gamma: 0.25
+mou_fit_epsilon: 0.05
+mou_population_schedule: 
+mou_simplex_reflections:10
+mou_simplex_factors: 
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+mou_simplex_mutation: 0
+mou_use_multigen:0
+mou_shuffle_fixed_pars: 0
+
+...shared pestpp-ies/pestpp-da options:
+(note: 'da' args override 'ies' args when using pestpp-da)
+ies_parameter_ensemble: 
+ies_observation_ensemble: 
+ies_weights_ensemble: 
+ies_restart_parameter_ensemble: 
+ies_restart_observation_ensemble: 
+ies_use_approximate_solution: 1
+ies_lambda_mults: 0.1,1,10,
+ies_initial_lambda: 0
+ies_use_approx: 1
+ies_subset_size: -10
+ies_reg_factor: 0
+ies_verbose_level: 1
+ies_use_prior_scaling: 0
+ies_num_reals: 50
+ies_bad_phi: 1.79769e+308
+ies_bad_phi_sigma: 1.79769e+308
+ies_include_base: 1
+ies_use_empirical_prior: 0
+ies_group_draws: 1
+ies_enforce_bounds: 1
+ies_localizer: 
+ies_accept_phi_fac: 1.05
+ies_lambda_inc_fac: 10
+ies_lambda_dec_fac: 0.75
+ies_save_lambda_ensembles: 0
+ies_subset_how: RANDOM
+ies_localize_how: PARAMETERS
+ies_num_threads: -1
+ies_debug_fail_subset: 0
+ies_debug_fail_remainder: 0
+ies_debug_bad_phi: 0
+ies_debug_upgrade_only: 0
+ies_debug_high_subset_phi: 0
+ies_debug_high_upgrade_phi: 0
+ies_csv_by_reals: 1
+ies_autoadaloc: 0
+ies_autoadaloc_sigma_dist: 1
+ies_enforce_chglim: 0
+ies_center_on: 
+ies_no_noise: 0
+ies_drop_conflicts: 0
+ies_save_rescov:0
+ies_pdc_sigma_distance: -1
+ies_use_mda: 0
+ies_mda_init_fac: 10
+ies_mda_dec_fac: 0.5
+ies_localization_type: LOCAL
+ies_upgrades_in_memory: 1
+ies_ordered_binary: 1
+ies_multimodal_alpha: 1
+ies_localizer_forgive_extra: 0
+ies_phi_factors_file: 
+ies_phi_factors_by_real: 0
+ies_n_iter_reinflate: 
+0,
+ies_reinflate_factor: 
+1,
+ies_updatebyreals: 0
+ies_autoadaloc_indicator_pars: 
+
+ies_run_realname: 
+pestpp-sen options: 
+gsa_method: MORRIS
+gsa_morris_pooled_obs: 0
+gsa_morris_obs_sen: 1
+gsa_morris_p: 4
+gsa_morris_r: 4
+gsa_morris_delta: 0.6666
+gsa_sobol_samples: 4
+gsa_sobol_par_dist: norm
+
+pestpp-da options (those not shared with pestpp-ies):
+da_parameter_cycle_table: 
+da_observation_cycle_table: 
+da_hotstart_cycle: 0
+da_stop_cycle: 1000000000
+da_use_simulated_states: 1
+da_noptmax_schedule: 
+
+
+
+Model command line(s):- 
+    python rosenbrock_2par_constrained.py
+
+Model interface files:-
+    template files:
+      par.dat.tpl
+    model input files:
+      par.dat
+
+    instruction files:
+      obs.dat.ins
+      constraints.dat.ins
+    model output files:
+      obs.dat
+      constraints.dat
+
+
+Parameter group information
+NAME          INCREMENT TYPE     DERIVATIVE INCREMENT    INCREMENT LOWER BOUND  FORCE CENTRAL     INCREMENT MULTIPLIER
+pargp               RELATIVE                    1e-05                        0         SWITCH                        2
+
+
+
+Parameter information
+NAME         TRANSFORMATION        CHANGE LIMIT  INITIAL VALUE    LOWER BOUND    UPPER BOUND        GROUP          SCALE         OFFSET  DERIVATIVE COMMAND
+par1         none                  RELATIVE             -1           -2.2            2.2        pargp              1              0                   1
+par2         none                  RELATIVE              1           -2.2            2.2        pargp              1              0                   1
+
+
+
+Observation information
+NAME                                VALUE                GROUP              WEIGHT
+constraint1                          -0.5         l_constraint                   1
+constraint2                             0         l_constraint                   1
+constraint3                            -1         g_constraint                   1
+obs                                     0               obj_fn                   1
+
+
+
+Prior information
+
+   no prior information provided
+
+
+
+PEST SVD Information
+    maxsing = 10000000
+    eigthresh = 1e-06
+
+
+
+
+
+
+  ---  initializing  ---  
+   using all adjustable parameters as decision variables:  2
+
+  ---  observation constraints and/or objectives ---  
+name                 sense          value          
+CONSTRAINT1          less_than      -0.5           
+CONSTRAINT2          less_than      0              
+CONSTRAINT3          greater_than   -1             
+...using observation 'OBS' as the objective function
+...using the following upgrade vector scale (e.g. 'line search') values:-0.05 , 0.01 , 0.1 , 0.5 , 1 , 
+...max run fail:  1
+...parcov loaded  from parameter bounds, using par_sigma_range 10
+...using stochastic gradient approximation (StoSAG)
+...drawing decision variable realizations:  20
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   checking for denormal values in dv
+...saved initial dv ensemble to  rosenbrock_2par_constrained_run_sqp.0.par.csv
+   checking for denormal values in base oe
+...centering on 'base' realization
+...running initial ensemble of size 21
+...saved initial obs ensemble to rosenbrock_2par_constrained_run_sqp.0.obs.csv
+   calculating initial objective function gradient
+
+StoSAG-calculated gradient: 
+ -311.71
+-1.84749
+
+  ---  Initial phi, infeasibility values: 4 , 4.25  ---  
+
+  observation constraint information at iteration 0
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5           3.25      false           3.75
+CONSTRAINT2              less_than           0            0.5      false            0.5
+CONSTRAINT3           greater_than          -1            1.5       true              0
+
+   initializing hessian matrix with identity
+
+  ---  initialization complete  ---  
+
+  ---  starting solve for iteration: 1  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs:  -3.69226 -0.446704
+   working set:
+         CONSTRAINT1 (lm = 18889.8)
+         CONSTRAINT2 (lm = 1975.49)
+         search direction norm: 441.272
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs: -5.43236
+   working set:
+         CONSTRAINT1 (lm = 814.262)
+         search direction norm: 288.49
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs:  -4.10368 -0.793289
+   working set:
+         CONSTRAINT1 (lm = 25139.1)
+         CONSTRAINT2 (lm = 2655.27)
+         search direction norm: 494.25
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs:  -3.69061 -0.662262
+   working set:
+         CONSTRAINT1 (lm = 19193.1)
+         CONSTRAINT2 (lm = 2008.55)
+         search direction norm: 443.843
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs:  -2.68406 -0.349423
+   working set:
+         CONSTRAINT1 (lm = 4713.89)
+         CONSTRAINT2 (lm = 433.717)
+         search direction norm: 321.097
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: -2.90805 -1.02763
+   working set:
+         CONSTRAINT1 (lm = 8856.99)
+         CONSTRAINT2 (lm = 884.544)
+         search direction norm: 356.22
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: -2.96171
+   working set:
+         CONSTRAINT1 (lm = 742.373)
+         search direction norm: 287.443
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs: -3.39133
+   working set:
+         CONSTRAINT1 (lm = 754.874)
+         search direction norm: 287.581
+
+...calculating search direction for realization 8
+   not on constraint but working set not empty
+   current constraint diffs: -2.67313 -1.46083
+   working set:
+         CONSTRAINT1 (lm = 6243.69)
+         CONSTRAINT2 (lm = 600.478)
+         search direction norm: 334.067
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs: -2.72703 -0.57629
+   working set:
+         CONSTRAINT1 (lm = 5655.01)
+         CONSTRAINT2 (lm = 536.149)
+         search direction norm: 329.075
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs:  -2.1154 -0.69486
+   working set:
+         CONSTRAINT1 (lm = -2676.11)
+         CONSTRAINT2 (lm = -369.881)
+         search direction norm: 258.449
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: -4.29203 -1.10519
+   working set:
+         CONSTRAINT1 (lm = 28232)
+         CONSTRAINT2 (lm = 2991.75)
+         search direction norm: 520.47
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs: -3.56209
+   working set:
+         CONSTRAINT1 (lm = 759.842)
+         search direction norm: 287.641
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs:  -4.69899 -0.317328
+   working set:
+         CONSTRAINT1 (lm = 32702.5)
+         CONSTRAINT2 (lm = 3477.67)
+         search direction norm: 558.367
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs: -4.86444
+   working set:
+         CONSTRAINT1 (lm = 797.737)
+         search direction norm: 288.195
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: -3.76501 -2.14723
+   working set:
+         CONSTRAINT1 (lm = 22475.6)
+         CONSTRAINT2 (lm = 2366.06)
+         search direction norm: 471.672
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: -5.11117
+   working set:
+         CONSTRAINT1 (lm = 804.916)
+         search direction norm: 288.32
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: -4.66159 -1.24359
+   working set:
+         CONSTRAINT1 (lm = 33583.8)
+         CONSTRAINT2 (lm = 3573.84)
+         search direction norm: 565.839
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs:  -3.07557 -0.737148
+   working set:
+         CONSTRAINT1 (lm = 10748.4)
+         CONSTRAINT2 (lm = 1090.15)
+         search direction norm: 372.254
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -3.73531  -1.4238
+   working set:
+         CONSTRAINT1 (lm = 20967.5)
+         CONSTRAINT2 (lm = 2201.79)
+         search direction norm: 458.886
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs: -3.75  -0.5
+   working set:
+         CONSTRAINT1 (lm = 19774)
+         CONSTRAINT2 (lm = 2071.66)
+         search direction norm: 448.767
+
+...performing line search on ensemble subset: 0, 2, 5, 7, 10, 13, 14, 15, 16, 19, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.1.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:1        , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:1        , 
+...duplicate trust-region candidates:cand_tr5_rs:0.01     , cand_tr5_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr5_rs:0.01     , cand_tr5_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr5_rs:0.01     , cand_tr5_rs:1        , 
+...duplicate trust-region candidates:cand_tr10_rs:0.01     , cand_tr10_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr10_rs:0.01     , cand_tr10_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr10_rs:0.01     , cand_tr10_rs:1        , 
+...duplicate trust-region candidates:cand_tr13_rs:0.01     , cand_tr13_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr13_rs:0.01     , cand_tr13_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr13_rs:0.01     , cand_tr13_rs:1        , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:1        , 
+...duplicate trust-region candidates:cand_tr19_rs:0.01     , cand_tr19_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr19_rs:0.01     , cand_tr19_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr19_rs:0.01     , cand_tr19_rs:1        , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:0.1      , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:0.5      , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.1.oe_candidates.csv
+
+  ---  current best phi: 4  ---  
+...evaluating 41 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        4.03428        4.13896             accept         
+1                        774.292        5.43236             reject         
+2                        5.66677        4.89697             reject         
+3                        7.06684        4.35287             reject         
+4                        8.14088        3.03349             accept         
+5                        55.8124        3.93569             reject         
+6                        36.8668        2.96171             accept         
+7                        55.0422        3.39133             reject         
+8                        118.402        4.13396             reject         
+9                        19.1632        3.30332             reject         
+10                       34.4982        2.81026             accept         
+11                       15.6066        5.39722             reject         
+12                       35.2266        3.56209             reject         
+13                       61.2634        5.01632             reject         
+14                       439.71         4.86444             reject         
+15                       214.47         5.91224             reject         
+16                       347.15         5.11117             reject         
+17                       12.7297        5.90518             reject         
+18                       23.8436        3.81272             reject         
+19                       76.6927        5.1591              reject         
+BASE                     4              4.25                reject         
+cand_tr0_rs:0.01         1492.7         3.66747             reject         
+cand_tr2_rs:0.01         1289.56        4.07644             reject         
+cand_tr5_rs:0.01         1403.61        3.84317             reject         
+cand_tr7_rs:0.01         40.8691        3.27913             reject         
+cand_tr7_rs:0.1          4.00074        2.37877             accept         
+cand_tr7_rs:0.5          237.084        2.1272              accept         
+cand_tr7_rs:1            1904.85        2.91579             reject         
+cand_tr10_rs:0.01        1680.82        3.31296             reject         
+cand_tr13_rs:0.01        1367.4         3.91616             reject         
+cand_tr14_rs:0.01        374.306        4.75224             reject         
+cand_tr14_rs:0.1         50.2507        3.74242             reject         
+cand_tr14_rs:0.5         0.343566       1.84258             accept         
+cand_tr14_rs:1           1739.57        3.20636             reject         
+cand_tr15_rs:0.01        885.108        5.00102             reject         
+cand_tr16_rs:0.01        289.369        4.99897             reject         
+cand_tr16_rs:0.1         23.7869        4.17555             reject         
+cand_tr16_rs:0.5         3.59688        2.20414             reject         
+cand_tr16_rs:1           1543.37        3.56989             reject         
+cand_tr19_rs:0.01        1124.08        4.43413             reject         
+cand_trBASE_rs:0.01      1461.47        3.72845             reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  7
+
+SQP filter members (8) for iteration 1:
+------------------------------
+Obj            Violation      
+------------------------------
+237.084        2.1272         
+36.8668        2.96171        
+34.4982        2.81026        
+8.14088        3.03349        
+4.03428        4.13896        
+4.00074        2.37877        
+4              4.25           
+0.343566       1.84258        
+------------------------------
+...filter summary with 8 pairs for iteration 1:
+          obj min:   0.343566
+          obj max:    237.084
+         obj knee:   0.343566
+    violation min:    1.84258
+    violation max:       4.25
+   violation knee:    1.84258
+
+
+SQP filter members (1) for iteration 1:
+------------------------------
+Obj            Violation      
+------------------------------
+0.343566       1.84258        
+------------------------------
+...filter summary with 1 pairs for iteration 1:
+          obj min:   0.343566
+          obj max:   0.343566
+         obj knee:   0.343566
+    violation min:    1.84258
+    violation max:    1.84258
+   violation knee:    1.84258
+
+...updating BASE with realization: 1|cand_tr14_rs:0.5     
+   phi: 0.343566, violation: 1.84258
+
+  observation constraint information at iteration 1 for cand_tr14_rs:0.5     
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5       -1.24564       true              0
+CONSTRAINT2              less_than           0        1.84258      false        1.84258
+CONSTRAINT3           greater_than          -1       0.238774       true              0
+
+...no trust region candidate accepted by filter, reducing radius to 2.5
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+  2.06279 -0.281289
+-0.281289 0.0713722
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           3.8720e-01     2.1342e+00     5.511782    5.511782  
+   Determinant     3.7481e-02     6.8102e-02     1.816988    1.816988  
+   Frobenius Norm  2.7379e-01     2.1020e+00     7.677402    7.677402  
+   Max Eigenvalue  1.0000e+00     2.1018e+00     2.101760    2.101760  
+   Condition No.   1.0000e+00     6.4864e+01                           
+   number of cov-based criteria satisfied: 0
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 1 report  ---  
+   number of active realizations:  21
+   number of model runs:           61
+   number of active feasible solutions (% of active):   0(0%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.1.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.1.par.csv
+
+StoSAG-calculated gradient: 
+5.87837
+ 174.82
+
+  observation constraint information at iteration 1
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5       -1.24564       true              0
+CONSTRAINT2              less_than           0        1.84258      false        1.84258
+CONSTRAINT3           greater_than          -1       0.238774       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     71.49    101.1          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.1.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  1e+300
+   number of consecutive infeasible solutions:  1
+   number of iterations satisfying phiredstp criteria:  0
+   number of iterations since best yet mean phi:  0
+...starting BFGS hessian update for iteration  1
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 2  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs: -0.342933  -1.57718
+   working set:
+         CONSTRAINT1 (lm = 6.47231e+06)
+         CONSTRAINT2 (lm = 3.61991e+06)
+         search direction norm: 207.836
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs: -2.17111
+   working set:
+         CONSTRAINT2 (lm = 381.601)
+         search direction norm: 6.03294
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs: -0.632678  -2.04506
+   working set:
+         CONSTRAINT1 (lm = 9.39922e+06)
+         CONSTRAINT2 (lm = 5.25674e+06)
+         search direction norm: 301.985
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: -2.84766
+   working set:
+         CONSTRAINT2 (lm = 381.606)
+         search direction norm: 8.13765
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs:  -5.60531 -0.068027
+   working set:
+         CONSTRAINT1 (lm = 2.9926e+07)
+         CONSTRAINT2 (lm = 1.6736e+07)
+         search direction norm: 975.27
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs:  -1.7506 -1.25698
+   working set:
+         CONSTRAINT1 (lm = 1.29939e+07)
+         CONSTRAINT2 (lm = 7.26701e+06)
+         search direction norm: 420.976
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs:   -4.12966 -0.0656014
+   working set:
+         CONSTRAINT1 (lm = 2.20858e+07)
+         CONSTRAINT2 (lm = 1.23515e+07)
+         search direction norm: 719.98
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs:  -1.30761 -0.724087
+   working set:
+         CONSTRAINT1 (lm = 9.06055e+06)
+         CONSTRAINT2 (lm = 5.06734e+06)
+         search direction norm: 294.214
+
+...calculating search direction for realization 8
+   not on constraint but working set not empty
+   current constraint diffs:  -2.73235 -0.901832
+   working set:
+         CONSTRAINT1 (lm = 1.7151e+07)
+         CONSTRAINT2 (lm = 9.59177e+06)
+         search direction norm: 557.217
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs: -2.23462
+   working set:
+         CONSTRAINT2 (lm = 381.601)
+         search direction norm: 6.23029
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs:  -3.75807 -0.129606
+   working set:
+         CONSTRAINT1 (lm = 2.03033e+07)
+         CONSTRAINT2 (lm = 1.13547e+07)
+         search direction norm: 661.778
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: -0.0599258   -1.89598
+   working set:
+         CONSTRAINT1 (lm = 5.91642e+06)
+         CONSTRAINT2 (lm = 3.30904e+06)
+         search direction norm: 188.956
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs:  -2.97912 -0.388991
+   working set:
+         CONSTRAINT1 (lm = 1.69385e+07)
+         CONSTRAINT2 (lm = 9.47295e+06)
+         search direction norm: 551.569
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs:  -1.62334 -0.935667
+   working set:
+         CONSTRAINT1 (lm = 1.13646e+07)
+         CONSTRAINT2 (lm = 6.35585e+06)
+         search direction norm: 368.716
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs: -3.04603 -0.68972
+   working set:
+         CONSTRAINT1 (lm = 1.81864e+07)
+         CONSTRAINT2 (lm = 1.01708e+07)
+         search direction norm: 591.458
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: -2.27237
+   working set:
+         CONSTRAINT2 (lm = 381.602)
+         search direction norm: 6.34762
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: -1.9683
+   working set:
+         CONSTRAINT2 (lm = 381.6)
+         search direction norm: 5.40313
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: -1.9622
+   working set:
+         CONSTRAINT2 (lm = 381.6)
+         search direction norm: 5.38422
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs: -2.08368
+   working set:
+         CONSTRAINT2 (lm = 381.6)
+         search direction norm: 5.76135
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs:  -2.70785 -0.657803
+   working set:
+         CONSTRAINT1 (lm = 1.62965e+07)
+         CONSTRAINT2 (lm = 9.11394e+06)
+         search direction norm: 529.998
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs: -1.84258
+   working set:
+         CONSTRAINT2 (lm = 381.599)
+         search direction norm: 5.01318
+
+...performing line search on ensemble subset: 0, 2, 4, 6, 7, 8, 9, 11, 13, 18, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.2.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:1        , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:1        , 
+...duplicate trust-region candidates:cand_tr4_rs:0.01     , cand_tr4_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr4_rs:0.01     , cand_tr4_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr4_rs:0.01     , cand_tr4_rs:1        , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:1        , 
+...duplicate trust-region candidates:cand_tr7_rs:0.01     , cand_tr7_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr7_rs:0.01     , cand_tr7_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr7_rs:0.01     , cand_tr7_rs:1        , 
+...duplicate trust-region candidates:cand_tr8_rs:0.01     , cand_tr8_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr8_rs:0.01     , cand_tr8_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr8_rs:0.01     , cand_tr8_rs:1        , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:1        , 
+...duplicate trust-region candidates:cand_tr13_rs:0.01     , cand_tr13_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr13_rs:0.01     , cand_tr13_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr13_rs:0.01     , cand_tr13_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.2.oe_candidates.csv
+
+  ---  current best phi: 0.343566  ---  
+...evaluating 41 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        36.7684        1.92012             reject         
+1                        266.97         2.17111             reject         
+2                        82.0605        2.67773             reject         
+3                        251.963        2.84766             reject         
+4                        334.281        5.60531             reject         
+5                        84.5296        3.00758             reject         
+6                        46.9866        4.12966             reject         
+7                        30.8915        2.03169             reject         
+8                        46.1626        3.63418             reject         
+9                        244.89         2.23462             reject         
+10                       18.132         3.88767             reject         
+11                       28.5967        1.95591             reject         
+12                       6.61618        3.36811             reject         
+13                       51.5872        2.55901             reject         
+14                       21.0085        3.73575             reject         
+15                       377.047        2.27237             reject         
+16                       0.162785       1.9683              accept         
+17                       115.079        1.9622              reject         
+18                       16.5665        2.08368             reject         
+19                       25.1399        3.36565             reject         
+BASE                     0.343566       1.84258             reject         
+cand_tr0_rs:0.01         528.914        1.35715             accept         
+cand_tr2_rs:0.01         528.136        1.3558              accept         
+cand_tr4_rs:0.01         3166.18        2.73616             reject         
+cand_tr6_rs:0.01         1585.88        1.83182             reject         
+cand_tr7_rs:0.01         503.951        1.09795             accept         
+cand_tr8_rs:0.01         701.594        0.867014            accept         
+cand_tr9_rs:0.01         251.997        2.1963              reject         
+cand_tr9_rs:0.1          320.564        1.85143             reject         
+cand_tr9_rs:0.5          725.848        0.743916            accept         
+cand_tr9_rs:1            1464.71        1.65354             reject         
+cand_tr11_rs:0.01        591.36         1.44044             reject         
+cand_tr13_rs:0.01        518.237        1.06497             accept         
+cand_tr18_rs:0.01        18.5109        2.04536             reject         
+cand_tr18_rs:0.1         40.8741        1.70049             accept         
+cand_tr18_rs:0.5         246.499        0.167732            accept         
+cand_tr18_rs:1           748.896        1.28976             reject         
+cand_trBASE_rs:0.01      0.666123       1.80426             accept         
+cand_trBASE_rs:0.1       8.56912        1.45939             accept         
+cand_trBASE_rs:0.5       152.908        0                   accept         
+cand_trBASE_rs:1         585.566        1.21781             reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  12
+
+SQP filter members (13) for iteration 2:
+------------------------------
+Obj            Violation      
+------------------------------
+725.848        0.743916       
+701.594        0.867014       
+528.914        1.35715        
+528.136        1.3558         
+518.237        1.06497        
+503.951        1.09795        
+246.499        0.229206       
+152.908        0              
+40.8741        1.70049        
+8.56912        1.45939        
+0.666123       1.80426        
+0.343566       1.84258        
+0.162785       1.9683         
+------------------------------
+...filter summary with 13 pairs for iteration 2:
+          obj min:   0.162785
+          obj max:    725.848
+         obj knee:    152.908
+    violation min:          0
+    violation max:     1.9683
+   violation knee:          0
+
+
+SQP filter members (2) for iteration 2:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 2 pairs for iteration 2:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:   0.343566
+    violation min:          0
+    violation max:    1.84258
+   violation knee:    1.84258
+
+...updating BASE with realization: 2|cand_trBASE_rs:0.5     
+   phi: 152.908, violation: 0
+
+  observation constraint information at iteration 2 for cand_trBASE_rs:0.5     
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5       -2.40042       true              0
+CONSTRAINT2              less_than           0     -0.0733682       true              0
+CONSTRAINT3           greater_than          -1      -0.989516       true              0
+
+...trust region step accepted by filter but rho=0, reducing radius to 0.625
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+ 0.222473 -0.351506
+-0.351506   1.15651
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           2.1342e+00     1.3790e+00     0.646150    3.561436  
+   Determinant     6.8102e-02     1.3374e-01     1.963765    3.568139  
+   Frobenius Norm  2.1020e+00     1.2783e+00     0.608148    4.668995  
+   Max Eigenvalue  2.1018e+00     1.2740e+00     0.606166    1.274015  
+   Condition No.   6.4864e+01     1.2137e+01                           
+   number of cov-based criteria satisfied: 0
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 2 report  ---  
+   number of active realizations:  21
+   number of model runs:           101
+   number of active feasible solutions (% of active):   4(19%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.2.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.2.par.csv
+
+StoSAG-calculated gradient: 
+330.251
+-59.823
+
+  observation constraint information at iteration 2
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5       -2.40042       true              0
+CONSTRAINT2              less_than           0     -0.0733682       true              0
+CONSTRAINT3           greater_than          -1      -0.989516       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     140.5    47.12          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.2.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  152.908
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  2
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 3  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs: -0.452452   -2.1896
+   working set:
+         CONSTRAINT1 (lm = -7597.61)
+         CONSTRAINT2 (lm = 13810.3)
+         search direction norm: 12.3669
+
+...calculating search direction for realization 1
+   working set: EMPTY
+         search direction norm: 381136
+
+...calculating search direction for realization 2
+   working set: EMPTY
+         search direction norm: 381136
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: -1.22789
+   working set:
+         CONSTRAINT2 (lm = 2550.1)
+         search direction norm: 4.14666
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs: 0.0688312  -1.54425
+   working set:
+         CONSTRAINT1 (lm = -5880.22)
+         CONSTRAINT2 (lm = 11265)
+         search direction norm: 12.3848
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: -1.53503
+   working set:
+         CONSTRAINT2 (lm = 2550.12)
+         search direction norm: 6.45822
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: -0.284582
+   working set:
+         CONSTRAINT3 (lm = -1555.29)
+         search direction norm: 25.7791
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs: -0.993368
+   working set:
+         CONSTRAINT2 (lm = 2550.08)
+         search direction norm: 3.11063
+
+...calculating search direction for realization 8
+   not on constraint but working set not empty
+   current constraint diffs: -1.50659
+   working set:
+         CONSTRAINT2 (lm = 2550.11)
+         search direction norm: 6.22415
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs: -0.917041
+   working set:
+         CONSTRAINT3 (lm = -1555.27)
+         search direction norm: 29.3453
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs: -0.730319
+   working set:
+         CONSTRAINT3 (lm = -1555.28)
+         search direction norm: 28.291
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: -0.314043
+   working set:
+         CONSTRAINT2 (lm = 2550.04)
+         search direction norm: 6.52922
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs:  -0.819975 -0.0277626
+   working set:
+         CONSTRAINT2 (lm = 12479.9)
+         CONSTRAINT3 (lm = 6056.48)
+         search direction norm: 18.9496
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs: -0.710022  -1.82626
+   working set:
+         CONSTRAINT1 (lm = -4455.92)
+         CONSTRAINT2 (lm = 9154.08)
+         search direction norm: 7.60631
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs:  -0.573198 -0.0648389
+   working set:
+         CONSTRAINT2 (lm = 11004.4)
+         CONSTRAINT3 (lm = 5156.59)
+         search direction norm: 13.6244
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: -0.717533
+   working set:
+         CONSTRAINT2 (lm = 2550.06)
+         search direction norm: 3.6393
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: 0.0484056
+   working set:
+         CONSTRAINT3 (lm = -1555.3)
+         search direction norm: 23.9083
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: -1.81327
+   working set:
+         CONSTRAINT2 (lm = 2550.13)
+         search direction norm: 8.84741
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs: -0.452732  -1.72032
+   working set:
+         CONSTRAINT1 (lm = -4851.69)
+         CONSTRAINT2 (lm = 9740.63)
+         search direction norm: 8.8689
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -0.785825
+   working set:
+         CONSTRAINT2 (lm = 2550.07)
+         search direction norm: 3.33338
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs: 0.0733682 0.0104844
+   working set:
+         CONSTRAINT2 (lm = 6446.47)
+         CONSTRAINT3 (lm = 2376.57)
+         search direction norm: 1.76207
+
+...performing line search on ensemble subset: 1, 2, 3, 4, 6, 8, 9, 10, 11, 18, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.3.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr4_rs:0.01     , cand_tr4_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr4_rs:0.01     , cand_tr4_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr4_rs:0.01     , cand_tr4_rs:1        , 
+...duplicate trust-region candidates:cand_tr18_rs:0.01     , cand_tr18_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr18_rs:0.01     , cand_tr18_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr18_rs:0.01     , cand_tr18_rs:1        , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:0.1      , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:0.5      , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.3.oe_candidates.csv
+
+  ---  current best phi: 152.908  ---  
+...evaluating 56 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        72.1688        2.64205             reject         
+1                        49.8775        0                   accept         
+2                        58.019         0                   reject         
+3                        344.729        1.22789             reject         
+4                        13.4439        1.54425             accept         
+5                        26.4817        1.53503             accept         
+6                        292.46         0.284582            reject         
+7                        113.74         0.993368            reject         
+8                        13.6426        1.50659             accept         
+9                        644.167        0.917041            reject         
+10                       577.349        0.730319            reject         
+11                       1.30544        0.314043            accept         
+12                       472.817        0.819975            reject         
+13                       75.7544        2.53628             reject         
+14                       393.269        0.573198            reject         
+15                       0.358265       0.717533            accept         
+16                       84.4569        0                   reject         
+17                       15.2364        1.81327             reject         
+18                       50.2354        2.17305             reject         
+19                       6.83169        0.785825            reject         
+BASE                     152.908        0                   reject         
+cand_tr1_rs:0.01         49.6288        0                   accept         
+cand_tr1_rs:0.1          47.8893        0                   accept         
+cand_tr1_rs:0.5          50.4861        0.407882            reject         
+cand_tr1_rs:1            81.302         1.15545             reject         
+cand_tr2_rs:0.01         56.8521        0                   reject         
+cand_tr2_rs:0.1          47.3598        0                   accept         
+cand_tr2_rs:0.5          22.2505        0                   accept         
+cand_tr2_rs:1            14.0886        0.308325            accept         
+cand_tr3_rs:0.01         338.256        1.22342             reject         
+cand_tr3_rs:0.1          283.904        1.18311             reject         
+cand_tr3_rs:0.5          115.287        1.00395             reject         
+cand_tr3_rs:1            23.1328        0.780006            reject         
+cand_tr4_rs:0.01         1363.05        6.61195             reject         
+cand_tr6_rs:0.01         288.118        0.280393            reject         
+cand_tr6_rs:0.1          251.585        0.242692            reject         
+cand_tr6_rs:0.5          135.992        0                   reject         
+cand_tr6_rs:1            66.0826        0                   reject         
+cand_tr8_rs:0.01         12.7751        1.50211             reject         
+cand_tr8_rs:0.1          6.42956        1.4618              reject         
+cand_tr8_rs:0.5          2.03675        1.28265             reject         
+cand_tr8_rs:1            21.028         1.47656             reject         
+cand_tr9_rs:0.01         636.918        0.912852            reject         
+cand_tr9_rs:0.1          575.155        0.875152            reject         
+cand_tr9_rs:0.5          366.662        0.707593            reject         
+cand_tr9_rs:1            219.472        0.498144            reject         
+cand_tr10_rs:0.01        570.308        0.72613             reject         
+cand_tr10_rs:0.1         510.415        0.688429            reject         
+cand_tr10_rs:0.5         310.031        0.52087             reject         
+cand_tr10_rs:1           171.249        0.311421            reject         
+cand_tr11_rs:0.01        1.22788        0.309564            accept         
+cand_tr11_rs:0.1         0.776249       0.269254            accept         
+cand_tr11_rs:0.5         1.35508        0.5584              reject         
+cand_tr11_rs:1           1.75292        1.30597             reject         
+cand_tr18_rs:0.01        1230.62        6.79661             reject         
+cand_trBASE_rs:0.01      2393.48        5.40816             reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  13
+
+SQP filter members (15) for iteration 3:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+49.8775        0              
+49.6288        0              
+47.8893        0              
+47.3598        0              
+26.4817        1.53503        
+22.2505        0              
+14.0886        0.308325       
+13.6426        1.50659        
+13.4439        1.54425        
+1.30544        0.314043       
+1.22788        0.309564       
+0.776249       0.269254       
+0.358265       0.717533       
+0.343566       1.84258        
+------------------------------
+...filter summary with 15 pairs for iteration 3:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    22.2505
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+
+SQP filter members (3) for iteration 3:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 3 pairs for iteration 3:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    22.2505
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 3|cand_tr2_rs:0.5     
+   phi: 22.2505, violation: 0
+
+  observation constraint information at iteration 3 for cand_tr2_rs:0.5     
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.939242       true              0
+CONSTRAINT2              less_than           0      -0.380112       true              0
+CONSTRAINT3           greater_than          -1      -0.527742       true              0
+
+...trust region step accepted by filter but rho=0, reducing radius to 0.156
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+ 0.069127 0.0518909
+0.0518909 0.0942815
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           1.3790e+00     1.6341e-01     0.118499    0.422026  
+   Determinant     1.3374e-01     3.8247e-03     0.028599    0.102045  
+   Frobenius Norm  1.2783e+00     1.3803e-01     0.107978    0.504150  
+   Max Eigenvalue  1.2740e+00     1.3510e-01     0.106041    0.135098  
+   Condition No.   1.2137e+01     4.7719e+00                           
+   number of cov-based criteria satisfied: 0
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 3 report  ---  
+   number of active realizations:  21
+   number of model runs:           156
+   number of active feasible solutions (% of active):   11(52%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.3.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.3.par.csv
+
+StoSAG-calculated gradient: 
+ 20.2899
+-96.2778
+
+  observation constraint information at iteration 3
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.939242       true              0
+CONSTRAINT2              less_than           0      -0.380112       true              0
+CONSTRAINT3           greater_than          -1      -0.527742       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     135.1    18.66          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.3.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  22.2505
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  3
+...warning: condition number too large:  1.13302e+09
+   applying regularization:  3.87139e-06
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 4  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs: -0.339307
+   working set:
+         CONSTRAINT1 (lm = -91.5217)
+         search direction norm: 0.600558
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs: -0.417901 -0.275975
+   working set:
+         CONSTRAINT1 (lm = 5613.07)
+         CONSTRAINT2 (lm = -2915.27)
+         search direction norm: 0.477567
+
+...calculating search direction for realization 2
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: -1.07184
+   working set:
+         CONSTRAINT2 (lm = -46.7711)
+         search direction norm: 0.967288
+
+...calculating search direction for realization 4
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: -0.0797883
+   working set:
+         CONSTRAINT1 (lm = -91.5217)
+         search direction norm: 0.140329
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: -0.0657644
+   working set:
+         CONSTRAINT2 (lm = -46.7711)
+         search direction norm: 0.0561036
+
+...calculating search direction for realization 7
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 8
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 9
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 10
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: -0.914615
+   working set:
+         CONSTRAINT2 (lm = -46.7711)
+         search direction norm: 0.824804
+
+...calculating search direction for realization 12
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 13
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 14
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: -0.0392956
+   working set:
+         CONSTRAINT3 (lm = -26.0101)
+         search direction norm: 0.015925
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: -0.437089
+   working set:
+         CONSTRAINT1 (lm = -91.5217)
+         search direction norm: 0.773965
+
+...calculating search direction for realization 17
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs: -0.202111
+   working set:
+         CONSTRAINT2 (lm = -46.7711)
+         search direction norm: 0.179234
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -0.139431
+   working set:
+         CONSTRAINT1 (lm = -91.5217)
+         search direction norm: 0.246099
+
+...calculating search direction for realization BASE
+   working set: EMPTY
+         search direction norm: 5.16081e+06
+
+...performing line search on ensemble subset: 1, 4, 5, 7, 10, 11, 12, 14, 16, 18, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.4.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr1_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.5      , cand_tr1_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.4.oe_candidates.csv
+
+  ---  current best phi: 22.2505  ---  
+...evaluating 63 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        50.8108        0.339307            reject         
+1                        2.14473        0.693876            accept         
+2                        57.5085        0                   reject         
+3                        43.1723        1.07184             reject         
+4                        36.8155        0                   reject         
+5                        47.0478        0.0797883           reject         
+6                        17.6616        0                   accept         
+7                        22.1495        0                   accept         
+8                        75.3575        0                   reject         
+9                        50.3931        0                   reject         
+10                       61.9304        0                   reject         
+11                       0.363126       0.914615            accept         
+12                       24.8937        0                   reject         
+13                       20.5488        0                   accept         
+14                       34.9787        0                   reject         
+15                       98.6846        0                   reject         
+16                       99.023         0.437089            reject         
+17                       69.4467        0                   reject         
+18                       11.7964        0.202111            accept         
+19                       108.018        0.139431            reject         
+BASE                     22.2505        0                   reject         
+cand_tr1_rs:0.01         1527.25        6.39511             reject         
+cand_tr1_rs:0.5          434.441        6.43306             reject         
+cand_tr4_rs:0.01         36.6033        0                   reject         
+cand_tr4_rs:0.1          34.722         0                   reject         
+cand_tr4_rs:0.5          26.9918        0                   reject         
+cand_tr4_rs:1            18.7613        0                   accept         
+cand_tr5_rs:0.01         46.8512        0.0820422           reject         
+cand_tr5_rs:0.1          45.1027        0.102327            reject         
+cand_tr5_rs:0.5          37.7727        0.192483            reject         
+cand_tr5_rs:1            29.6098        0.305177            reject         
+cand_tr7_rs:0.01         21.9925        0                   reject         
+cand_tr7_rs:0.1          20.6062        0                   reject         
+cand_tr7_rs:0.5          15.0245        0                   accept         
+cand_tr7_rs:1            9.36228        0                   accept         
+cand_tr10_rs:0.01        61.6492        0                   reject         
+cand_tr10_rs:0.1         59.1489        0                   reject         
+cand_tr10_rs:0.5         48.6964        0                   reject         
+cand_tr10_rs:1           37.1296        0                   reject         
+cand_tr11_rs:0.01        0.376005       0.916586            reject         
+cand_tr11_rs:0.1         0.52258        0.934326            reject         
+cand_tr11_rs:0.5         1.83807        1.01317             reject         
+cand_tr11_rs:1           4.98999        1.11173             reject         
+cand_tr12_rs:0.01        24.7283        0                   reject         
+cand_tr12_rs:0.1         23.2658        0                   reject         
+cand_tr12_rs:0.5         17.3387        0                   reject         
+cand_tr12_rs:1           11.2293        0                   reject         
+cand_tr14_rs:0.01        34.7734        0                   reject         
+cand_tr14_rs:0.1         32.9539        0                   reject         
+cand_tr14_rs:0.5         25.4893        0                   reject         
+cand_tr14_rs:1           17.5709        0                   reject         
+cand_tr16_rs:0.01        98.7676        0.439343            reject         
+cand_tr16_rs:0.1         96.4864        0.459628            reject         
+cand_tr16_rs:0.5         86.7161        0.549784            reject         
+cand_tr16_rs:1           75.3377        0.662478            reject         
+cand_tr18_rs:0.01        11.6747        0.204082            reject         
+cand_tr18_rs:0.1         10.6094        0.221822            reject         
+cand_tr18_rs:0.5         6.52406        0.300669            accept         
+cand_tr18_rs:1           2.89163        0.399227            accept         
+cand_trBASE_rs:0.01      22.0949        0                   reject         
+cand_trBASE_rs:0.1       20.7203        0                   reject         
+cand_trBASE_rs:0.5       15.1794        0                   reject         
+cand_trBASE_rs:1         9.54291        0                   reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  11
+
+SQP filter members (14) for iteration 4:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+22.1495        0              
+20.5488        0              
+18.7613        0              
+17.6616        0.0657644      
+15.0245        0              
+11.7964        0.202111       
+9.36228        0              
+6.52406        0.300669       
+2.89163        0.399227       
+2.14473        0.693876       
+0.363126       0.914615       
+0.343566       1.84258        
+------------------------------
+...filter summary with 14 pairs for iteration 4:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    9.36228
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+
+SQP filter members (4) for iteration 4:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 4 pairs for iteration 4:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    9.36228
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 4|cand_tr7_rs:1       
+   phi: 9.36228, violation: 0
+
+  observation constraint information at iteration 4 for cand_tr7_rs:1       
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.759039       true              0
+CONSTRAINT2              less_than           0      -0.136384       true              0
+CONSTRAINT3           greater_than          -1      -0.358169       true              0
+
+...trust region step accepted by filter but rho=-0, reducing radius to 0.0391
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+  0.00766964 -8.59443e-05
+-8.59443e-05   0.00335038
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           1.6341e-01     1.1020e-02     0.067438    0.028461  
+   Determinant     3.8247e-03     2.5689e-05     0.006716    0.000685  
+   Frobenius Norm  1.3803e-01     8.3704e-03     0.060641    0.030572  
+   Max Eigenvalue  1.3510e-01     7.6714e-03     0.056784    0.007671  
+   Condition No.   4.7719e+00     2.2909e+00                           
+   number of cov-based criteria satisfied: 4
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 4 report  ---  
+   number of active realizations:  21
+   number of model runs:           218
+   number of active feasible solutions (% of active):   16(76%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.4.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.4.par.csv
+
+StoSAG-calculated gradient: 
+ 28.9391
+-57.9718
+
+  observation constraint information at iteration 4
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.759039       true              0
+CONSTRAINT2              less_than           0      -0.136384       true              0
+CONSTRAINT3           greater_than          -1      -0.358169       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     123.8    82.34          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.4.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+   4           9.362       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  9.36228
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  4
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 5  ---  
+...calculating search direction for realization 0
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs: -0.133793
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.162115
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs: -0.0830808
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.16322
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: 0.00172281
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.165482
+
+...calculating search direction for realization 4
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: -0.0256894
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.164695
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: -0.0398558
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.164309
+
+...calculating search direction for realization 7
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 8
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 9
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs: 0.0395381
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.166652
+
+...calculating search direction for realization 11
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs: 0.00669519
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.16563
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs: -0.0345085
+   working set:
+         CONSTRAINT1 (lm = -8.47521)
+         search direction norm: 0.18459
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs: 0.0590833
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.167295
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: 0.0722489
+   working set:
+         CONSTRAINT1 (lm = -8.47521)
+         search direction norm: 0.187906
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: 0.070562
+   working set:
+         CONSTRAINT1 (lm = -8.47521)
+         search direction norm: 0.187833
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: 0.0982898
+   working set:
+         CONSTRAINT1 (lm = -8.47521)
+         search direction norm: 0.189097
+
+...calculating search direction for realization 18
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: 0.010526
+   working set:
+         CONSTRAINT2 (lm = -4.55618)
+         search direction norm: 0.165745
+
+...calculating search direction for realization BASE
+   working set: EMPTY
+         search direction norm: 3.78017e+06
+
+...performing line search on ensemble subset: 1, 2, 5, 6, 7, 13, 14, 15, 16, 18, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.5.dv_candidates.csv
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.5.oe_candidates.csv
+
+  ---  current best phi: 9.36228  ---  
+...evaluating 65 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        17.603         0                   reject         
+1                        2.9858         0.133793            accept         
+2                        9.52159        0                   reject         
+3                        11.9812        0                   reject         
+4                        16.4979        0                   reject         
+5                        15.9085        0                   reject         
+6                        4.2134         0                   accept         
+7                        10.8762        0                   reject         
+8                        10.0113        0                   reject         
+9                        8.60473        0                   accept         
+10                       7.12586        0                   accept         
+11                       11.8616        0                   reject         
+12                       6.30803        0                   accept         
+13                       10.9914        0                   reject         
+14                       8.19286        0                   reject         
+15                       8.6308         0                   reject         
+16                       7.95743        0                   reject         
+17                       6.00839        0                   accept         
+18                       9.46564        0                   reject         
+19                       10.0611        0                   reject         
+BASE                     9.36228        0                   reject         
+cand_tr1_rs:0.01         2.97227        0.134143            accept         
+cand_tr1_rs:0.1          2.85235        0.137291            accept         
+cand_tr1_rs:0.5          2.35921        0.151282            accept         
+cand_tr1_rs:1            1.83301        0.168771            accept         
+cand_tr2_rs:0.01         9.49336        0                   reject         
+cand_tr2_rs:0.1          9.24153        0                   reject         
+cand_tr2_rs:0.5          8.16923        0.10057             reject         
+cand_tr2_rs:1            6.93542        0.118059            reject         
+cand_tr5_rs:0.01         15.8704        0                   reject         
+cand_tr5_rs:0.1          15.5305        0                   reject         
+cand_tr5_rs:0.5          14.0706        0                   reject         
+cand_tr5_rs:1            12.3604        0                   reject         
+cand_tr6_rs:0.01         4.19717        0                   accept         
+cand_tr6_rs:0.1          4.05288        0                   accept         
+cand_tr6_rs:0.5          3.45039        0                   accept         
+cand_tr6_rs:1            2.78516        0                   accept         
+cand_tr7_rs:0.01         10.8505        0                   reject         
+cand_tr7_rs:0.1          10.6203        0                   reject         
+cand_tr7_rs:0.5          9.63348        0                   reject         
+cand_tr7_rs:1            8.48216        0                   reject         
+cand_tr13_rs:0.01        10.968         0                   reject         
+cand_tr13_rs:0.1         10.7589        0                   reject         
+cand_tr13_rs:0.5         9.86024        0.071611            reject         
+cand_tr13_rs:1           8.80679        0.108713            reject         
+cand_tr14_rs:0.01        8.16886        0                   reject         
+cand_tr14_rs:0.1         7.95482        0                   reject         
+cand_tr14_rs:0.5         7.04433        0                   reject         
+cand_tr14_rs:1           5.99877        0                   accept         
+cand_tr15_rs:0.01        8.60878        0                   reject         
+cand_tr15_rs:0.1         8.4122         0                   reject         
+cand_tr15_rs:0.5         7.57264        0                   reject         
+cand_tr15_rs:1           6.60043        0                   reject         
+cand_tr16_rs:0.01        7.93627        0                   reject         
+cand_tr16_rs:0.1         7.74744        0                   reject         
+cand_tr16_rs:0.5         6.94247        0                   reject         
+cand_tr16_rs:1           6.01381        0                   reject         
+cand_tr18_rs:0.01        9.44015        0                   reject         
+cand_tr18_rs:0.1         9.21266        0                   reject         
+cand_tr18_rs:0.5         8.24153        0                   reject         
+cand_tr18_rs:1           7.11811        0                   reject         
+cand_trBASE_rs:0.01      9.33714        0                   reject         
+cand_trBASE_rs:0.1       9.11268        0                   reject         
+cand_trBASE_rs:0.5       8.15452        0                   reject         
+cand_trBASE_rs:1         7.04618        0                   reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  15
+
+SQP filter members (19) for iteration 5:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+8.60473        0              
+7.12586        0              
+6.30803        0              
+6.00839        0              
+5.99877        0              
+4.2134         0.0398558      
+4.19717        0.0402056      
+4.05288        0.0433536      
+3.45039        0.0573448      
+2.9858         0.133793       
+2.97227        0.134143       
+2.85235        0.137291       
+2.78516        0.0748338      
+2.35921        0.151282       
+1.83301        0.168771       
+0.343566       1.84258        
+------------------------------
+...filter summary with 19 pairs for iteration 5:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    5.99877
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+
+SQP filter members (5) for iteration 5:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 5 pairs for iteration 5:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    5.99877
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 5|cand_tr14_rs:1       
+   phi: 5.99877, violation: 0
+
+  observation constraint information at iteration 5 for cand_tr14_rs:1       
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.713879       true              0
+CONSTRAINT2              less_than           0     -0.0241053       true              0
+CONSTRAINT3           greater_than          -1      -0.295194       true              0
+
+...trust region step accepted by filter but rho=0, reducing radius to 0.00977
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+  0.0101544 -0.00296775
+-0.00296775   0.0133998
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           1.1020e-02     2.3554e-02     2.137404    0.060832  
+   Determinant     2.5689e-05     1.2726e-04     4.953900    0.003395  
+   Frobenius Norm  8.3704e-03     1.7329e-02     2.070236    0.063291  
+   Max Eigenvalue  7.6714e-03     1.5160e-02     1.976123    0.015160  
+   Condition No.   2.2909e+00     1.8058e+00                           
+   number of cov-based criteria satisfied: 2
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 5 report  ---  
+   number of active realizations:  21
+   number of model runs:           282
+   number of active feasible solutions (% of active):   7(33%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.5.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.5.par.csv
+
+StoSAG-calculated gradient: 
+  32.884
+-44.4679
+
+  observation constraint information at iteration 5
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.713879       true              0
+CONSTRAINT2              less_than           0     -0.0241053       true              0
+CONSTRAINT3           greater_than          -1      -0.295194       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     120.5    71.35          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.5.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+   4           9.362       0.000000
+   5           5.999       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  5.99877
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  5
+...warning: condition number too large:  1.54007e+09
+   applying regularization:  8.92029e-06
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 6  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs: -0.0602806
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.066489
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs: -0.0960446
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.103036
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs:  0.0414272 -0.0126955
+   working set:
+         CONSTRAINT1 (lm = -106.305)
+         CONSTRAINT2 (lm = 58.8433)
+         search direction norm: 0.216643
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: -0.056227
+   working set:
+         CONSTRAINT1 (lm = -2368.46)
+         search direction norm: 35.8688
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs:  0.0846722 -0.0858611
+   working set:
+         CONSTRAINT1 (lm = -464.534)
+         CONSTRAINT2 (lm = 49.5252)
+         search direction norm: 0.306424
+
+...calculating search direction for realization 5
+   working set: EMPTY
+         search direction norm: 2.48238e+06
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: -0.185766
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.309042
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs: 0.0128022
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.201886
+
+...calculating search direction for realization 8
+   working set: EMPTY
+         search direction norm: 2.48238e+06
+
+...calculating search direction for realization 9
+   working set: EMPTY
+         search direction norm: 2.48238e+06
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs: -0.169624
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.270035
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: -0.0242775
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.118739
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs: -0.0907353  0.0988101
+   working set:
+         CONSTRAINT1 (lm = 1013.76)
+         CONSTRAINT2 (lm = 87.9781)
+         search direction norm: 0.314208
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs: 0.0562743
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.305911
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs: -0.0493362  -0.298945
+   working set:
+         CONSTRAINT1 (lm = 744.686)
+         CONSTRAINT2 (lm = 80.979)
+         search direction norm: 1.0651
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: -0.126997 -0.472355
+   working set:
+         CONSTRAINT1 (lm = 1456.71)
+         CONSTRAINT2 (lm = 99.4999)
+         search direction norm: 1.96678
+
+...calculating search direction for realization 16
+   working set: EMPTY
+         search direction norm: 2.48238e+06
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs:  -0.15625 0.0670175
+   working set:
+         CONSTRAINT1 (lm = 1588.61)
+         CONSTRAINT2 (lm = 102.931)
+         search direction norm: 0.771612
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs: -0.122547
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.159285
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -0.169693
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.270201
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs: 0.0241053
+   working set:
+         CONSTRAINT2 (lm = 61.6085)
+         search direction norm: 0.228589
+
+...performing line search on ensemble subset: 1, 2, 4, 6, 7, 9, 13, 15, 18, 19, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.6.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr2_rs:0.1      , cand_tr2_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.1      , cand_tr2_rs:1        , 
+...duplicate trust-region candidates:cand_tr4_rs:0.1      , cand_tr4_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr4_rs:0.1      , cand_tr4_rs:1        , 
+...duplicate trust-region candidates:cand_tr15_rs:0.1      , cand_tr15_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.1      , cand_tr15_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.6.oe_candidates.csv
+
+  ---  current best phi: 5.99877  ---  
+...evaluating 59 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        11.7238        0                   reject         
+1                        4.55639        0                   accept         
+2                        2.99237        0                   accept         
+3                        7.77821        0.056227            reject         
+4                        2.51044        0                   accept         
+5                        30.3311        0                   reject         
+6                        2.77092        0.185766            reject         
+7                        5.53487        0                   accept         
+8                        20.9229        0                   reject         
+9                        8.69441        0                   reject         
+10                       2.40775        0.169624            accept         
+11                       22.6485        0                   reject         
+12                       3.28188        0.0907353           reject         
+13                       6.79761        0                   reject         
+14                       0.604088       0.298945            accept         
+15                       1.62515        0.599352            reject         
+16                       13.5817        0                   reject         
+17                       2.33194        0.15625             accept         
+18                       4.40742        0.122547            reject         
+19                       4.81204        0.169693            reject         
+BASE                     5.99877        0                   reject         
+cand_tr1_rs:0.01         4.55191        0                   reject         
+cand_tr1_rs:0.1          4.51274        0                   reject         
+cand_tr1_rs:0.5          4.34089        0                   reject         
+cand_tr1_rs:1            4.13219        0.102016            reject         
+cand_tr2_rs:0.01         7.95805        7.90632             reject         
+cand_tr2_rs:0.1          12.1321        4.66146             reject         
+cand_tr4_rs:0.01         6.20755        7.84123             reject         
+cand_tr4_rs:0.1          9.0511         4.67897             reject         
+cand_tr6_rs:0.01         2.76756        0.185827            reject         
+cand_tr6_rs:0.1          2.73822        0.186363            reject         
+cand_tr6_rs:0.5          2.6101         0.188752            reject         
+cand_tr6_rs:1            2.456          0.191737            reject         
+cand_tr7_rs:0.01         5.53013        0                   reject         
+cand_tr7_rs:0.1          5.48869        0                   accept         
+cand_tr7_rs:0.5          5.30654        0                   accept         
+cand_tr7_rs:1            5.08454        0                   accept         
+cand_tr9_rs:0.01         8.68834        0                   reject         
+cand_tr9_rs:0.1          8.63529        0                   reject         
+cand_tr9_rs:0.5          8.40143        0                   reject         
+cand_tr9_rs:1            8.11496        0                   reject         
+cand_tr13_rs:0.01        6.7923         0                   reject         
+cand_tr13_rs:0.1         6.74589        0                   reject         
+cand_tr13_rs:0.5         6.54159        0                   reject         
+cand_tr13_rs:1           6.29197        0                   reject         
+cand_tr15_rs:0.01        38.3252        7.59306             reject         
+cand_tr15_rs:0.1         34.6508        4.56963             reject         
+cand_tr18_rs:0.01        4.40295        0.122608            reject         
+cand_tr18_rs:0.1         4.36396        0.123144            reject         
+cand_tr18_rs:0.5         4.19295        0.125533            reject         
+cand_tr18_rs:1           3.98542        0.128518            reject         
+cand_tr19_rs:0.01        4.80716        0.169755            reject         
+cand_tr19_rs:0.1         4.76446        0.170291            reject         
+cand_tr19_rs:0.5         4.57713        0.172679            reject         
+cand_tr19_rs:1           4.34963        0.175665            reject         
+cand_trBASE_rs:0.01      5.99379        0                   reject         
+cand_trBASE_rs:0.1       5.95028        0                   reject         
+cand_trBASE_rs:0.5       5.75892        0                   reject         
+cand_trBASE_rs:1         5.52547        0                   reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  10
+
+SQP filter members (15) for iteration 6:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.53487        0              
+5.48869        0              
+5.30654        0              
+5.08454        0              
+4.55639        0.0960446      
+2.99237        0.0126955      
+2.51044        0.0858611      
+2.40775        0.169624       
+2.33194        0.15625        
+0.604088       0.348281       
+0.343566       1.84258        
+------------------------------
+...filter summary with 15 pairs for iteration 6:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    2.99237
+    violation min:          0
+    violation max:    1.84258
+   violation knee:  0.0126955
+
+
+SQP filter members (6) for iteration 6:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 6 pairs for iteration 6:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    5.08454
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 6|cand_tr7_rs:1       
+   phi: 5.08454, violation: 0
+
+  observation constraint information at iteration 6 for cand_tr7_rs:1       
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.678454       true              0
+CONSTRAINT2              less_than           0    -0.00683081       true              0
+CONSTRAINT3           greater_than          -1      -0.274114       true              0
+
+...trust region step accepted by filter but rho=0, reducing radius to 0.00244
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+ 0.00114358 -0.00129708
+-0.00129708   0.0030484
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           2.3554e-02     4.1920e-03     0.177972    0.010826  
+   Determinant     1.2726e-04     1.8037e-06     0.014173    0.000048  
+   Frobenius Norm  1.7329e-02     3.7370e-03     0.215656    0.013649  
+   Max Eigenvalue  1.5160e-02     3.7052e-03     0.244413    0.003705  
+   Condition No.   1.8058e+00     7.6114e+00                           
+   number of cov-based criteria satisfied: 4
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 6 report  ---  
+   number of active realizations:  21
+   number of model runs:           340
+   number of active feasible solutions (% of active):   11(52%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.6.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.6.par.csv
+
+StoSAG-calculated gradient: 
+16.9657
+ -36.98
+
+  observation constraint information at iteration 6
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.678454       true              0
+CONSTRAINT2              less_than           0    -0.00683081       true              0
+CONSTRAINT3           greater_than          -1      -0.274114       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     118.7    88.14          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.6.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+   4           9.362       0.000000
+   5           5.999       0.000000
+   6           5.085       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  5.08454
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  6
+...warning: condition number too large:  1.19226e+09
+   applying regularization:  2.56663e-06
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 7  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs:  0.0503038 -0.0158025
+   working set:
+         CONSTRAINT1 (lm = -37.5549)
+         CONSTRAINT2 (lm = 114.474)
+         search direction norm: 0.0542827
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs:   0.0723263 -0.00618384
+   working set:
+         CONSTRAINT1 (lm = -36.0778)
+         CONSTRAINT2 (lm = 110.311)
+         search direction norm: 0.0489977
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs:  0.0857541 -0.0436508
+   working set:
+         CONSTRAINT1 (lm = -70.6471)
+         CONSTRAINT2 (lm = 207.737)
+         search direction norm: 0.121903
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: -0.0357354
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.00926053
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs: 0.0424703
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0298773
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: 0.0736799
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0386545
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: 0.00625174
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0198617
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs: 0.0642789
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0360028
+
+...calculating search direction for realization 8
+   working set: EMPTY
+         search direction norm: 3.018e+06
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs: 0.066262
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0365617
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs: 0.0638238
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0358745
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs:  -0.0171745 0.000228677
+   working set:
+         CONSTRAINT1 (lm = -4.83318)
+         CONSTRAINT2 (lm = 22.2557)
+         search direction norm: 0.00945843
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs: -0.0739919  -0.148155
+   working set:
+         CONSTRAINT1 (lm = -109.792)
+         CONSTRAINT2 (lm = 318.058)
+         search direction norm: 0.221462
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs: -0.0179586  -0.117817
+   working set:
+         CONSTRAINT1 (lm = -101.234)
+         CONSTRAINT2 (lm = 293.938)
+         search direction norm: 0.197631
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs:   0.0546946 -0.00719727
+   working set:
+         CONSTRAINT1 (lm = -31.7862)
+         CONSTRAINT2 (lm = 98.2164)
+         search direction norm: 0.0414803
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: 0.0368603
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0283096
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: 0.0998038
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0460464
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: 0.0106094
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.021049
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs:  0.0871039 -0.0244429
+   working set:
+         CONSTRAINT1 (lm = -55.3163)
+         CONSTRAINT2 (lm = 164.53)
+         search direction norm: 0.088863
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -0.0143234 -0.0614383
+   working set:
+         CONSTRAINT1 (lm = -56.1398)
+         CONSTRAINT2 (lm = 166.851)
+         search direction norm: 0.100448
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs: 0.00683081
+   working set:
+         CONSTRAINT2 (lm = 8.6345)
+         search direction norm: 0.0200191
+
+...performing line search on ensemble subset: 1, 2, 4, 5, 6, 7, 8, 11, 17, 19, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.7.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr1_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr1_rs:1        , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:1        , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:1        , 
+...duplicate trust-region candidates:cand_tr19_rs:0.01     , cand_tr19_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr19_rs:0.01     , cand_tr19_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.7.oe_candidates.csv
+
+  ---  current best phi: 5.08454  ---  
+...evaluating 57 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        3.04348        0                   accept         
+1                        3.42262        0                   accept         
+2                        3.0526         0                   reject         
+3                        4.6702         0                   reject         
+4                        7.70057        0                   reject         
+5                        6.78033        0                   reject         
+6                        6.14689        0                   reject         
+7                        11.6847        0                   reject         
+8                        9.75717        0                   reject         
+9                        6.34136        0                   reject         
+10                       6.08332        0                   reject         
+11                       2.59706        0                   accept         
+12                       0.959305       0.222147            accept         
+13                       1.40129        0.117817            accept         
+14                       3.20941        0                   accept         
+15                       6.14571        0                   reject         
+16                       9.10877        0                   reject         
+17                       4.30661        0                   accept         
+18                       3.33256        0                   reject         
+19                       1.92626        0                   accept         
+BASE                     5.08454        0                   reject         
+cand_tr1_rs:0.01         211.634        7.08779             reject         
+cand_tr1_rs:0.1          178.101        4.83712             reject         
+cand_tr2_rs:0.01         221.905        7.06204             reject         
+cand_tr2_rs:0.1          174.099        4.82703             reject         
+cand_tr4_rs:0.01         7.69462        0                   reject         
+cand_tr4_rs:0.1          7.68605        0                   reject         
+cand_tr4_rs:0.5          7.62812        0                   reject         
+cand_tr4_rs:1            7.55607        0                   reject         
+cand_tr5_rs:0.01         6.77495        0                   reject         
+cand_tr5_rs:0.1          6.76719        0                   reject         
+cand_tr5_rs:0.5          6.71482        0                   reject         
+cand_tr5_rs:1            6.6497         0                   reject         
+cand_tr6_rs:0.01         6.14166        0                   reject         
+cand_tr6_rs:0.1          6.13412        0                   reject         
+cand_tr6_rs:0.5          6.08323        0                   reject         
+cand_tr6_rs:1            6.01997        0                   reject         
+cand_tr7_rs:0.01         11.677         0                   reject         
+cand_tr7_rs:0.1          11.6659        0                   reject         
+cand_tr7_rs:0.5          11.5908        0                   reject         
+cand_tr7_rs:1            11.4974        0                   reject         
+cand_tr8_rs:0.01         9.75043        0                   reject         
+cand_tr8_rs:0.1          9.74072        0                   reject         
+cand_tr8_rs:0.5          9.67508        0                   reject         
+cand_tr8_rs:1            9.5934         0                   reject         
+cand_tr11_rs:0.01        199.546        7.11814             reject         
+cand_tr11_rs:0.1         196.849        4.88406             reject         
+cand_tr17_rs:0.01        4.30251        0                   reject         
+cand_tr17_rs:0.1         4.29661        0                   accept         
+cand_tr17_rs:0.5         4.25677        0                   accept         
+cand_tr17_rs:1           4.20731        0                   accept         
+cand_tr19_rs:0.01        214.149        7.08149             reject         
+cand_tr19_rs:0.1         194.196        4.87744             reject         
+cand_trBASE_rs:0.01      5.07993        0                   reject         
+cand_trBASE_rs:0.1       5.0733         0                   reject         
+cand_trBASE_rs:0.5       5.0285         0                   reject         
+cand_trBASE_rs:1         4.97285        0                   reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  11
+
+SQP filter members (17) for iteration 7:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.30661        0              
+4.29661        0              
+4.25677        0              
+4.20731        0              
+3.42262        0.00618384     
+3.20941        0.00719727     
+3.04348        0.0158025      
+2.59706        0.0171745      
+1.92626        0.0757617      
+1.40129        0.135776       
+0.959305       0.222147       
+0.343566       1.84258        
+------------------------------
+...filter summary with 17 pairs for iteration 7:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    2.59706
+    violation min:          0
+    violation max:    1.84258
+   violation knee:  0.0171745
+
+
+SQP filter members (7) for iteration 7:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.20731        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 7 pairs for iteration 7:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    4.20731
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 7|cand_tr17_rs:1       
+   phi: 4.20731, violation: 0
+
+  observation constraint information at iteration 7 for cand_tr17_rs:1       
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.617086       true              0
+CONSTRAINT2              less_than           0    -0.00829887       true              0
+CONSTRAINT3           greater_than          -1      -0.250154       true              0
+
+...trust region step accepted by filter but rho=-0, reducing radius to 0.00061
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+ 0.000508171 -0.000532513
+-0.000532513  0.000604823
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           4.1920e-03     1.1130e-03     0.265505    0.002874  
+   Determinant     1.8037e-06     2.3784e-08     0.013186    0.000001  
+   Frobenius Norm  3.7370e-03     1.0914e-03     0.292054    0.003986  
+   Max Eigenvalue  3.7052e-03     1.0912e-03     0.294506    0.001091  
+   Condition No.   7.6114e+00     5.0064e+01                           
+   number of cov-based criteria satisfied: 4
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 7 report  ---  
+   number of active realizations:  21
+   number of model runs:           396
+   number of active feasible solutions (% of active):   15(71%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.7.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.7.par.csv
+
+StoSAG-calculated gradient: 
+ 25.2947
+-26.9472
+
+  observation constraint information at iteration 7
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.617086       true              0
+CONSTRAINT2              less_than           0    -0.00829887       true              0
+CONSTRAINT3           greater_than          -1      -0.250154       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     117.7    93.98          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.7.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+   4           9.362       0.000000
+   5           5.999       0.000000
+   6           5.085       0.000000
+   7           4.207       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  4.20731
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  7
+...warning: condition number too large:  2.02295e+08
+   applying regularization:  6.39481e-07
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 8  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs:   0.0556294 -0.00986526
+   working set:
+         CONSTRAINT1 (lm = -39.3282)
+         CONSTRAINT2 (lm = 59.5263)
+         search direction norm: 0.0845565
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs: 0.0171404
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260214
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs: 0.0120176
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260084
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs:  0.0585428 0.00652739
+   working set:
+         CONSTRAINT1 (lm = -30.0007)
+         CONSTRAINT2 (lm = 45.4224)
+         search direction norm: 0.0583051
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs: -0.00351159
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0259688
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: 0.00674857
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0259949
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs: 0.0331197
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260622
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs: -0.00530629 -0.00349095
+   working set:
+         CONSTRAINT1 (lm = -9.23318)
+         CONSTRAINT2 (lm = 14.0206)
+         search direction norm: 2.46318e-05
+
+...calculating search direction for realization 8
+   not on constraint but working set not empty
+   current constraint diffs:  0.0804184 0.00126257
+   working set:
+         CONSTRAINT1 (lm = -42.7238)
+         CONSTRAINT2 (lm = 64.6607)
+         search direction norm: 0.0940696
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs: 0.0138558
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.026013
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs: 0.02181
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260333
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: -0.00303195 -0.00329939
+   working set:
+         CONSTRAINT1 (lm = -10.0795)
+         CONSTRAINT2 (lm = 15.3003)
+         search direction norm: 0.0023533
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs:  0.0540975 0.00153577
+   working set:
+         CONSTRAINT1 (lm = -31.3236)
+         CONSTRAINT2 (lm = 47.4228)
+         search direction norm: 0.0620352
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs:  0.0074958 -0.0156306
+   working set:
+         CONSTRAINT1 (lm = -22.5199)
+         CONSTRAINT2 (lm = 34.1111)
+         search direction norm: 0.0373413
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs: 0.0946691 0.0222643
+   working set:
+         CONSTRAINT1 (lm = -35.259)
+         CONSTRAINT2 (lm = 53.3734)
+         search direction norm: 0.0730405
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: 0.011533
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260071
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: 0.0418604
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260845
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: 0.0178946
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0260233
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs:  0.0126304 -0.0113809
+   working set:
+         CONSTRAINT1 (lm = -21.9693)
+         CONSTRAINT2 (lm = 33.2785)
+         search direction norm: 0.0357833
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs:  0.0968742 0.00379364
+   working set:
+         CONSTRAINT1 (lm = -48.1091)
+         CONSTRAINT2 (lm = 72.8036)
+         search direction norm: 0.109195
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs: 0.00829887
+   working set:
+         CONSTRAINT2 (lm = 0.0594006)
+         search direction norm: 0.0259989
+
+...performing line search on ensemble subset: 0, 2, 6, 10, 11, 12, 14, 15, 16, 17, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.8.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr0_rs:0.01     , cand_tr0_rs:1        , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr10_rs:0.01     , cand_tr10_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:1        , 
+...duplicate trust-region candidates:cand_tr12_rs:0.01     , cand_tr12_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr12_rs:0.01     , cand_tr12_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr12_rs:0.01     , cand_tr12_rs:1        , 
+...duplicate trust-region candidates:cand_tr14_rs:0.01     , cand_tr14_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr14_rs:0.01     , cand_tr14_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr14_rs:0.01     , cand_tr14_rs:1        , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr17_rs:0.01     , cand_tr17_rs:0.1      , 
+...duplicate trust-region candidates:cand_trBASE_rs:0.01     , cand_trBASE_rs:0.1      , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.8.oe_candidates.csv
+
+  ---  current best phi: 4.20731  ---  
+...evaluating 46 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        3.18237        0                   accept         
+1                        4.74126        0                   reject         
+2                        4.76323        0                   reject         
+3                        3.44923        0                   accept         
+4                        3.9554         0                   reject         
+5                        3.99459        0                   reject         
+6                        5.97897        0                   reject         
+7                        2.65709        0                   accept         
+8                        3.62814        0                   reject         
+9                        4.7426         0                   reject         
+10                       6.39523        0                   reject         
+11                       2.68035        0                   accept         
+12                       3.32661        0                   accept         
+13                       2.62219        0                   accept         
+14                       4.1349         0                   reject         
+15                       4.8694         0                   reject         
+16                       6.99487        0                   reject         
+17                       5.53769        0                   reject         
+18                       2.72377        0                   reject         
+19                       3.87051        0                   reject         
+BASE                     4.20731        0                   reject         
+cand_tr0_rs:0.01         314.231        8.48348             reject         
+cand_tr2_rs:0.01         4.75914        0                   reject         
+cand_tr2_rs:0.5          4.75074        0                   reject         
+cand_tr2_rs:1            4.73827        0                   reject         
+cand_tr6_rs:0.01         5.9742         0                   reject         
+cand_tr6_rs:0.5          5.96444        0                   reject         
+cand_tr6_rs:1            5.94993        0                   reject         
+cand_tr10_rs:0.01        6.39017        0                   reject         
+cand_tr10_rs:0.5         6.37981        0                   reject         
+cand_tr10_rs:1           6.36441        0                   reject         
+cand_tr11_rs:0.01        331.529        8.49873             reject         
+cand_tr12_rs:0.01        325.949        8.49386             reject         
+cand_tr14_rs:0.01        339.737        8.50579             reject         
+cand_tr15_rs:0.01        4.86523        0                   reject         
+cand_tr15_rs:0.5         4.85668        0                   reject         
+cand_tr15_rs:1           4.844          0                   reject         
+cand_tr16_rs:0.01        6.98956        0                   reject         
+cand_tr16_rs:0.5         6.97868        0                   reject         
+cand_tr16_rs:1           6.96252        0                   reject         
+cand_tr17_rs:0.01        5.53313        0                   reject         
+cand_tr17_rs:0.5         5.52377        0                   reject         
+cand_tr17_rs:1           5.50988        0                   reject         
+cand_trBASE_rs:0.01      4.20357        0                   reject         
+cand_trBASE_rs:0.5       4.19591        0                   reject         
+cand_trBASE_rs:1         4.18454        0                   reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  6
+
+SQP filter members (13) for iteration 8:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.20731        0              
+3.44923        0              
+3.32661        0              
+3.18237        0.00986526     
+2.68035        0.00633134     
+2.65709        0.00879724     
+2.62219        0.0156306      
+0.343566       1.84258        
+------------------------------
+...filter summary with 13 pairs for iteration 8:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    2.68035
+    violation min:          0
+    violation max:    1.84258
+   violation knee: 0.00633134
+
+
+SQP filter members (8) for iteration 8:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.20731        0              
+3.32661        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 8 pairs for iteration 8:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    3.32661
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 8|12
+   phi: 3.32661, violation: 0
+
+  observation constraint information at iteration 8 for 12
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.554097       true              0
+CONSTRAINT2              less_than           0    -0.00153577       true              0
+CONSTRAINT3           greater_than          -1      -0.222253       true              0
+
+...trust region step accepted by filter but rho=0, reducing radius to 0.000153
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+  0.00102625 -0.000953029
+-0.000953029  0.000897244
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           1.1130e-03     1.9235e-03     1.728216    0.004968  
+   Determinant     2.3784e-08     1.2531e-08     0.526884    0.000000  
+   Frobenius Norm  1.0914e-03     1.9170e-03     1.756405    0.007002  
+   Max Eigenvalue  1.0912e-03     1.9170e-03     1.756745    0.001917  
+   Condition No.   5.0064e+01     2.9324e+02                           
+   number of cov-based criteria satisfied: 4
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 8 report  ---  
+   number of active realizations:  21
+   number of model runs:           441
+   number of active feasible solutions (% of active):   12(57%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.8.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.8.par.csv
+
+StoSAG-calculated gradient: 
+18.9553
+-17.208
+
+  observation constraint information at iteration 8
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.554097       true              0
+CONSTRAINT2              less_than           0    -0.00153577       true              0
+CONSTRAINT3           greater_than          -1      -0.222253       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     115.5    92.31          0          0          0          0           0
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.8.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+   4           9.362       0.000000
+   5           5.999       0.000000
+   6           5.085       0.000000
+   7           4.207       0.000000
+   8           3.327       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  3.32661
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  8
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 9  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs:     0.078137 -0.000174433
+   working set:
+         CONSTRAINT1 (lm = -12.497)
+         CONSTRAINT2 (lm = -7.35807)
+         search direction norm: 0.179358
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs:  0.0973706 0.00944483
+   working set:
+         CONSTRAINT1 (lm = -19.3447)
+         CONSTRAINT2 (lm = -11.2427)
+         search direction norm: 0.235921
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs:  0.0830629 0.00732781
+   working set:
+         CONSTRAINT1 (lm = -15.0435)
+         CONSTRAINT2 (lm = -8.80267)
+         search direction norm: 0.200318
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: 0.017174
+   working set:
+         CONSTRAINT2 (lm = -0.268614)
+         search direction norm: 0.0754656
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs:   -0.039303 -0.00370137
+   working set:
+         CONSTRAINT1 (lm = 20.6285)
+         CONSTRAINT2 (lm = 11.4338)
+         search direction norm: 0.0950853
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs: -0.0784105 -0.0034801
+   working set:
+         CONSTRAINT1 (lm = 31.4397)
+         CONSTRAINT2 (lm = 17.5669)
+         search direction norm: 0.184682
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs:   0.0892302 0.000470187
+   working set:
+         CONSTRAINT1 (lm = -15.675)
+         CONSTRAINT2 (lm = -9.16091)
+         search direction norm: 0.205681
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs: -0.0981264 -0.0120634
+   working set:
+         CONSTRAINT1 (lm = 38.2581)
+         CONSTRAINT2 (lm = 21.4349)
+         search direction norm: 0.241022
+
+...calculating search direction for realization 8
+   not on constraint but working set not empty
+   current constraint diffs: 0.0130665
+   working set:
+         CONSTRAINT2 (lm = -0.268614)
+         search direction norm: 0.0755436
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs:  0.0510477 0.00094012
+   working set:
+         CONSTRAINT1 (lm = -5.15947)
+         CONSTRAINT2 (lm = -3.19554)
+         search direction norm: 0.118531
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs:  0.0109169 0.00615363
+   working set:
+         CONSTRAINT1 (lm = 5.1501)
+         CONSTRAINT2 (lm = 2.65299)
+         search direction norm: 0.0329964
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs:   0.0112738 -0.00941546
+   working set:
+         CONSTRAINT1 (lm = 7.50064)
+         CONSTRAINT2 (lm = 3.98644)
+         search direction norm: 0.0138137
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs: 0.00926632
+   working set:
+         CONSTRAINT2 (lm = -0.268614)
+         search direction norm: 0.0756158
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs:    0.044242 -0.00447598
+   working set:
+         CONSTRAINT1 (lm = -2.41986)
+         CONSTRAINT2 (lm = -1.64138)
+         search direction norm: 0.0959304
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs: 0.0136606
+   working set:
+         CONSTRAINT2 (lm = -0.268614)
+         search direction norm: 0.0755323
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs:  -0.198767 -0.0271809
+   working set:
+         CONSTRAINT1 (lm = 68.5481)
+         CONSTRAINT2 (lm = 38.6181)
+         search direction norm: 0.491747
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs:  0.00330915 -0.00792476
+   working set:
+         CONSTRAINT1 (lm = 9.475)
+         CONSTRAINT2 (lm = 5.10647)
+         search direction norm: 0.00257693
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs: 0.0136154
+   working set:
+         CONSTRAINT2 (lm = -0.268614)
+         search direction norm: 0.0755332
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs: -0.0298103 -0.0176819
+   working set:
+         CONSTRAINT1 (lm = 20.1954)
+         CONSTRAINT2 (lm = 11.1881)
+         search direction norm: 0.0912303
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -0.0949807 -0.0203762
+   working set:
+         CONSTRAINT1 (lm = 38.6936)
+         CONSTRAINT2 (lm = 21.6819)
+         search direction norm: 0.244473
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs:  0.0540975 0.00153577
+   working set:
+         CONSTRAINT1 (lm = -6.099)
+         CONSTRAINT2 (lm = -3.72852)
+         search direction norm: 0.126305
+
+...performing line search on ensemble subset: 1, 2, 3, 7, 8, 11, 12, 14, 15, 16, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.9.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr1_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr1_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr1_rs:1        , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr2_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr2_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr2_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr2_rs:1        , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr7_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr7_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr7_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr1_rs:0.01     , cand_tr7_rs:1        , 
+...duplicate trust-region candidates:cand_tr3_rs:0.01     , cand_tr3_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr3_rs:0.01     , cand_tr3_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr3_rs:0.01     , cand_tr3_rs:1        , 
+...duplicate trust-region candidates:cand_tr8_rs:0.01     , cand_tr8_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr8_rs:0.01     , cand_tr8_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr8_rs:0.01     , cand_tr8_rs:1        , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:1        , 
+...duplicate trust-region candidates:cand_tr12_rs:0.01     , cand_tr12_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr12_rs:0.01     , cand_tr12_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr12_rs:0.01     , cand_tr12_rs:1        , 
+...duplicate trust-region candidates:cand_tr14_rs:0.01     , cand_tr14_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr14_rs:0.01     , cand_tr14_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr14_rs:0.01     , cand_tr14_rs:1        , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:1        , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_trBASE_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_trBASE_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_trBASE_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_trBASE_rs:1        , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.9.oe_candidates.csv
+
+  ---  current best phi: 3.32661  ---  
+...evaluating 29 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        3.57929        0                   reject         
+1                        3.96521        0                   reject         
+2                        3.75228        0                   reject         
+3                        4.94073        0                   reject         
+4                        2.36182        0                   accept         
+5                        2.06903        0.0784105           accept         
+6                        3.72372        0                   reject         
+7                        1.84969        0.0981264           accept         
+8                        4.82741        0                   reject         
+9                        3.28423        0                   accept         
+10                       2.93687        0                   accept         
+11                       2.73603        0                   accept         
+12                       5.12504        0                   reject         
+13                       3.13422        0                   reject         
+14                       4.19762        0                   reject         
+15                       1.24007        0.198767            accept         
+16                       2.68029        0                   accept         
+17                       5.02194        0                   reject         
+18                       2.2765         0                   accept         
+19                       1.78818        0.0949807           accept         
+BASE                     3.32661        0                   reject         
+cand_tr1_rs:0.01         794.367        8.34943             reject         
+cand_tr3_rs:0.01         4.93668        0                   reject         
+cand_tr8_rs:0.01         4.82341        0                   reject         
+cand_tr11_rs:0.01        790.734        8.36567             reject         
+cand_tr12_rs:0.01        5.12084        0                   reject         
+cand_tr14_rs:0.01        4.19404        0                   reject         
+cand_tr15_rs:0.01        793.274        8.35431             reject         
+cand_tr16_rs:0.01        791.703        8.36134             reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  10
+
+SQP filter members (18) for iteration 9:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.20731        0              
+3.32661        0              
+3.28423        0              
+2.93687        0              
+2.73603        0.00941546     
+2.68029        0.00792476     
+2.36182        0.0430044      
+2.2765         0.0474922      
+2.06903        0.0818906      
+1.84969        0.11019        
+1.78818        0.115357       
+1.24007        0.225948       
+0.343566       1.84258        
+------------------------------
+...filter summary with 18 pairs for iteration 9:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    2.68029
+    violation min:          0
+    violation max:    1.84258
+   violation knee: 0.00792476
+
+
+SQP filter members (9) for iteration 9:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.20731        0              
+3.32661        0              
+2.93687        0              
+0.343566       1.84258        
+------------------------------
+...filter summary with 9 pairs for iteration 9:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    2.93687
+    violation min:          0
+    violation max:    1.84258
+   violation knee:          0
+
+...updating BASE with realization: 9|10
+   phi: 2.93687, violation: 0
+
+  observation constraint information at iteration 9 for 10
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.510917       true              0
+CONSTRAINT2              less_than           0    -0.00615363       true              0
+CONSTRAINT3           greater_than          -1      -0.206828       true              0
+
+...trust region step accepted by filter but rho=0, reducing radius to 0.0001
+...new base scale factor:  1
+...updating CMA-ES with approximate gradient
+...generating new dv ensemble at current best phi via CMA-ES
+
+CMA-ES approximated covariance: 
+ 0.000743466 -0.000494931
+-0.000494931  0.000337404
+
+
+  ---  CMA-ES metrics summary  ---  
+                       Prior         Post          Po/Pr     Po/Pr_0   
+   Trace           1.9235e-03     1.0809e-03     0.561931    0.002792  
+   Determinant     1.2531e-08     5.8918e-09     0.470162    0.000000  
+   Frobenius Norm  1.9170e-03     1.0754e-03     0.560993    0.003928  
+   Max Eigenvalue  1.9170e-03     1.0754e-03     0.560989    0.001075  
+   Condition No.   2.9324e+02     1.9628e+02                           
+   number of cov-based criteria satisfied: 4
+
+   CMA-ES parameter Value             
+      c_c           0.609083
+      c_1           0.142275
+      c_mu          0.835786
+      c_sigma       0.508227
+      d_sigma       1.508227
+      chi_n         1.254273
+      sigma         1.000000
+      lambda        20
+      mu            5
+      mu_eff        3.167299
+
+...adding 'base' parameter values to ensemble
+...adding 'base' observation values to ensemble
+   skipping 'base' realization when queueing dv ensemble
+...running new dv ensemble
+
+  ---  SeqQuadProgram iteration 9 report  ---  
+   number of active realizations:  21
+   number of model runs:           469
+   number of active feasible solutions (% of active):   11(52%)
+      obs ensemble saved to rosenbrock_2par_constrained_run_sqp.9.obs.csv
+      par ensemble saved to rosenbrock_2par_constrained_run_sqp.9.par.csv
+
+StoSAG-calculated gradient: 
+ 20.1139
+-13.6604
+
+  observation constraint information at iteration 9
+name                         sense    required      sim value  satisfied       distance
+CONSTRAINT1              less_than        -0.5      -0.510917       true              0
+CONSTRAINT2              less_than           0    -0.00615363       true              0
+CONSTRAINT3           greater_than          -1      -0.206828       true              0
+
+
+   ---  parameter group change summary  ---    
+group   count  mean chg  std chg  n at ubnd  % at ubnd  n at lbnd  % at lbnd  n std decr
+pargp       2     114.7    95.38          0          0          0          0           1
+    Note: parameter change summary sorted according to percent at bounds.
+    Note: the parameter change statistics implicitly include the effect of 
+          realizations that have failed or have been dropped.
+    Note: the 'n std decr' is the number of parameters with current
+          std less 5% of their initial std.
+
+...saved parameter change summary to rosenbrock_2par_constrained_run_sqp.9.pcs.csv
+
+  ---  best phi, total violation progress
+   iter          phi      violation
+   0           4.000       4.250000
+   1           0.344       1.842581
+   2         152.908       0.000000
+   3          22.251       0.000000
+   4           9.362       0.000000
+   5           5.999       0.000000
+   6           5.085       0.000000
+   7           4.207       0.000000
+   8           3.327       0.000000
+   9           2.937       0.000000
+  ---  
+
+  ---  phi-based termination criteria check  ---  
+   phiredstp:  0.01
+   nphistp:  5
+   nphinored:  3
+   best phi yet:  2.93687
+   number of consecutive infeasible solutions:  0
+   number of iterations satisfying phiredstp criteria:  1
+   number of iterations since best yet mean phi:  1
+...starting BFGS hessian update for iteration  9
+   BFGS Hessian update complete
+
+  ---  starting solve for iteration: 10  ---  
+...calculating search direction for realization 0
+   not on constraint but working set not empty
+   current constraint diffs:  -0.00906873 -0.000418194
+   working set:
+         CONSTRAINT1 (lm = 1.00676)
+         CONSTRAINT2 (lm = -0.380878)
+         search direction norm: 0.0177359
+
+...calculating search direction for realization 1
+   not on constraint but working set not empty
+   current constraint diffs:   0.0799442 4.00385e-05
+   working set:
+         CONSTRAINT1 (lm = -3.28946)
+         CONSTRAINT2 (lm = 2.11583)
+         search direction norm: 0.160682
+
+...calculating search direction for realization 2
+   not on constraint but working set not empty
+   current constraint diffs: -0.0347998 0.00683842
+   working set:
+         CONSTRAINT1 (lm = 2.45655)
+         CONSTRAINT2 (lm = -1.22341)
+         search direction norm: 0.0780919
+
+...calculating search direction for realization 3
+   not on constraint but working set not empty
+   current constraint diffs: -0.0200057 0.00747494
+   working set:
+         CONSTRAINT1 (lm = 1.75827)
+         CONSTRAINT2 (lm = -0.817612)
+         search direction norm: 0.0491044
+
+...calculating search direction for realization 4
+   not on constraint but working set not empty
+   current constraint diffs: -0.0122977 0.00809063
+   working set:
+         CONSTRAINT1 (lm = 1.40245)
+         CONSTRAINT2 (lm = -0.610831)
+         search direction norm: 0.0343391
+
+...calculating search direction for realization 5
+   not on constraint but working set not empty
+   current constraint diffs:  0.0283555 0.00507749
+   working set:
+         CONSTRAINT1 (lm = -0.650338)
+         CONSTRAINT2 (lm = 0.582125)
+         search direction norm: 0.0509756
+
+...calculating search direction for realization 6
+   not on constraint but working set not empty
+   current constraint diffs:  0.0227249 0.00434369
+   working set:
+         CONSTRAINT1 (lm = -0.398408)
+         CONSTRAINT2 (lm = 0.435719)
+         search direction norm: 0.0405273
+
+...calculating search direction for realization 7
+   not on constraint but working set not empty
+   current constraint diffs:  -0.103345 0.00558984
+   working set:
+         CONSTRAINT1 (lm = 5.73972)
+         CONSTRAINT2 (lm = -3.13139)
+         search direction norm: 0.214421
+
+...calculating search direction for realization 8
+   not on constraint but working set not empty
+   current constraint diffs:  -0.12473 0.0102907
+   working set:
+         CONSTRAINT1 (lm = 6.90721)
+         CONSTRAINT2 (lm = -3.80986)
+         search direction norm: 0.263002
+
+...calculating search direction for realization 9
+   not on constraint but working set not empty
+   current constraint diffs: -0.0349518 0.00593269
+   working set:
+         CONSTRAINT1 (lm = 2.43843)
+         CONSTRAINT2 (lm = -1.21288)
+         search direction norm: 0.0773213
+
+...calculating search direction for realization 10
+   not on constraint but working set not empty
+   current constraint diffs: -0.0520567  0.0084621
+   working set:
+         CONSTRAINT1 (lm = 3.33763)
+         CONSTRAINT2 (lm = -1.73544)
+         search direction norm: 0.114717
+
+...calculating search direction for realization 11
+   not on constraint but working set not empty
+   current constraint diffs: 0.0356461 0.0124534
+   working set:
+         CONSTRAINT1 (lm = -0.79577)
+         CONSTRAINT2 (lm = 0.666642)
+         search direction norm: 0.0568687
+
+...calculating search direction for realization 12
+   not on constraint but working set not empty
+   current constraint diffs:  0.0557545 0.00964913
+   working set:
+         CONSTRAINT1 (lm = -1.84811)
+         CONSTRAINT2 (lm = 1.2782)
+         search direction norm: 0.100629
+
+...calculating search direction for realization 13
+   not on constraint but working set not empty
+   current constraint diffs: -0.0287557  0.0116483
+   working set:
+         CONSTRAINT1 (lm = 2.29927)
+         CONSTRAINT2 (lm = -1.13201)
+         search direction norm: 0.0716557
+
+...calculating search direction for realization 14
+   not on constraint but working set not empty
+   current constraint diffs:  0.0199617 0.00610429
+   working set:
+         CONSTRAINT1 (lm = -0.215108)
+         CONSTRAINT2 (lm = 0.329196)
+         search direction norm: 0.0328795
+
+...calculating search direction for realization 15
+   not on constraint but working set not empty
+   current constraint diffs: 0.0446457 0.0132511
+   working set:
+         CONSTRAINT1 (lm = -1.209)
+         CONSTRAINT2 (lm = 0.906785)
+         search direction norm: 0.0740146
+
+...calculating search direction for realization 16
+   not on constraint but working set not empty
+   current constraint diffs: 0.00847082
+   working set:
+         CONSTRAINT2 (lm = 0.204188)
+         search direction norm: 0.0238988
+
+...calculating search direction for realization 17
+   not on constraint but working set not empty
+   current constraint diffs:  0.0432519 0.00317263
+   working set:
+         CONSTRAINT1 (lm = -1.42506)
+         CONSTRAINT2 (lm = 1.03235)
+         search direction norm: 0.0831887
+
+...calculating search direction for realization 18
+   not on constraint but working set not empty
+   current constraint diffs: 0.0374528 0.0124199
+   working set:
+         CONSTRAINT1 (lm = -0.884178)
+         CONSTRAINT2 (lm = 0.718019)
+         search direction norm: 0.060541
+
+...calculating search direction for realization 19
+   not on constraint but working set not empty
+   current constraint diffs: -0.0279629 0.00545395
+   working set:
+         CONSTRAINT1 (lm = 2.08662)
+         CONSTRAINT2 (lm = -1.00843)
+         search direction norm: 0.0627009
+
+...calculating search direction for realization BASE
+   not on constraint but working set not empty
+   current constraint diffs:  0.0109169 0.00615363
+   working set:
+         CONSTRAINT1 (lm = 0.224137)
+         CONSTRAINT2 (lm = 0.0739335)
+         search direction norm: 0.0146363
+
+...performing line search on ensemble subset: 2, 3, 6, 9, 11, 14, 15, 16, 17, 18, BASE
+
+...starting trust region calcs for radius scale 0.01
+...finished trust region calcs for radius scale: 0.01
+...starting trust region calcs for radius scale 0.1
+...finished trust region calcs for radius scale: 0.1
+...starting trust region calcs for radius scale 0.5
+...finished trust region calcs for radius scale: 0.5
+...starting trust region calcs for radius scale 1
+...finished trust region calcs for radius scale: 1
+...saved trust region candidate ensemble to: rosenbrock_2par_constrained_run_sqp.10.dv_candidates.csv
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr2_rs:1        , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr3_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr3_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr3_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr2_rs:0.01     , cand_tr3_rs:1        , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr6_rs:0.01     , cand_tr6_rs:1        , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr9_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr9_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr9_rs:1        , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr14_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr14_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr14_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_tr14_rs:1        , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_trBASE_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_trBASE_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_trBASE_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr9_rs:0.01     , cand_trBASE_rs:1        , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr11_rs:1        , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr18_rs:0.01     , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr18_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr18_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr11_rs:0.01     , cand_tr18_rs:1        , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr15_rs:0.01     , cand_tr15_rs:1        , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr16_rs:0.01     , cand_tr16_rs:1        , 
+...duplicate trust-region candidates:cand_tr17_rs:0.01     , cand_tr17_rs:0.1      , 
+...duplicate trust-region candidates:cand_tr17_rs:0.01     , cand_tr17_rs:0.5      , 
+...duplicate trust-region candidates:cand_tr17_rs:0.01     , cand_tr17_rs:1        , 
+
+  ---  running candidate dv/pars  ---  
+...saved trust region candidate ensemble obs to: rosenbrock_2par_constrained_run_sqp.10.oe_candidates.csv
+
+  ---  current best phi: 2.93687  ---  
+...evaluating 28 candidate realizations and updating filter
+--------------------------------------------------------------------------------
+real_name                phi            infeasibility       accept/reject  
+--------------------------------------------------------------------------------
+0                        2.66166        0                   accept         
+1                        3.60413        0                   reject         
+2                        2.52595        0                   accept         
+3                        2.66307        0                   reject         
+4                        2.74096        0                   reject         
+5                        3.09899        0                   reject         
+6                        3.03088        0                   reject         
+7                        1.99613        0.103345            accept         
+8                        1.90872        0.12473             accept         
+9                        2.51354        0                   accept         
+10                       2.40284        0.0520567           accept         
+11                       3.28021        0                   reject         
+12                       3.4632         0                   reject         
+13                       2.63829        0                   accept         
+14                       3.0268         0                   reject         
+15                       3.3906         0                   reject         
+16                       4.98818        0                   reject         
+17                       3.23059        0                   reject         
+18                       3.29935        0                   reject         
+19                       2.56755        0                   accept         
+BASE                     2.93687        0                   reject         
+cand_tr2_rs:0.01         1131.45        6.94155             reject         
+cand_tr6_rs:0.01         1130.17        6.94347             reject         
+cand_tr9_rs:0.01         1131.04        6.94216             reject         
+cand_tr11_rs:0.01        1133.77        6.9381              reject         
+cand_tr15_rs:0.01        1134.1         6.9376              reject         
+cand_tr16_rs:0.01        4.98437        0                   reject         
+cand_tr17_rs:0.01        1129.58        6.94434             reject         
+--------------------------------------------------------------------------------
+...number of candidate realizations passing filter:  8
+
+SQP filter members (17) for iteration 10:
+------------------------------
+Obj            Violation      
+------------------------------
+152.908        0              
+22.2505        0              
+9.36228        0              
+5.99877        0              
+5.08454        0              
+4.20731        0              
+3.32661        0              
+2.93687        0              
+2.66166        0.00948693     
+2.63829        0.0287557      
+2.56755        0.0279629      
+2.52595        0.0347998      
+2.51354        0.0349518      
+2.40284        0.0520567      
+1.99613        0.103345       
+1.90872        0.12473        
+0.343566       1.84258        
+------------------------------
+...filter summary with 17 pairs for iteration 10:
+          obj min:   0.343566
+          obj max:    152.908
+         obj knee:    2.66166
+    violation min:          0
+    violation max:    1.84258
+   violation knee: 0.00948693
+
+...filter found no better solutions...dropping some constraints in working set

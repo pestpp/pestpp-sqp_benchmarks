@@ -15,8 +15,8 @@ pcf
 * parameter groups
  pargp                   relative              1.0000000000E-05       0.0  switch                2.0000000000E+00       parabolic             1.0000000000E-05      5.0000000000E-01       smaller              
 * parameter data
- par1                   none                   relative              1.0     -2.2000000000E+00     2.2000000000E+00       pargp                 1.0000000000E+00      0.0000000000E+00      1          
- par2                   none                   relative              -1.0   -2.2000000000E+00     2.2000000000E+00       pargp                 1.0000000000E+00      0.0000000000E+00      1          
+ par1                   none                   relative          0.5   -2.2000000000E+00     2.2000000000E+00       pargp                 1.0000000000E+00      0.0000000000E+00      1          
+ par2                   none                   relative          -1.6   -2.2000000000E+00     2.2000000000E+00       pargp                 1.0000000000E+00      0.0000000000E+00      1          
 * observation groups
 l_constraint         
 obj_fn               
@@ -32,7 +32,7 @@ constraints.dat.ins constraints.dat
 ++opt_obj_func(obs)
 ++sqp_num_reals(20)
 ++sqp_update_hessian(true)
-#++sqp_filter_tol(0.01)
-++sqp_subset_size(20)
+++sqp_subset_size(10)
 ++par_sigma_range(10)
-++sqp_alpha_mults(-1.0, 0.01, 0.1, 1.0,2.0)
+++sqp_alpha_mults(-0.05, 0.01, 0.1, 0.5, 1.0)
+#++sqp_search_method(TRUST)

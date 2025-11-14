@@ -1,0 +1,47 @@
+pcf
+* control data 
+restart estimation
+ 10  9   1   0   2 
+ 1   1  single point
+ 10  2  .3  .01  8 
+ 10  10  .001
+ .1
+ 50   .01  3  3	.01  3 
+ 1   1   1 
+* parameter groups
+decvar	relative              1.0000000000E-02       0.0  switch                2.0000000000E+00       parabolic 
+* parameter data
+x1   	none    relative  	2.42	-10.0	10.0	decvar	1   0   1
+x2		none    relative  	3.28	-10.0	10.0	decvar	1   0   1
+x3   	none    relative  	8.79	-10.0	10.0	decvar	1   0   1
+x4		none    relative  	5.02	-10.0	10.0	decvar	1   0   1
+x5   	none    relative  	3.44	-10.0	10.0	decvar	1   0   1
+x6		none    relative   -0.90	-10.0	10.0	decvar	1   0   1
+x7   	none    relative  	0.75	-10.0	10.0	decvar	1   0   1
+x8		none    relative  	9.77	-10.0	10.0	decvar	1   0   1
+x9   	none    relative  	7.79	-10.0	10.0	decvar	1   0   1
+x10		none    relative  	7.07	-10.0	10.0	decvar	1   0   1
+* Observation groups
+obj_fn
+l_constraint     
+* Observation data
+obj		0.0		1	obj_fn
+g1	 	0.0		1	l_constraint
+g2	 	0.0		1	l_constraint
+g3	 	0.0		1	l_constraint
+g4	 	0.0		1	l_constraint
+g5	 	0.0		1	l_constraint
+g6	 	0.0		1	l_constraint 
+g7	 	0.0		1	l_constraint
+g8	 	0.0		1	l_constraint    
+* model command line
+python forward_run.py
+* model input/output
+par.tpl par.dat
+obs.ins obs.dat
+++opt_obj_func(obj)
+++sqp_update_hessian(true)
+++sqp_alpha_mults(0.01, 0.1, 0.4, 0.6, 1.0)
+++sqp_num_reals(20)
+++sqp_subset_size(20)
+++par_sigma_range(10)

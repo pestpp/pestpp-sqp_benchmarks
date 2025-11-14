@@ -1,0 +1,2 @@
+group,mean_change,std_change,num_at_near_lbound,percent_at_near_lbound,num_at_near_ubound,percent_at_near_ubound,initial_cv,current_cv
+decvar,142.13720217553060365,193.85444496637666134,13,6.1904761904761906877,58,27.619047619047620401,2.222148295055855538,6.6936783171035472151

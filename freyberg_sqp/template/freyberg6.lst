@@ -1,0 +1,251 @@
+                                   MODFLOW 6
+                U.S. GEOLOGICAL SURVEY MODULAR HYDROLOGIC MODEL
+                          GROUNDWATER FLOW MODEL (GWF)
+                   VERSION 6.3.0 release candidate 07/30/2021
+                               ***DEVELOP MODE***
+
+   MODFLOW 6 compiled Oct 27 2021 07:53:31 with IFORT compiler (ver. 20.21.1)
+
+This software is preliminary or provisional and is subject to 
+revision. It is being provided to meet the need for timely best 
+science. The software has not received final approval by the U.S. 
+Geological Survey (USGS). No warranty, expressed or implied, is made 
+by the USGS or the U.S. Government as to the functionality of the 
+software and related material nor shall the fact of release 
+constitute any such warranty. The software is provided on the 
+condition that neither the USGS nor the U.S. Government shall be held 
+liable for any damages resulting from the authorized or unauthorized 
+use of the software.
+
+
+System command used to initiate simulation:
+C:\Users\rmacasieb\Documents\GitHub\pestpp\benchmarks\test_bin\win\mf6.exe
+
+MODFLOW was compiled using uniform precision.
+
+Real Variables
+  KIND: 8
+  TINY (smallest non-zero value):    2.225074-308
+  HUGE (largest value):    1.797693+308
+  PRECISION: 15
+  BIT SIZE: 64
+
+Integer Variables
+  KIND: 4
+  HUGE (largest value): 2147483647
+  BIT SIZE: 32
+
+Long Integer Variables
+  KIND: 8
+  HUGE (largest value): 9223372036854775807
+  BIT SIZE: 64
+
+Logical Variables
+  KIND: 4
+  BIT SIZE: 32
+ 
+
+ OPENED freyberg6.dis
+ FILE TYPE:DIS6                   UNIT 1005   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.ic
+ FILE TYPE:IC6                    UNIT 1006   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.npf
+ FILE TYPE:NPF6                   UNIT 1007   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.sto
+ FILE TYPE:STO6                   UNIT 1008   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.oc
+ FILE TYPE:OC6                    UNIT 1009   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.wel
+ FILE TYPE:WEL6                   UNIT 1010   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.rch
+ FILE TYPE:RCH6                   UNIT 1011   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.ghb
+ FILE TYPE:GHB6                   UNIT 1012   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.sfr
+ FILE TYPE:SFR6                   UNIT 1013   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.obs
+ FILE TYPE:OBS6                   UNIT 1014   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+ NAMEFILE OPTIONS:
+    NEWTON-RAPHSON method enabled for the model.
+
+ DIS -- STRUCTURED GRID DISCRETIZATION PACKAGE, VERSION 2 : 3/27/2014 - INPUT READ FROM UNIT 1005
+
+
+ PROCESSING DISCRETIZATION OPTIONS
+    MODEL LENGTH UNIT IS METERS
+ END OF DISCRETIZATION OPTIONS
+ PROCESSING DISCRETIZATION DIMENSIONS
+    NLAY =       1
+    NROW =      40
+    NCOL =      20
+ END OF DISCRETIZATION DIMENSIONS
+ PROCESSING GRIDDATA
+
+ OPENED freyberg6.dis_delr.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1016   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.dis_delc.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1017   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.dis_top.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1018   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.dis_botm_layer1.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1019   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ OPENED freyberg6.dis_idomain_layer1.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1020   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+ END PROCESSING GRIDDATA
+
+ THE SPECIFIED IDOMAIN RESULTS IN A REDUCED NUMBER OF CELLS.
+ NUMBER OF USER NODES: 800
+ NUMBER OF NODES IN SOLUTION: 706
+
+
+
+ NPF -- NODE PROPERTY FLOW PACKAGE, VERSION 1, 3/30/2015 INPUT READ FROM UNIT 1007
+
+
+ PROCESSING NPF OPTIONS
+    CELL-BY-CELL FLOW INFORMATION WILL BE SAVED TO BINARY FILE WHENEVER ICBCFL IS NOT ZERO.
+ END OF NPF OPTIONS
+
+ WEL   -- WEL PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1010
+
+ PROCESSING WEL OPTIONS
+    LISTS OF WEL CELLS WILL BE PRINTED.
+    WEL FLOWS WILL BE PRINTED TO LISTING FILE.
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF WEL OPTIONS
+
+ PROCESSING WEL DIMENSIONS
+    MAXBOUND =       7
+ END OF WEL DIMENSIONS
+
+ GHB   -- GHB PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1012
+
+ PROCESSING GHB OPTIONS
+    LISTS OF GHB CELLS WILL BE PRINTED.
+    GHB FLOWS WILL BE PRINTED TO LISTING FILE.
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF GHB OPTIONS
+
+ PROCESSING GHB DIMENSIONS
+    MAXBOUND =      30
+ END OF GHB DIMENSIONS
+
+ RCH   -- RCH PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1011
+
+ PROCESSING RCH OPTIONS
+    RECHARGE INPUT WILL BE READ AS ARRAY(S).
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+ END OF RCHA OPTIONS
+
+ SFR   -- SFR PACKAGE, VERSION 8, 2/22/2014 INPUT READ FROM UNIT 1013
+
+ PROCESSING SFR OPTIONS
+    SFR BOUNDARIES HAVE NAMES IN LAST COLUMN.
+    LISTS OF SFR CELLS WILL BE PRINTED.
+    FLOWS WILL BE SAVED TO BUDGET FILE SPECIFIED IN OUTPUT CONTROL
+
+ OPENED sfr.obs
+ FILE TYPE:OBS   UNIT 1021   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+    MAXIMUM DEPTH CHANGE VALUE (.1000000000000000E-03) SPECIFIED.
+    UNIT CONVERSION VALUE (86400.00000000000) SPECIFIED.
+ END OF SFR OPTIONS
+
+ PROCESSING SFR DIMENSIONS
+    NREACHES = 40
+ END OF SFR DIMENSIONS
+
+ OPENED freyberg6.sfr_packagedata.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1022   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ PROCESSING SFR PACKAGEDATA
+ END OF SFR PACKAGEDATA
+
+ OPENED freyberg6.sfr_connectiondata.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1023   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+
+ PROCESSING SFR CONNECTIONDATA
+ END OF SFR CONNECTIONDATA
+
+ IC -- INITIAL CONDITIONS PACKAGE, VERSION 8, 3/28/2015 INPUT READ FROM UNIT 1006
+ PROCESSING GRIDDATA
+
+ OPENED freyberg6.ic_strt_layer1.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1024   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+
+ END PROCESSING GRIDDATA
+ PROCESSING GRIDDATA
+
+ OPENED freyberg6.npf_icelltype_layer1.txt
+ FILE TYPE:OPEN/CLOSE   UNIT 1025   STATUS:OLD                 
+ FORMAT:FORMATTED              ACCESS:SEQUENTIAL          
+ ACTION:READ                
+

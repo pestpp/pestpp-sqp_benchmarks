@@ -1,0 +1,31 @@
+pcf version=2
+* control data keyword
+pestmode                                 estimation
+noptmax                                 1
+svdmode                                 1
+maxsing                          10000000
+eigthresh                           1e-06
+eigwrite                                1
+overdue_giveup_fac             3
+overdue_giveup_minutes         0.5
+opt_dec_var_groups             decvars
+opt_direction                  max
+opt_obj_func                   oname:cum_otype:lst_usecol:wel_totim:4383.5
+sqp_risk                       0.95
+sqp_num_reals                  10
+sqp_subset_size                5
+opt_stack_size                 15
+opt_chance_points              SINGLE
+sqp_alpha_mults                0.1, 0.5, 1.0
+* parameter groups external
+freyberg_run_sqp_chance.pargp_data.csv
+* parameter data external
+freyberg_run_sqp_chance.par_data.csv
+* observation data external
+freyberg_run_sqp_chance.obs_data.csv
+* model command line
+python forward_run.py
+* model input external
+freyberg_run_sqp_chance.tplfile_data.csv
+* model output external
+freyberg_run_sqp_chance.insfile_data.csv

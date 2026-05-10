@@ -52,7 +52,7 @@ def main():
         _bin_sub = "mac"
     else:
         _bin_sub = "linux"
-    _mf6_dir = os.path.abspath(os.path.join(_here, "..", "..", "test_bin", _bin_sub))
+    _mf6_dir = os.path.abspath(os.path.join(_here, "..", "..", "..", "benchmarks", "test_bin", _bin_sub))
     os.environ["PATH"] = _mf6_dir + os.pathsep + os.environ.get("PATH", "")
 
     try:

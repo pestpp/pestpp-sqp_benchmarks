@@ -1,3 +1,0 @@
-name,obs_mean,obs_std,obs_min,obs_max,obs_stat_min,obs_stat_max,sim_mean,sim_std,sim_min,sim_max,sim_stat_min,sim_stat_max,distance
-g1,0,0,0,0,0,0,-1.88781,0.658387,-3.4836,-1.00851,-2.5462,-1.22943,1.00851
-g2,0,0,0,0,0,0,1.61175,0.393965,0.948947,2.38197,1.21779,2.00572,0.948947

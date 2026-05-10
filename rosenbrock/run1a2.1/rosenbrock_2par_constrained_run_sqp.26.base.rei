@@ -1,6 +1,0 @@
- MODEL OUTPUTS AT END OF OPTIMISATION ITERATION NO. 26:-
-
-
- Name                 Group        Measured             Modelled             Residual             Weight              
- constraint           l_constraint 2.00000000000        -2.43864284000       4.43864284000        1.00000000000       
- obs                  obj_fn       0.00000000000        372.170445000        -372.170445000       1.00000000000       

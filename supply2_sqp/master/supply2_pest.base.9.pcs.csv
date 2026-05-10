@@ -1,5 +1,0 @@
-group,mean_change,std_change,num_at_near_lbound,percent_at_near_lbound,num_at_near_ubound,percent_at_near_ubound,initial_cv,current_cv
-trans,0,0,0,0,0,0,0,0
-pumping,54.924869524098575368,48.429352751535617472,0,0,0,0,1.5517320823404685548,1.2594760912511717699
-external,67.37663168017277826,23.3768081664327525,0,0,0,0,1.52990816797082263,1.0625974686255608148
-sfr_seg,0,0,0,0,0,0,0,0

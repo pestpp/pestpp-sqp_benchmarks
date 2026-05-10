@@ -1,8 +1,0 @@
-generation,member,pi_obj_func,nsga2_front,nsga2_crowding_distance,spea2_unconstrained_fitness,spea2_constrained_fitness,is_feasible,feasible_distance
-0,gen=0_member=72,8370.16,0,-999,1.5,0.5,0,1.88691e+11
-1,gen=0_member=72,8370.16,1,-999,1.00002,2.49259e-05,0,1.88691e+11
-1,gen=1_member=109_pso,48487.1,0,-999,1.00686,1.00002,0,1.28943e+09
-2,gen=0_member=72,8370.16,1,-999,1.00002,1.89366e-05,0,1.88691e+11
-2,gen=2_member=208_pso,61176.1,0,-999,1.00511,1.00002,0,9.60015e+08
-3,gen=0_member=72,8370.16,1,-999,1.00003,2.50675e-05,0,1.88691e+11
-3,gen=3_member=301_pso,48260.5,0,-999,1.00078,1.00003,0,1.4303e+08
